@@ -1,11 +1,25 @@
+import dns from "dns"
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+dns.setDefaultResultOrder("ipv4first");
+
+
 import "dotenv/config";
 import app from "./src/app.js";
+import connectDB from "./src/DB/index.js";
 
-const PORT = process.env.PORT || 3000;
 
-const server = app.listen(PORT, () => {
+
+const PORT = process.env.PORT ;
+ let server;
+connectDB().then(()=>{
+     console.log("connected to DB")
+  server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+ })
+
+
+
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (err) => {
