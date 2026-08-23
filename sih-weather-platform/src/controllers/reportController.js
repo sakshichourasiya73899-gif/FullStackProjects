@@ -1,27 +1,21 @@
 import WeatherReport from '../models/WeatherReport.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
+import { normalizeAndProcess } from '../services/normalizer.js';
+import { asyncHandler, AppError } from '../middleware/errorHandler.js';
 
 // POST /api/reports/citizen
 export const createCitizenReport = asyncHandler(async (req, res) => {
   const { text, lat, lng, media } = req.body;
 
-  const report = new WeatherReport({
-    text: text.trim(),
-    sourceType: 'citizen',
-    location: {
-      lat: lat || null,
-      lng: lng || null,
-      resolved: !!(lat && lng)
-    },
-    media: media || []
-  });
+  const saved = await normalizeAndProcess({ text, lat, lng, media }, 'citizen');
 
-  const savedReport = await report.save();
+  if (!saved) {
+    throw new AppError('Report failed validation', 400);
+  }
 
   res.status(201).json({
     success: true,
     message: 'Report received',
-    report: savedReport
+    report: saved
   });
 });
 

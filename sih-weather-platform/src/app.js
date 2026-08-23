@@ -8,10 +8,7 @@ import { notFound, errorHandler } from "./middlewares/errorHandler.js";
 const app = express();
 console.log("Express app initialized");
 
-app.use((req, res, next) => {
-    console.log("REQUEST RECEIVED:", req.method, req.url);
-    next();
-});
+
 
 app.use(helmet());
 app.use(
