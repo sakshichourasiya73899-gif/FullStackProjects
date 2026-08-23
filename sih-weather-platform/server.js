@@ -7,6 +7,7 @@ import "dotenv/config";
 import app from "./src/app.js";
 import connectDB from "./src/DB/index.js";
 import { startMockSocialAdapter } from './src/adapters/mockSocialAdapter.js';
+import { startWeatherApiAdapter } from './src/adapters/weatherApiAdapter.js';
 
 
 
@@ -19,6 +20,7 @@ const startServer = async () => {
     server = app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
       startMockSocialAdapter(15000);
+      startWeatherApiAdapter();
     });
   } catch (err) {
     console.error('Failed to start server:', err);
