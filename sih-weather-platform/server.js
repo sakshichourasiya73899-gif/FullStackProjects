@@ -11,12 +11,10 @@ import connectDB from "./src/DB/index.js";
 
 const PORT = process.env.PORT ;
  let server;
-connectDB().then(()=>{
-     console.log("connected to DB")
-  server = app.listen(PORT, () => {
+connectDB();
+  server = app.listen(PORT,() => {
   console.log(`Server is running on port ${PORT}`);
 });
- })
 
 
 

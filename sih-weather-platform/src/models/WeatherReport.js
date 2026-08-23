@@ -60,4 +60,4 @@ const WeatherReportSchema = new mongoose.Schema({
   timestamps: true
 });
 
-export default mongoose.model('WeatherReport', WeatherReportSchema);
+export default mongoose.model('WeatherReport', WeatherReportSchema);  

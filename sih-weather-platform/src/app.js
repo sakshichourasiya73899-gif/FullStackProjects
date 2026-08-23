@@ -6,6 +6,12 @@ import { notFound, errorHandler } from "./middlewares/errorHandler.js";
 
 
 const app = express();
+console.log("Express app initialized");
+
+app.use((req, res, next) => {
+    console.log("REQUEST RECEIVED:", req.method, req.url);
+    next();
+});
 
 app.use(helmet());
 app.use(
@@ -14,7 +20,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
+app.use(morgan("dev"));
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
