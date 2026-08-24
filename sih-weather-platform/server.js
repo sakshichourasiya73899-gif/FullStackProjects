@@ -8,7 +8,7 @@ import app from "./src/app.js";
 import connectDB from "./src/DB/index.js";
 import { startMockSocialAdapter } from './src/adapters/mockSocialAdapter.js';
 import { startWeatherApiAdapter } from './src/adapters/weatherApiAdapter.js';
-
+import { startNewsRssAdapter } from './src/adapters/newsRssAdapter.js';
 
 
 const PORT = process.env.PORT || 5000;
@@ -21,6 +21,7 @@ const startServer = async () => {
       console.log(`Server is running on port ${PORT}`);
       startMockSocialAdapter(15000);
       startWeatherApiAdapter();
+      startNewsRssAdapter();
     });
   } catch (err) {
     console.error('Failed to start server:', err);
