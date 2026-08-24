@@ -9,6 +9,8 @@ import connectDB from "./src/DB/index.js";
 import { startMockSocialAdapter } from './src/adapters/mockSocialAdapter.js';
 import { startWeatherApiAdapter } from './src/adapters/weatherApiAdapter.js';
 import { startNewsRssAdapter } from './src/adapters/newsRssAdapter.js';
+import { startJsonApiAdapter } from './src/adapters/jsonApiAdapter.js';
+import { startRedditAdapter } from './src/adapters/redditAdapter.js';
 
 
 const PORT = process.env.PORT || 5000;
@@ -22,6 +24,8 @@ const startServer = async () => {
       startMockSocialAdapter(15000);
       startWeatherApiAdapter();
       startNewsRssAdapter();
+      startJsonApiAdapter();
+      startRedditAdapter();
     });
   } catch (err) {
     console.error('Failed to start server:', err);
