@@ -1,446 +1,102 @@
 [
   {
-    "text": "Light to moderate rain expected in Ambikapur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Mumbai",
-    "label": "rainfall"
-  },
-  {
-    "text": "Yellow sky over Jagdalpur as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong dust storm reported in Rajnandgaon, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Lightning kills cattle near Chennai village",
+    "text": "Heavy thunderstorm accompanied by strong winds in Ranchi",
     "label": "thunderstorm"
   },
   {
-    "text": "Heatwave alert issued for Korba district",
+    "text": "Clouds conditions in Chandigarh: few clouds, temperature 32\u00b0C, heatwave warning",
     "label": "heatwave"
   },
   {
-    "text": "Light drizzle continuing since morning in Hyderabad",
-    "label": "rainfall"
+    "text": "Heavy thunderstorm accompanied by strong winds in Bhopal",
+    "label": "thunderstorm"
   },
   {
-    "text": "Yellow sky over Ranchi as massive dust storm hits",
+    "text": "Yellow sky over Hyderabad as massive dust storm hits",
     "label": "dust_storm"
   },
   {
-    "text": "Light to moderate rain expected in Jaipur today",
-    "label": "rainfall"
+    "text": "Thunderstorm disrupts power supply in Surat",
+    "label": "thunderstorm"
   },
   {
-    "text": "Moderate rainfall reported across Kolkata today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Strong dust storm reported in Patna, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Temperature soars to 43 degrees in Nagpur",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heat stroke cases reported in Bilaspur hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Light to moderate rain expected in Ranchi today",
-    "label": "rainfall"
-  },
-  {
-    "text": "People suffering due to extreme heat in Korba",
-    "label": "heatwave"
-  },
-  {
-    "text": "River overflowing near Bilaspur, villages evacuated",
+    "text": "Rain conditions in Bhopal: heavy intensity rain, temperature 42\u00b0C",
     "label": "flood"
   },
   {
-    "text": "Dust storm uproots trees in Jaipur",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Wind storm causes destruction in Chennai district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Dense fog warning issued for Ranchi region",
-    "label": "fog"
-  },
-  {
-    "text": "Unbearable heat, 43 degrees in Durg today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Power outage in Jaipur due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Streets in Delhi underwater, vehicles stranded",
+    "text": "Flood alert issued for Dehradun, water level rising rapidly",
     "label": "flood"
   },
   {
-    "text": "Yellow sky over Chennai as massive dust storm hits",
+    "text": "Wildfire reported in Raipur forest area, fire brigades deployed",
+    "label": "wildfire"
+  },
+  {
+    "text": "Lightning strike damaged property in Lucknow",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Dust storm hit Jagdalpur, sky turned orange",
     "label": "dust_storm"
   },
   {
-    "text": "Severe thunderstorm warning issued for Patna",
+    "text": "Loud thunder and lightning strikes reported in Bhilai",
     "label": "thunderstorm"
-  },
-  {
-    "text": "Lightning strike damaged property in Raipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Schools closed in Hyderabad due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Kolkata",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Roof blown off school building in Ambikapur due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Low lying areas in Chennai inundated after heavy downpour",
-    "label": "flood"
   },
   {
     "text": "Loud thunder and lightning strikes reported in Chennai",
     "label": "thunderstorm"
   },
   {
-    "text": "Severe thunderstorm warning issued for Kolkata",
-    "label": "thunderstorm"
+    "text": "Clear conditions in Lucknow: clear sky, temperature 46\u00b0C, wind 1.5 m/s",
+    "label": "other"
   },
   {
-    "text": "Intermittent showers reported in Kolkata",
-    "label": "rainfall"
-  },
-  {
-    "text": "Thick fog covers Jaipur this morning, flights delayed",
+    "text": "Visibility near zero due to dense fog on Lucknow highway",
     "label": "fog"
   },
   {
-    "text": "Streets in Korba underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Moderate rainfall reported across Raipur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Unbearable heat, 48 degrees in Bilaspur today",
+    "text": "Temperature soars to 28 degrees in Nagpur",
     "label": "heatwave"
   },
   {
-    "text": "Dust storm hit Bilaspur, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Schools closed in Patna due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Steady rain falling in Raipur since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Scorching heat in Bilaspur, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Flood situation worsens in Chennai, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Yellow sky over Jaipur as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Yellow sky over Lucknow as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heatwave conditions persist in Mumbai, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Durg",
+    "text": "Lightning kills cattle near Ambikapur village",
     "label": "thunderstorm"
   },
   {
-    "text": "Wind storm causes destruction in Raipur district",
-    "label": "strong_wind"
+    "text": "Partly cloudy skies in Chandigarh, no major weather event",
+    "label": "other"
   },
   {
-    "text": "Flood situation worsens in Jaipur, rescue teams deployed",
-    "label": "flood"
+    "text": "Light drizzle continuing since morning in Jagdalpur",
+    "label": "rainfall"
   },
   {
-    "text": "Unbearable heat, 46 degrees in Chennai today",
-    "label": "heatwave"
+    "text": "Rain conditions in Ranchi: moderate rain, temperature 44\u00b0C",
+    "label": "rainfall"
   },
   {
-    "text": "Yellow sky over Bilaspur as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Dense fog warning issued for Ambikapur region",
+    "text": "Clouds conditions in Nagpur: broken clouds, temperature 44\u00b0C, wind 2.8 m/s",
     "label": "fog"
   },
   {
-    "text": "Dust storm uproots trees in Patna",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Ambikapur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Streets in Durg underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Chennai",
-    "label": "rainfall"
-  },
-  {
-    "text": "Dust storm uproots trees in Patna",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Bhilai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Steady rain falling in Rajnandgaon since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heatwave alert issued for Bhilai district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Bhilai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Kolkata area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Lightning strike damaged property in Bhopal",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Streets in Kolkata underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Light to moderate rain expected in Mumbai today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Streets in Nagpur underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Unbearable heat, 47 degrees in Bhilai today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Flood situation worsens in Raipur, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Several colonies in Delhi flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Dense fog warning issued for Bhilai region",
+    "text": "Dense fog warning issued for Durg region",
     "label": "fog"
   },
   {
-    "text": "Schools closed in Hyderabad due to dense fog conditions",
+    "text": "Fog reduces visibility in Raipur, traffic moving slowly",
     "label": "fog"
   },
   {
-    "text": "Moderate rainfall reported across Hyderabad today",
-    "label": "rainfall"
+    "text": "Clouds conditions in Bhopal: few clouds, temperature 46\u00b0C, wind 2.1 m/s",
+    "label": "other"
   },
   {
-    "text": "Wind storm causes destruction in Jagdalpur district",
-    "label": "strong_wind"
+    "text": "Forest fire breaks out near Ranchi",
+    "label": "wildfire"
   },
   {
-    "text": "Low lying areas in Hyderabad inundated after heavy downpour",
-    "label": "flood"
-  },
-  {
-    "text": "Heatwave conditions persist in Durg, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Jaipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heatwave conditions persist in Jagdalpur, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Rainfall recorded in Jagdalpur district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Roof blown off school building in Nagpur due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Strong winds uprooted trees near Delhi market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Thick fog covers Ranchi this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "High speed winds reported in Kolkata, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Wind storm causes destruction in Rajnandgaon district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Kolkata residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Kolkata",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "People suffering due to extreme heat in Ranchi",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heatwave conditions persist in Korba, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Rajnandgaon residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Nagpur residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Hyderabad market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "People suffering due to extreme heat in Chennai",
-    "label": "heatwave"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Patna",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Flood situation worsens in Kolkata, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Strong dust storm reported in Chennai, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Moderate rainfall reported across Bhilai today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Several colonies in Jaipur flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Heatwave alert issued for Bilaspur district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Moderate rainfall reported across Ambikapur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Raipur highway",
-    "label": "fog"
-  },
-  {
-    "text": "Light to moderate rain expected in Raipur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Strong winds damage houses in Jaipur",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Heavy waterlogging near Delhi railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Heat stroke cases reported in Ranchi hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Yellow sky over Ranchi as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Power outage in Ranchi due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Bhopal residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Steady rain falling in Chennai since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heatwave conditions persist in Nagpur, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Roof blown off school building in Hyderabad due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Strong winds damage houses in Kolkata",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Delhi highway",
-    "label": "fog"
-  },
-  {
-    "text": "Light to moderate rain expected in Bhopal today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Bilaspur",
+    "text": "Intermittent showers reported in Jagdalpur",
     "label": "rainfall"
   },
   {
@@ -448,191 +104,83 @@
     "label": "strong_wind"
   },
   {
-    "text": "Thunderstorm disrupts power supply in Lucknow",
+    "text": "Heavy thunderstorm accompanied by strong winds in Chennai",
     "label": "thunderstorm"
   },
   {
-    "text": "Schools closed in Bhopal due to dense fog conditions",
-    "label": "fog"
+    "text": "Strong dust storm reported in Mumbai, visibility reduced",
+    "label": "dust_storm"
   },
   {
-    "text": "Lightning strike damaged property in Jagdalpur",
+    "text": "Thunderstorm disrupts power supply in Mumbai",
     "label": "thunderstorm"
+  },
+  {
+    "text": "Dust storm uproots trees in Bhopal",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clear sky over Ranchi, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Mumbai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clouds conditions in Surat: overcast clouds, temperature 47\u00b0C, wind 12.5 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Strong wind advisory for Chennai, wind speed 25 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Haze conditions in Ranchi: dust haze, temperature 35\u00b0C, wind 35 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Dust storm hit Raipur, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Lightning strike damaged property in Srinagar",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Massive forest fire near Jaipur, smoke visible from miles",
+    "label": "wildfire"
   },
   {
     "text": "Wind storm causes destruction in Kolkata district",
     "label": "strong_wind"
   },
   {
-    "text": "Heavy waterlogging near Bhilai railway station, roads submerged",
+    "text": "Heavy thunderstorm accompanied by strong winds in Chennai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Partly cloudy skies in Mumbai, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Flood alert issued for Korba, water level rising rapidly",
     "label": "flood"
   },
   {
-    "text": "Schools closed in Ranchi due to dense fog conditions",
-    "label": "fog"
+    "text": "Thunderstorm disrupts power supply in Ambikapur",
+    "label": "thunderstorm"
   },
   {
-    "text": "Light to moderate rain expected in Lucknow today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Flood situation worsens in Nagpur, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Dust storm hit Bhopal, sky turned orange",
+    "text": "Lucknow residents advised to stay indoors due to dust storm",
     "label": "dust_storm"
   },
   {
-    "text": "Korba area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Ambikapur highway",
+    "text": "Clouds conditions in Chandigarh: scattered clouds, temperature 45\u00b0C",
     "label": "fog"
   },
   {
-    "text": "Moderate rainfall reported across Bhopal today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Lightning kills cattle near Korba village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Ambikapur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Nagpur residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong winds damage houses in Ranchi",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Fog reduces visibility in Chennai, traffic moving slowly",
-    "label": "fog"
-  },
-  {
-    "text": "Several colonies in Kolkata flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Dust storm hit Lucknow, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Bhopal",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Kolkata",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Bhopal highway",
-    "label": "fog"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Raipur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Bhilai",
-    "label": "fog"
-  },
-  {
-    "text": "Power outage in Bhopal due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Lightning strike damaged property in Patna",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Rainfall recorded in Hyderabad district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Kolkata highway",
-    "label": "fog"
-  },
-  {
-    "text": "Thick fog covers Chennai this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Strong winds damage houses in Mumbai",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Patna",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Roof blown off school building in Ranchi due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Nagpur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Flood situation worsens in Rajnandgaon, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Thick fog covers Jagdalpur this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Dense fog warning issued for Delhi region",
-    "label": "fog"
-  },
-  {
-    "text": "Heatwave conditions persist in Delhi, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Strong winds uprooted trees near Hyderabad market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "River overflowing near Nagpur, villages evacuated",
-    "label": "flood"
-  },
-  {
-    "text": "Heatwave conditions persist in Jaipur, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Light to moderate rain expected in Bilaspur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heatwave alert issued for Korba district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Steady rain falling in Delhi since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Several colonies in Korba flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "River overflowing near Bhilai, villages evacuated",
-    "label": "flood"
-  },
-  {
-    "text": "Lightning kills cattle near Bhilai village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Steady rain falling in Hyderabad since last night",
+    "text": "Rainfall recorded in Ambikapur district today",
     "label": "rainfall"
   },
   {
@@ -640,1391 +188,1367 @@
     "label": "fog"
   },
   {
-    "text": "Train delayed due to low visibility caused by fog near Bilaspur",
-    "label": "fog"
+    "text": "Wildfire destroys farmland near Bilaspur village",
+    "label": "wildfire"
   },
   {
-    "text": "Dust storm uproots trees in Korba",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong winds damage houses in Patna",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Ambikapur highway",
-    "label": "fog"
-  },
-  {
-    "text": "Low lying areas in Jaipur inundated after heavy downpour",
-    "label": "flood"
-  },
-  {
-    "text": "Heatwave conditions persist in Nagpur, schools advised caution",
+    "text": "Heat stroke cases reported in Chennai hospitals",
     "label": "heatwave"
   },
   {
-    "text": "Strong winds damage houses in Nagpur",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Yellow sky over Nagpur as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Ranchi",
+    "text": "Heavy thunderstorm accompanied by strong winds in Nagpur",
     "label": "thunderstorm"
-  },
-  {
-    "text": "Dense fog warning issued for Patna region",
-    "label": "fog"
-  },
-  {
-    "text": "People suffering due to extreme heat in Ambikapur",
-    "label": "heatwave"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Kolkata",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Jagdalpur",
-    "label": "fog"
-  },
-  {
-    "text": "Scorching heat in Bhopal, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Rajnandgaon area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Unbearable heat, 45 degrees in Nagpur today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Lightning kills cattle near Bhopal village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Dense fog warning issued for Korba region",
-    "label": "fog"
-  },
-  {
-    "text": "Temperature soars to 43 degrees in Bhopal",
-    "label": "heatwave"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Durg",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Steady rain falling in Bilaspur since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Power outage in Ranchi due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Rajnandgaon",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Mumbai market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Rainfall recorded in Ranchi district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heavy waterlogging near Korba railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Dust storm uproots trees in Chennai",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Dense fog warning issued for Lucknow region",
-    "label": "fog"
-  },
-  {
-    "text": "Scorching heat in Hyderabad, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Light to moderate rain expected in Patna today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Strong dust storm reported in Hyderabad, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Power outage in Kolkata due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Several colonies in Rajnandgaon flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Heat stroke cases reported in Korba hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Wind storm causes destruction in Hyderabad district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Light to moderate rain expected in Bhilai today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Flood situation worsens in Jagdalpur, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "High speed winds reported in Korba, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Several colonies in Delhi flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Jagdalpur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Dust storm hit Kolkata, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Bhopal market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Dust storm hit Mumbai, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heatwave alert issued for Bhopal district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heat stroke cases reported in Korba hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Korba",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Patna residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Mumbai area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Temperature soars to 42 degrees in Korba",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heavy waterlogging near Durg railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Schools closed in Patna due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Lucknow",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Rajnandgaon",
-    "label": "fog"
-  },
-  {
-    "text": "Several colonies in Ambikapur flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Dense fog warning issued for Bhopal region",
-    "label": "fog"
-  },
-  {
-    "text": "Temperature soars to 44 degrees in Delhi",
-    "label": "heatwave"
-  },
-  {
-    "text": "Flood situation worsens in Jaipur, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Thick fog covers Nagpur this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "High speed winds reported in Hyderabad, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Scorching heat in Korba, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Moderate rainfall reported across Hyderabad today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Light to moderate rain expected in Jaipur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Lightning kills cattle near Delhi village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Chennai market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Flood situation worsens in Chennai, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Rajnandgaon",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Steady rain falling in Ranchi since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heatwave conditions persist in Rajnandgaon, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Wind storm causes destruction in Rajnandgaon district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Intermittent showers reported in Delhi",
-    "label": "rainfall"
-  },
-  {
-    "text": "Scorching heat in Chennai, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Thick fog covers Jaipur this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Bhopal area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Unbearable heat, 45 degrees in Hyderabad today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Power outage in Jaipur due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Unbearable heat, 47 degrees in Korba today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Nagpur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Thick fog covers Ambikapur this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Moderate rainfall reported across Kolkata today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Rajnandgaon",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Fog reduces visibility in Patna, traffic moving slowly",
-    "label": "fog"
-  },
-  {
-    "text": "Moderate rainfall reported across Mumbai today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Intermittent showers reported in Hyderabad",
-    "label": "rainfall"
-  },
-  {
-    "text": "High speed winds reported in Ambikapur, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Mumbai",
-    "label": "fog"
-  },
-  {
-    "text": "Heavy waterlogging near Nagpur railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Dense fog warning issued for Rajnandgaon region",
-    "label": "fog"
-  },
-  {
-    "text": "Yellow sky over Jaipur as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Hyderabad",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong dust storm reported in Jaipur, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Lightning kills cattle near Ranchi village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong dust storm reported in Durg, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Ranchi",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Light to moderate rain expected in Nagpur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Unbearable heat, 43 degrees in Patna today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Schools closed in Jaipur due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Wind storm causes destruction in Nagpur district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "High speed winds reported in Ambikapur, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Mumbai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong dust storm reported in Kolkata, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong dust storm reported in Ranchi, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Bhopal",
-    "label": "rainfall"
-  },
-  {
-    "text": "Intermittent showers reported in Bilaspur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Several colonies in Patna flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Lightning strike damaged property in Kolkata",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heavy waterlogging near Durg railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Strong winds uprooted trees near Ambikapur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Strong winds uprooted trees near Ambikapur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Light to moderate rain expected in Bhopal today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Lightning strike damaged property in Lucknow",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Bilaspur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Steady rain falling in Jaipur since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Bhopal area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Strong dust storm reported in Rajnandgaon, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Dust storm hit Durg, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Chennai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heatwave conditions persist in Rajnandgaon, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Lightning kills cattle near Korba village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Unbearable heat, 46 degrees in Bhopal today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Several colonies in Jaipur flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Dust storm hit Delhi, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "River overflowing near Ranchi, villages evacuated",
-    "label": "flood"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Jagdalpur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Thick fog covers Nagpur this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Streets in Lucknow underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Moderate rainfall reported across Kolkata today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heavy waterlogging near Bhilai railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Wind storm causes destruction in Bilaspur district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Strong winds uprooted trees near Ambikapur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Intermittent showers reported in Durg",
-    "label": "rainfall"
-  },
-  {
-    "text": "Unbearable heat, 47 degrees in Hyderabad today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heatwave alert issued for Bhopal district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Rainfall recorded in Ambikapur district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Lightning kills cattle near Kolkata village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong winds damage houses in Bhilai",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Jaipur residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Scorching heat in Durg, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Dust storm hit Raipur, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Rainfall recorded in Jagdalpur district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Yellow sky over Mumbai as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Jaipur",
-    "label": "fog"
-  },
-  {
-    "text": "Lightning kills cattle near Hyderabad village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Lightning kills cattle near Raipur village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Unbearable heat, 42 degrees in Delhi today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heatwave alert issued for Mumbai district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Yellow sky over Kolkata as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Moderate rainfall reported across Nagpur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Strong winds uprooted trees near Mumbai market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Dust storm uproots trees in Raipur",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heatwave alert issued for Raipur district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Raipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Bhilai highway",
-    "label": "fog"
-  },
-  {
-    "text": "Flood situation worsens in Bhilai, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Durg",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Thick fog covers Patna this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Fog reduces visibility in Bhilai, traffic moving slowly",
-    "label": "fog"
-  },
-  {
-    "text": "Lightning strike damaged property in Bhopal",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "River overflowing near Chennai, villages evacuated",
-    "label": "flood"
-  },
-  {
-    "text": "Temperature soars to 43 degrees in Nagpur",
-    "label": "heatwave"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Rajnandgaon",
-    "label": "fog"
-  },
-  {
-    "text": "Dust storm hit Hyderabad, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Nagpur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Moderate rainfall reported across Durg today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Dust storm hit Bhopal, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Streets in Jagdalpur underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Durg area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Flood situation worsens in Bilaspur, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Heat stroke cases reported in Hyderabad hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heatwave alert issued for Kolkata district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Durg",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Fog reduces visibility in Raipur, traffic moving slowly",
-    "label": "fog"
-  },
-  {
-    "text": "Heatwave alert issued for Ranchi district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Yellow sky over Delhi as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Nagpur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Moderate rainfall reported across Kolkata today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Intermittent showers reported in Chennai",
-    "label": "rainfall"
-  },
-  {
-    "text": "Strong winds damage houses in Jagdalpur",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Steady rain falling in Kolkata since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Strong winds damage houses in Lucknow",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Flood situation worsens in Nagpur, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Lucknow",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Chennai highway",
-    "label": "fog"
-  },
-  {
-    "text": "Rainfall recorded in Delhi district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Rajnandgaon",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "High speed winds reported in Durg, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Scorching heat in Jaipur, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Chennai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Thick fog covers Durg this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Dust storm hit Bhopal, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Light to moderate rain expected in Chennai today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Strong winds damage houses in Mumbai",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Low lying areas in Jaipur inundated after heavy downpour",
-    "label": "flood"
-  },
-  {
-    "text": "Schools closed in Patna due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Streets in Bhopal underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Korba area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "High speed winds reported in Kolkata, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Bhilai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Schools closed in Ambikapur due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Heatwave conditions persist in Rajnandgaon, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Dust storm uproots trees in Ambikapur",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Bhilai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Light to moderate rain expected in Bhopal today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Wind storm causes destruction in Korba district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Strong winds damage houses in Delhi",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Lightning strike damaged property in Chennai",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Mumbai",
-    "label": "fog"
-  },
-  {
-    "text": "Heatwave alert issued for Delhi district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Dust storm uproots trees in Raipur",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heat stroke cases reported in Korba hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Raipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "High speed winds reported in Lucknow, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Rainfall recorded in Rajnandgaon district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Roof blown off school building in Hyderabad due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "People suffering due to extreme heat in Delhi",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heat stroke cases reported in Bilaspur hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Strong winds uprooted trees near Chennai market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Patna highway",
-    "label": "fog"
-  },
-  {
-    "text": "Heavy waterlogging near Hyderabad railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Yellow sky over Ambikapur as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Scorching heat in Lucknow, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Power outage in Jaipur due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Power outage in Bhopal due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Yellow sky over Raipur as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Power outage in Rajnandgaon due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Bhopal",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heat stroke cases reported in Hyderabad hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Roof blown off school building in Jaipur due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Chennai highway",
-    "label": "fog"
-  },
-  {
-    "text": "Chennai residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Schools closed in Bhopal due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Heavy waterlogging near Ranchi railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Patna",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Dense fog warning issued for Rajnandgaon region",
-    "label": "fog"
-  },
-  {
-    "text": "Scorching heat in Ambikapur, residents advised to stay indoors",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heavy waterlogging near Bhopal railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Low lying areas in Korba inundated after heavy downpour",
-    "label": "flood"
-  },
-  {
-    "text": "Heat stroke cases reported in Hyderabad hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Hyderabad area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Wind storm causes destruction in Korba district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Rajnandgaon highway",
-    "label": "fog"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Delhi",
-    "label": "strong_wind"
   },
   {
     "text": "Bhilai residents advised to stay indoors due to dust storm",
     "label": "dust_storm"
   },
   {
-    "text": "Roof blown off school building in Hyderabad due to strong winds",
+    "text": "Clear conditions in Korba: clear sky, temperature 45\u00b0C, wind 15.3 m/s",
     "label": "strong_wind"
   },
   {
-    "text": "Strong dust storm reported in Rajnandgaon, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Jaipur highway",
-    "label": "fog"
-  },
-  {
-    "text": "Intermittent showers reported in Nagpur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Hyderabad",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Heavy waterlogging near Bhilai railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Lightning kills cattle near Raipur village",
+    "text": "Lightning kills cattle near Kochi village",
     "label": "thunderstorm"
   },
   {
-    "text": "Visibility near zero due to dense fog on Raipur highway",
-    "label": "fog"
-  },
-  {
-    "text": "Lightning strike damaged property in Rajnandgaon",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Flood situation worsens in Bilaspur, rescue teams deployed",
-    "label": "flood"
-  },
-  {
-    "text": "Heat stroke cases reported in Kolkata hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Steady rain falling in Ambikapur since last night",
+    "text": "Rainfall recorded in Raipur district today",
     "label": "rainfall"
   },
   {
-    "text": "Unbearable heat, 43 degrees in Jagdalpur today",
+    "text": "Normal weather conditions in Raipur today",
+    "label": "other"
+  },
+  {
+    "text": "Temperature soars to 35 degrees in Bhopal",
     "label": "heatwave"
   },
   {
-    "text": "Loud thunder and lightning strikes reported in Lucknow",
-    "label": "thunderstorm"
+    "text": "Forest department fights blaze near Jaipur reserve",
+    "label": "wildfire"
   },
   {
-    "text": "Unbearable heat, 45 degrees in Delhi today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Wind storm causes destruction in Patna district",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Thick fog covers Hyderabad this morning, flights delayed",
+    "text": "Train delayed due to low visibility caused by fog near Nagpur",
     "label": "fog"
   },
   {
-    "text": "Train delayed due to low visibility caused by fog near Lucknow",
-    "label": "fog"
-  },
-  {
-    "text": "High speed winds reported in Jaipur, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Lucknow",
-    "label": "strong_wind"
-  },
-  {
-    "text": "River overflowing near Rajnandgaon, villages evacuated",
+    "text": "Rajnandgaon area flooded after continuous rain, water entered homes",
     "label": "flood"
   },
   {
-    "text": "High speed winds reported in Rajnandgaon, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Light to moderate rain expected in Patna today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Roof blown off school building in Lucknow due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Bilaspur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Thunderstorm disrupts power supply in Raipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Lightning kills cattle near Lucknow village",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Dense fog warning issued for Chennai region",
-    "label": "fog"
-  },
-  {
-    "text": "Raipur area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Heatwave alert issued for Raipur district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Intermittent showers reported in Delhi",
-    "label": "rainfall"
-  },
-  {
-    "text": "Thick fog covers Jaipur this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Strong winds damage houses in Lucknow",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Intermittent showers reported in Nagpur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heavy waterlogging near Chennai railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Korba residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Strong winds damage houses in Raipur",
-    "label": "strong_wind"
-  },
-  {
-    "text": "High speed winds reported in Mumbai, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Heavy waterlogging near Raipur railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Heatwave alert issued for Jaipur district",
-    "label": "heatwave"
-  },
-  {
-    "text": "Yellow sky over Hyderabad as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Fog reduces visibility in Chennai, traffic moving slowly",
-    "label": "fog"
-  },
-  {
-    "text": "Strong dust storm reported in Durg, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Jaipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heat stroke cases reported in Bhopal hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Dense fog warning issued for Jaipur region",
-    "label": "fog"
-  },
-  {
-    "text": "Heavy waterlogging near Bhopal railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Low lying areas in Ambikapur inundated after heavy downpour",
-    "label": "flood"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Raipur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Unbearable heat, 46 degrees in Kolkata today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Fog reduces visibility in Bhilai, traffic moving slowly",
-    "label": "fog"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Bhopal",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Low lying areas in Bhilai inundated after heavy downpour",
-    "label": "flood"
-  },
-  {
-    "text": "Schools closed in Bilaspur due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Power outage in Nagpur due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heat stroke cases reported in Bhopal hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Roof blown off school building in Rajnandgaon due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Bilaspur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Roof blown off school building in Mumbai due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Fog reduces visibility in Jaipur, traffic moving slowly",
-    "label": "fog"
-  },
-  {
-    "text": "Heat stroke cases reported in Mumbai hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Heatwave conditions persist in Jagdalpur, schools advised caution",
-    "label": "heatwave"
-  },
-  {
-    "text": "Dust storm hit Jaipur, sky turned orange",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Temperature soars to 45 degrees in Delhi",
-    "label": "heatwave"
-  },
-  {
-    "text": "Steady rain falling in Delhi since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Intermittent showers reported in Mumbai",
-    "label": "rainfall"
-  },
-  {
-    "text": "Temperature soars to 46 degrees in Lucknow",
-    "label": "heatwave"
-  },
-  {
-    "text": "Strong dust storm reported in Jagdalpur, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Lightning strike damaged property in Jagdalpur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Strong winds uprooted trees near Bhilai market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Moderate rainfall reported across Ambikapur today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Rainfall recorded in Korba district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Patna",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Patna area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Heat stroke cases reported in Lucknow hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Strong dust storm reported in Bhopal, visibility reduced",
-    "label": "dust_storm"
-  },
-  {
-    "text": "High speed winds reported in Kolkata, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Heat stroke cases reported in Kolkata hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Thick fog covers Ranchi this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Thick fog covers Lucknow this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Heavy waterlogging near Mumbai railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Strong winds uprooted trees near Bilaspur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Dust storm uproots trees in Raipur",
-    "label": "dust_storm"
+    "text": "Clouds conditions in Lucknow: few clouds, temperature 42\u00b0C, wind 2.1 m/s",
+    "label": "other"
   },
   {
     "text": "Strong winds damage houses in Durg",
     "label": "strong_wind"
   },
   {
-    "text": "Lightning kills cattle near Delhi village",
-    "label": "thunderstorm"
+    "text": "Strong dust storm reported in Ambikapur, visibility reduced",
+    "label": "dust_storm"
   },
   {
-    "text": "Temperature soars to 47 degrees in Chennai",
+    "text": "River overflowing near Mumbai, villages evacuated",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Korba: light intensity rain, temperature 25\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Wind storm causes destruction in Kolkata district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Moderate rainfall reported across Jagdalpur today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Partly cloudy skies in Chandigarh, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Scorching heat in Srinagar, residents advised to stay indoors",
     "label": "heatwave"
   },
   {
-    "text": "Intermittent showers reported in Mumbai",
-    "label": "rainfall"
+    "text": "Rain conditions in Chandigarh: heavy intensity rain, temperature 22\u00b0C",
+    "label": "flood"
   },
   {
-    "text": "Thunderstorm disrupts power supply in Raipur",
+    "text": "Train delayed due to low visibility caused by fog near Nagpur",
+    "label": "fog"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Raipur",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Rain conditions in Bhilai: thunderstorm, wind 46 m/s",
     "label": "thunderstorm"
   },
   {
-    "text": "Visibility near zero due to dense fog on Patna highway",
+    "text": "Thunderstorm conditions in Kochi: thunder and lightning, temperature 48\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Lightning kills cattle near Ambikapur village",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Mist conditions in Dehradun: mist and fog, temperature 28\u00b0C",
     "label": "fog"
   },
   {
-    "text": "Thick fog covers Bhopal this morning, flights delayed",
-    "label": "fog"
+    "text": "Roof blown off school building in Ambikapur due to strong winds",
+    "label": "strong_wind"
   },
   {
-    "text": "Temperature soars to 44 degrees in Patna",
+    "text": "Forest fire breaks out near Dehradun",
+    "label": "wildfire"
+  },
+  {
+    "text": "Light drizzle continuing since morning in Srinagar",
+    "label": "rainfall"
+  },
+  {
+    "text": "Heatwave alert issued for Kochi district",
     "label": "heatwave"
   },
   {
-    "text": "Moderate rainfall reported across Hyderabad today",
-    "label": "rainfall"
+    "text": "Clear conditions in Jaipur: clear sky, temperature 25\u00b0C, wind 15.3 m/s",
+    "label": "strong_wind"
   },
   {
-    "text": "Heavy thunderstorm accompanied by strong winds in Kolkata",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Patna highway",
-    "label": "fog"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Patna",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Steady rain falling in Durg since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Lightning strike damaged property in Jagdalpur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heat stroke cases reported in Jaipur hospitals",
-    "label": "heatwave"
-  },
-  {
-    "text": "Rainfall recorded in Jaipur district today",
-    "label": "rainfall"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Durg highway",
-    "label": "fog"
+    "text": "Fire conditions in Bhopal: wildfire, strong winds",
+    "label": "wildfire"
   },
   {
     "text": "Yellow sky over Durg as massive dust storm hits",
     "label": "dust_storm"
   },
   {
-    "text": "Fog reduces visibility in Rajnandgaon, traffic moving slowly",
-    "label": "fog"
+    "text": "Nagpur area flooded after continuous rain, water entered homes",
+    "label": "flood"
   },
   {
-    "text": "Light drizzle continuing since morning in Durg",
+    "text": "Light drizzle continuing since morning in Delhi",
     "label": "rainfall"
   },
   {
-    "text": "Strong dust storm reported in Ranchi, visibility reduced",
+    "text": "Moderate rainfall reported across Ambikapur today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Unbearable heat, 44 degrees in Jagdalpur today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Clouds conditions in Dehradun: overcast clouds, temperature 45\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Clouds conditions in Bhopal: few clouds, temperature 30\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Clear sky in Raipur, temperature 38\u00b0C, extremely hot conditions",
+    "label": "heatwave"
+  },
+  {
+    "text": "Fire conditions in Mumbai: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Bhilai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Bhilai",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Massive forest fire near Jagdalpur, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Wildfire destroys farmland near Kolkata village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Flood situation worsens in Chennai, rescue teams deployed",
+    "label": "flood"
+  },
+  {
+    "text": "Clouds conditions in Hyderabad: few clouds, temperature 28\u00b0C, heatwave warning",
+    "label": "heatwave"
+  },
+  {
+    "text": "Clouds conditions in Dehradun: few clouds, temperature 46\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Low lying areas in Surat inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Heatwave alert issued for Bhopal district",
+    "label": "heatwave"
+  },
+  {
+    "text": "Flood alert issued for Chennai, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "Wildfire reported near Rajnandgaon forest area",
+    "label": "wildfire"
+  },
+  {
+    "text": "Forest department fights blaze near Ranchi reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Bilaspur: thunderstorm, wind 28 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Strong dust storm reported in Srinagar, visibility reduced",
     "label": "dust_storm"
   },
   {
-    "text": "Strong dust storm reported in Nagpur, visibility reduced",
+    "text": "Fire conditions in Nagpur: wildfire spreading, residents evacuated",
+    "label": "wildfire"
+  },
+  {
+    "text": "Strong wind advisory for Chandigarh, wind speed 45 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Wildfire destroys farmland near Surat village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Several colonies in Patna flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "Clear conditions in Surat: clear sky, temperature 44\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Strong winds damage houses in Ranchi",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Kochi",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Forest fire breaks out near Jagdalpur",
+    "label": "wildfire"
+  },
+  {
+    "text": "Train delayed due to low visibility caused by fog near Lucknow",
+    "label": "fog"
+  },
+  {
+    "text": "Wind storm causes destruction in Bhilai district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Intermittent showers reported in Rajnandgaon",
+    "label": "rainfall"
+  },
+  {
+    "text": "Unbearable heat, 45 degrees in Hyderabad today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Strong dust storm reported in Jaipur, visibility reduced",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Ambikapur: light intensity rain, temperature 42\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Wildfire reported near Jaipur forest area",
+    "label": "wildfire"
+  },
+  {
+    "text": "Moderate rainfall reported across Korba today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Streets in Mumbai underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Forest fire breaks out near Dehradun",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clouds conditions in Bhilai: few clouds, temperature 48\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Kolkata highway",
+    "label": "fog"
+  },
+  {
+    "text": "Delhi residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Heat stroke cases reported in Bhilai hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Strong winds uprooted trees near Kochi market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Dust conditions in Kochi: sand and dust, temperature 48\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Flood alert issued for Durg, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "Intermittent showers reported in Ranchi",
+    "label": "rainfall"
+  },
+  {
+    "text": "Heat stroke cases reported in Korba hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dense fog warning issued for Lucknow region",
+    "label": "fog"
+  },
+  {
+    "text": "Lucknow residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Several colonies in Dehradun flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Ranchi highway",
+    "label": "fog"
+  },
+  {
+    "text": "Steady rain falling in Lucknow since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "High speed winds reported in Chandigarh, power lines damaged",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Bhopal",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Fire conditions in Chennai: wildfire spreading, residents evacuated",
+    "label": "wildfire"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Jagdalpur",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clear sky over Ranchi, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Dust conditions in Chandigarh: sand and dust, temperature 25\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Bhilai: heavy intensity rain, temperature 32\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Heatwave conditions persist in Rajnandgaon, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Clouds conditions in Kolkata: overcast clouds, temperature 45\u00b0C, wind 12.5 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Raipur area flooded after continuous rain, water entered homes",
+    "label": "flood"
+  },
+  {
+    "text": "Clouds conditions in Delhi: scattered clouds, temperature 48\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Thunderstorm conditions in Ambikapur: thunder and lightning, temperature 45\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Chandigarh residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Wildfire reported in Srinagar forest area, fire brigades deployed",
+    "label": "wildfire"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Kochi highway",
+    "label": "fog"
+  },
+  {
+    "text": "Rain conditions in Ranchi: light intensity rain, temperature 42\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rain conditions in Ranchi: drizzle, temperature 25\u00b0C, wind 2.5 m/s",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clear sky in Ranchi, temperature 30\u00b0C, extremely hot conditions",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dense fog warning issued for Patna region",
+    "label": "fog"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Nagpur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Unbearable heat, 22 degrees in Ranchi today",
+    "label": "heatwave"
+  },
+  {
+    "text": "River overflowing near Raipur, villages evacuated",
+    "label": "flood"
+  },
+  {
+    "text": "Dust storm hit Korba, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clouds conditions in Nagpur: broken clouds, temperature 38\u00b0C, wind 2.8 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Temperature soars to 38 degrees in Lucknow",
+    "label": "heatwave"
+  },
+  {
+    "text": "Light to moderate rain expected in Surat today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rain conditions in Jagdalpur: moderate rain, temperature 28\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Heatwave conditions persist in Patna, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "River overflowing near Chennai, villages evacuated",
+    "label": "flood"
+  },
+  {
+    "text": "Temperature soars to 25 degrees in Dehradun",
+    "label": "heatwave"
+  },
+  {
+    "text": "Lucknow area flooded after continuous rain, water entered homes",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Dehradun: heavy intensity rain, temperature 28\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Forest fire breaks out near Bhopal",
+    "label": "wildfire"
+  },
+  {
+    "text": "Mist conditions in Durg: mist and fog, temperature 48\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Strong dust storm reported in Jagdalpur, visibility reduced",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Delhi area flooded after continuous rain, water entered homes",
+    "label": "flood"
+  },
+  {
+    "text": "Low lying areas in Raipur inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Dehradun: light intensity rain, temperature 38\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clouds conditions in Kochi: broken clouds, temperature 25\u00b0C, wind 2.8 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Partly cloudy skies in Rajnandgaon, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Roof blown off school building in Hyderabad due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clouds conditions in Chennai: scattered clouds, temperature 42\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Forest fire breaks out near Jagdalpur",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clear sky in Lucknow, temperature 25\u00b0C, extremely hot conditions",
+    "label": "heatwave"
+  },
+  {
+    "text": "Light drizzle continuing since morning in Bilaspur",
+    "label": "rainfall"
+  },
+  {
+    "text": "Several colonies in Korba flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "Clear conditions in Ranchi: clear sky, temperature 22\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Massive forest fire near Bhilai, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clear conditions in Bhopal: clear sky, temperature 45\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Power outage in Nagpur due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Thunderstorm conditions in Dehradun: thunder and lightning, temperature 46\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clear sky over Surat, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Streets in Chandigarh underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Forest fire breaks out near Raipur",
+    "label": "wildfire"
+  },
+  {
+    "text": "Steady rain falling in Durg since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clear conditions in Srinagar: clear sky, temperature 22\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Bhilai: scattered clouds, temperature 44\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Mumbai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Steady rain falling in Jagdalpur since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Weather update for Jagdalpur: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Heat stroke cases reported in Kochi hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "High speed winds reported in Chandigarh, power lines damaged",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Normal weather conditions in Rajnandgaon today",
+    "label": "other"
+  },
+  {
+    "text": "Haze conditions in Rajnandgaon: dust haze, temperature 28\u00b0C, wind 28 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Dust storm hit Bhopal, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Wildfire destroys farmland near Ambikapur village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Patna: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Normal weather conditions in Durg today",
+    "label": "other"
+  },
+  {
+    "text": "Roof blown off school building in Hyderabad due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Fog reduces visibility in Durg, traffic moving slowly",
+    "label": "fog"
+  },
+  {
+    "text": "Forest fire breaks out near Durg",
+    "label": "wildfire"
+  },
+  {
+    "text": "Dust storm hit Hyderabad, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Massive forest fire near Hyderabad, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Steady rain falling in Srinagar since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Partly cloudy skies in Chandigarh, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Strong dust storm reported in Dehradun, visibility reduced",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Raipur residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clouds conditions in Jagdalpur: overcast clouds, temperature 30\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Dust conditions in Lucknow: sand and dust, temperature 35\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Partly cloudy skies in Surat, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Normal weather conditions in Kochi today",
+    "label": "other"
+  },
+  {
+    "text": "Strong winds uprooted trees near Nagpur market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Dust storm hit Dehradun, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Bhopal: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Wind storm causes destruction in Ranchi district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Rain conditions in Ranchi: drizzle, temperature 47\u00b0C, wind 2.5 m/s",
+    "label": "rainfall"
+  },
+  {
+    "text": "Strong winds uprooted trees near Korba market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Strong winds damage houses in Mumbai",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Dust storm uproots trees in Jagdalpur",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Heavy waterlogging near Nagpur railway station, roads submerged",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Patna: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Bhopal residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Weather update for Bilaspur: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Jagdalpur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Kochi: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Fire conditions in Lucknow: wildfire spreading, residents evacuated",
+    "label": "wildfire"
+  },
+  {
+    "text": "Dust storm hit Ambikapur, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Chandigarh: thunderstorm, wind 38 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Lightning strike damaged property in Delhi",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Haze conditions in Nagpur: dust haze, temperature 45\u00b0C, wind 45 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Thick fog covers Durg this morning, flights delayed",
+    "label": "fog"
+  },
+  {
+    "text": "Several colonies in Kochi flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "Roof blown off school building in Jagdalpur due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Rain conditions in Durg: light intensity rain, temperature 47\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Wildfire reported in Durg forest area, fire brigades deployed",
+    "label": "wildfire"
+  },
+  {
+    "text": "Dust storm uproots trees in Surat",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Hyderabad residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clear sky over Patna, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Rain conditions in Patna: heavy intensity rain, temperature 25\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Mumbai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Lightning kills cattle near Jaipur village",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Kolkata: light intensity rain, temperature 38\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Partly cloudy skies in Korba, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Lightning kills cattle near Chandigarh village",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Srinagar",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Mist conditions in Rajnandgaon: mist and fog, temperature 48\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Light to moderate rain expected in Chennai today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Heat stroke cases reported in Durg hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Partly cloudy skies in Chennai, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Dense fog warning issued for Kochi region",
+    "label": "fog"
+  },
+  {
+    "text": "Rainfall recorded in Rajnandgaon district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Ambikapur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Wildfire destroys farmland near Raipur village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Korba: heavy intensity rain, temperature 25\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Wildfire reported in Ambikapur forest area, fire brigades deployed",
+    "label": "wildfire"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Ranchi",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clouds conditions in Patna: broken clouds, temperature 42\u00b0C, wind 2.8 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Steady rain falling in Mumbai since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clouds conditions in Bilaspur: few clouds, temperature 35\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Ranchi: scattered clouds, temperature 25\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Bhilai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Weather update for Jagdalpur: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Strong winds uprooted trees near Mumbai market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Kochi",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Dehradun: thunderstorm, wind 44 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Mumbai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clouds conditions in Jagdalpur: overcast clouds, temperature 35\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Heatwave conditions persist in Chandigarh, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Wildfire destroys farmland near Surat village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clear conditions in Jagdalpur: clear sky, temperature 32\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Temperature soars to 47 degrees in Durg",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dense fog warning issued for Korba region",
+    "label": "fog"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Mumbai highway",
+    "label": "fog"
+  },
+  {
+    "text": "Dust conditions in Hyderabad: sand and dust, temperature 35\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Strong dust storm reported in Durg, visibility reduced",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Haze conditions in Rajnandgaon: dust haze, temperature 22\u00b0C, wind 22 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Chandigarh: light rain, temperature 25\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Heatwave alert issued for Chennai district",
+    "label": "heatwave"
+  },
+  {
+    "text": "Rain conditions in Jagdalpur: thunderstorm, wind 38 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Durg residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Dust storm hit Patna, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Bhopal: moderate rain, temperature 45\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Bilaspur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Temperature soars to 32 degrees in Nagpur",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dust storm uproots trees in Kochi",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clouds conditions in Raipur: few clouds, temperature 47\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Mumbai: few clouds, temperature 47\u00b0C, heatwave warning",
+    "label": "heatwave"
+  },
+  {
+    "text": "Rain conditions in Mumbai: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Heatwave conditions persist in Jaipur, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Nagpur residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clear conditions in Chandigarh: clear sky, temperature 47\u00b0C, wind 15.3 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Scorching heat in Ranchi, residents advised to stay indoors",
+    "label": "heatwave"
+  },
+  {
+    "text": "Forest department fights blaze near Kochi reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Dust storm uproots trees in Bilaspur",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Strong wind advisory for Bhopal, wind speed 42 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Dust storm hit Durg, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Partly cloudy skies in Kochi, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Wind storm causes destruction in Patna district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Partly cloudy skies in Bhopal, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Delhi: overcast clouds, temperature 28\u00b0C, wind 12.5 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "People suffering due to extreme heat in Surat",
+    "label": "heatwave"
+  },
+  {
+    "text": "Forest fire breaks out near Lucknow",
+    "label": "wildfire"
+  },
+  {
+    "text": "Heatwave conditions persist in Bilaspur, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Rain conditions in Ranchi: thunderstorm, wind 35 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Several colonies in Kochi flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "Intermittent showers reported in Bilaspur",
+    "label": "rainfall"
+  },
+  {
+    "text": "Wildfire reported near Surat forest area",
+    "label": "wildfire"
+  },
+  {
+    "text": "Dust storm uproots trees in Chennai",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Moderate rainfall reported across Durg today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Steady rain falling in Surat since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rain conditions in Bhopal: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Patna",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Roof blown off school building in Surat due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Thunderstorm conditions in Mumbai: thunder and lightning, temperature 47\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Fire conditions in Mumbai: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Fire conditions in Dehradun: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clouds conditions in Bilaspur: overcast clouds, temperature 22\u00b0C, wind 12.5 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clouds conditions in Srinagar: few clouds, temperature 30\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Rain conditions in Hyderabad: drizzle, temperature 47\u00b0C, wind 2.5 m/s",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rain conditions in Ranchi: heavy intensity rain, temperature 28\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Normal weather conditions in Hyderabad today",
+    "label": "other"
+  },
+  {
+    "text": "Light drizzle continuing since morning in Nagpur",
+    "label": "rainfall"
+  },
+  {
+    "text": "Loud thunder and lightning strikes reported in Bilaspur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Forest fire breaks out near Chandigarh",
+    "label": "wildfire"
+  },
+  {
+    "text": "Fire conditions in Chennai: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Delhi highway",
+    "label": "fog"
+  },
+  {
+    "text": "Wildfire reported near Ambikapur forest area",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Dehradun: light intensity rain, temperature 45\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Normal weather conditions in Bilaspur today",
+    "label": "other"
+  },
+  {
+    "text": "Wildfire destroys farmland near Rajnandgaon village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Patna: drizzle, temperature 32\u00b0C, wind 2.5 m/s",
+    "label": "rainfall"
+  },
+  {
+    "text": "Normal weather conditions in Surat today",
+    "label": "other"
+  },
+  {
+    "text": "Several colonies in Chandigarh flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "Thunderstorm conditions in Lucknow: thunder and lightning, temperature 32\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Loud thunder and lightning strikes reported in Mumbai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clear sky over Jaipur, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Wind storm causes destruction in Raipur district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Thunderstorm conditions in Raipur: thunder and lightning, temperature 38\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Strong wind advisory for Chennai, wind speed 25 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Heavy waterlogging near Jagdalpur railway station, roads submerged",
+    "label": "flood"
+  },
+  {
+    "text": "Normal weather conditions in Surat today",
+    "label": "other"
+  },
+  {
+    "text": "Loud thunder and lightning strikes reported in Bhilai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Haze conditions in Hyderabad: dust haze, temperature 47\u00b0C, wind 47 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Wildfire destroys farmland near Hyderabad village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Weather update for Delhi: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Bilaspur: few clouds, temperature 22\u00b0C, heatwave warning",
+    "label": "heatwave"
+  },
+  {
+    "text": "Light drizzle continuing since morning in Bhilai",
+    "label": "rainfall"
+  },
+  {
+    "text": "Low lying areas in Patna inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Several colonies in Surat flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "Forest fire breaks out near Durg",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Patna: light rain, temperature 47\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Dust storm hit Bilaspur, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Wildfire reported in Jaipur forest area, fire brigades deployed",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clouds conditions in Nagpur: broken clouds, temperature 48\u00b0C, wind 2.8 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Ambikapur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clouds conditions in Delhi: scattered clouds, temperature 30\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Power outage in Bilaspur due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Temperature soars to 35 degrees in Nagpur",
+    "label": "heatwave"
+  },
+  {
+    "text": "Flood alert issued for Raipur, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "Fire conditions in Dehradun: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Massive forest fire near Bhopal, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clear conditions in Delhi: clear sky, temperature 25\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Rain conditions in Dehradun: thunderstorm, wind 46 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Thick fog covers Delhi this morning, flights delayed",
+    "label": "fog"
+  },
+  {
+    "text": "Clear conditions in Raipur: clear sky, temperature 45\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Strong wind advisory for Kolkata, wind speed 28 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Roof blown off school building in Jaipur due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Partly cloudy skies in Durg, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Rain conditions in Rajnandgaon: thunderstorm, wind 30 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clouds conditions in Nagpur: scattered clouds, temperature 22\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Forest fire breaks out near Nagpur",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clouds conditions in Durg: overcast clouds, temperature 32\u00b0C, wind 12.5 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Dust conditions in Srinagar: sand and dust, temperature 32\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Heavy waterlogging near Patna railway station, roads submerged",
+    "label": "flood"
+  },
+  {
+    "text": "Mist conditions in Patna: mist and fog, temperature 28\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Clouds conditions in Chandigarh: broken clouds, temperature 46\u00b0C, wind 2.8 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Wildfire destroys farmland near Chandigarh village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Dust storm hit Ranchi, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Rajnandgaon",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Jagdalpur: heavy intensity rain, temperature 22\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Normal weather conditions in Ambikapur today",
+    "label": "other"
+  },
+  {
+    "text": "Dust conditions in Dehradun: sand and dust, temperature 28\u00b0C",
     "label": "dust_storm"
   },
   {
@@ -2032,131 +1556,7 @@
     "label": "rainfall"
   },
   {
-    "text": "Korba residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Dense fog warning issued for Rajnandgaon region",
-    "label": "fog"
-  },
-  {
-    "text": "Train delayed due to low visibility caused by fog near Durg",
-    "label": "fog"
-  },
-  {
-    "text": "Lightning strike damaged property in Jaipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Unbearable heat, 44 degrees in Raipur today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Lightning strike damaged property in Korba",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Steady rain falling in Ambikapur since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Streets in Delhi underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "High speed winds reported in Ambikapur, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Yellow sky over Korba as massive dust storm hits",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Heavy waterlogging near Bhopal railway station, roads submerged",
-    "label": "flood"
-  },
-  {
-    "text": "Patna area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Intermittent showers reported in Ambikapur",
-    "label": "rainfall"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Bhopal",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Severe thunderstorm warning issued for Delhi",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Roof blown off school building in Korba due to strong winds",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Several colonies in Mumbai flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "Steady rain falling in Bhopal since last night",
-    "label": "rainfall"
-  },
-  {
-    "text": "Gusty winds disrupt normal life in Lucknow",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Intermittent showers reported in Durg",
-    "label": "rainfall"
-  },
-  {
-    "text": "Visibility near zero due to dense fog on Patna highway",
-    "label": "fog"
-  },
-  {
-    "text": "Unbearable heat, 48 degrees in Raipur today",
-    "label": "heatwave"
-  },
-  {
-    "text": "Strong winds uprooted trees near Jagdalpur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Thick fog covers Durg this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Dust storm uproots trees in Delhi",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Streets in Jaipur underwater, vehicles stranded",
-    "label": "flood"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Lucknow",
-    "label": "rainfall"
-  },
-  {
-    "text": "Heavy thunderstorm accompanied by strong winds in Ranchi",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Several colonies in Durg flooded, people shifted to relief camps",
-    "label": "flood"
-  },
-  {
-    "text": "High speed winds reported in Lucknow, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Jagdalpur area flooded after continuous rain, water entered homes",
-    "label": "flood"
-  },
-  {
-    "text": "Light drizzle continuing since morning in Durg",
+    "text": "Moderate rainfall reported across Patna today",
     "label": "rainfall"
   },
   {
@@ -2164,63 +1564,559 @@
     "label": "fog"
   },
   {
-    "text": "Lightning strike damaged property in Hyderabad",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Kolkata residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Schools closed in Kolkata due to dense fog conditions",
-    "label": "fog"
-  },
-  {
-    "text": "Dust storm uproots trees in Jagdalpur",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Thick fog covers Delhi this morning, flights delayed",
-    "label": "fog"
-  },
-  {
-    "text": "Durg residents advised to stay indoors due to dust storm",
-    "label": "dust_storm"
-  },
-  {
-    "text": "Loud thunder and lightning strikes reported in Raipur",
-    "label": "thunderstorm"
-  },
-  {
-    "text": "Heavy waterlogging near Bhopal railway station, roads submerged",
+    "text": "Several colonies in Hyderabad flooded, people shifted to relief camps",
     "label": "flood"
   },
   {
-    "text": "High speed winds reported in Delhi, power lines damaged",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Strong winds uprooted trees near Jagdalpur market area",
-    "label": "strong_wind"
-  },
-  {
-    "text": "Dust storm uproots trees in Mumbai",
+    "text": "Dust storm uproots trees in Nagpur",
     "label": "dust_storm"
   },
   {
-    "text": "Lightning kills cattle near Nagpur village",
+    "text": "High speed winds reported in Dehradun, power lines damaged",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Strong winds damage houses in Srinagar",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clouds conditions in Srinagar: broken clouds, temperature 48\u00b0C, wind 2.8 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Partly cloudy skies in Ranchi, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "High speed winds reported in Jaipur, power lines damaged",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Dust storm uproots trees in Durg",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Hyderabad residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Power outage in Bhopal due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Strong winds damage houses in Jagdalpur",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Unbearable heat, 38 degrees in Mumbai today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Scorching heat in Jaipur, residents advised to stay indoors",
+    "label": "heatwave"
+  },
+  {
+    "text": "Mist conditions in Korba: mist and fog, temperature 45\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Fog reduces visibility in Chennai, traffic moving slowly",
+    "label": "fog"
+  },
+  {
+    "text": "Wind storm causes destruction in Bhilai district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Haze conditions in Jagdalpur: dust haze, temperature 45\u00b0C, wind 45 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Massive forest fire near Chennai, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Loud thunder and lightning strikes reported in Korba",
     "label": "thunderstorm"
   },
   {
-    "text": "Flood situation worsens in Bilaspur, rescue teams deployed",
-    "label": "flood"
+    "text": "Train delayed due to low visibility caused by fog near Jaipur",
+    "label": "fog"
   },
   {
-    "text": "Korba residents advised to stay indoors due to dust storm",
+    "text": "Temperature soars to 30 degrees in Ambikapur",
+    "label": "heatwave"
+  },
+  {
+    "text": "Normal weather conditions in Nagpur today",
+    "label": "other"
+  },
+  {
+    "text": "Heatwave conditions persist in Jagdalpur, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Unbearable heat, 47 degrees in Kolkata today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Normal weather conditions in Delhi today",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Chandigarh: few clouds, temperature 22\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Dehradun",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clouds conditions in Srinagar: overcast clouds, temperature 45\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Heatwave alert issued for Bhopal district",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dust storm uproots trees in Kolkata",
     "label": "dust_storm"
   },
   {
-    "text": "Streets in Bhopal underwater, vehicles stranded",
+    "text": "Clear conditions in Hyderabad: clear sky, temperature 22\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Nagpur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Haze conditions in Bhopal: dust haze, temperature 47\u00b0C, wind 47 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Streets in Bhilai underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Normal weather conditions in Srinagar today",
+    "label": "other"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Kolkata",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Yellow sky over Patna as massive dust storm hits",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Forest department fights blaze near Bhopal reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Heatwave conditions persist in Lucknow, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Haze conditions in Chandigarh: dust haze, temperature 22\u00b0C, wind 22 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Streets in Ambikapur underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Raipur",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Korba area flooded after continuous rain, water entered homes",
+    "label": "flood"
+  },
+  {
+    "text": "Strong wind advisory for Surat, wind speed 47 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Rain conditions in Jagdalpur: light intensity rain, temperature 25\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Low lying areas in Jaipur inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Massive forest fire near Nagpur, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Strong winds damage houses in Ambikapur",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clear sky over Hyderabad, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Train delayed due to low visibility caused by fog near Delhi",
+    "label": "fog"
+  },
+  {
+    "text": "Roof blown off school building in Patna due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Weather update for Srinagar: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Dust conditions in Chandigarh: sand and dust, temperature 22\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clear conditions in Chandigarh: clear sky, temperature 48\u00b0C, wind 15.3 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Moderate rainfall reported across Delhi today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rainfall recorded in Bilaspur district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Thunderstorm conditions in Bhopal: thunder and lightning, temperature 47\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Partly cloudy skies in Chandigarh, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Durg: overcast clouds, temperature 44\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Clouds conditions in Lucknow: overcast clouds, temperature 32\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Intermittent showers reported in Ambikapur",
+    "label": "rainfall"
+  },
+  {
+    "text": "Roof blown off school building in Kochi due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Light to moderate rain expected in Rajnandgaon today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Normal weather conditions in Jaipur today",
+    "label": "other"
+  },
+  {
+    "text": "People suffering due to extreme heat in Kolkata",
+    "label": "heatwave"
+  },
+  {
+    "text": "Fire conditions in Rajnandgaon: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clear conditions in Chandigarh: clear sky, temperature 46\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Power outage in Delhi due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clear conditions in Kolkata: clear sky, temperature 46\u00b0C, wind 15.3 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clouds conditions in Kolkata: few clouds, temperature 25\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Jaipur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Dense fog warning issued for Srinagar region",
+    "label": "fog"
+  },
+  {
+    "text": "Clear sky over Raipur, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Surat: overcast clouds, temperature 28\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Rain conditions in Durg: thunderstorm, wind 47 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Heat stroke cases reported in Lucknow hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dense fog warning issued for Ambikapur region",
+    "label": "fog"
+  },
+  {
+    "text": "Forest department fights blaze near Ambikapur reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Chennai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Ranchi: light intensity rain, temperature 32\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Moderate rainfall reported across Chandigarh today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Wind storm causes destruction in Srinagar district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Lightning kills cattle near Jagdalpur village",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Bhopal: thunderstorm, wind 22 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Hyderabad: moderate rain, temperature 35\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Thunderstorm conditions in Chandigarh: thunder and lightning, temperature 47\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Intermittent showers reported in Nagpur",
+    "label": "rainfall"
+  },
+  {
+    "text": "Schools closed in Dehradun due to dense fog conditions",
+    "label": "fog"
+  },
+  {
+    "text": "Schools closed in Bilaspur due to dense fog conditions",
+    "label": "fog"
+  },
+  {
+    "text": "Partly cloudy skies in Bilaspur, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Clear conditions in Patna: clear sky, temperature 25\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Clear conditions in Korba: clear sky, temperature 44\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Clouds conditions in Kolkata: overcast clouds, temperature 25\u00b0C, wind 12.5 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Wildfire reported near Raipur forest area",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Lucknow: light rain, temperature 47\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rainfall recorded in Raipur district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Thunderstorm conditions in Korba: thunder and lightning, temperature 38\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Forest department fights blaze near Surat reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Fire conditions in Bilaspur: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clouds conditions in Chennai: broken clouds, temperature 38\u00b0C, wind 2.8 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Thick fog covers Ambikapur this morning, flights delayed",
+    "label": "fog"
+  },
+  {
+    "text": "Fog reduces visibility in Srinagar, traffic moving slowly",
+    "label": "fog"
+  },
+  {
+    "text": "Fog reduces visibility in Bhopal, traffic moving slowly",
+    "label": "fog"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Korba",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Strong winds damage houses in Hyderabad",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Kochi",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "People suffering due to extreme heat in Srinagar",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dust conditions in Kochi: sand and dust, temperature 22\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clouds conditions in Dehradun: overcast clouds, temperature 30\u00b0C, wind 3.1 m/s",
+    "label": "fog"
+  },
+  {
+    "text": "Haze conditions in Mumbai: dust haze, temperature 42\u00b0C, wind 42 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clear conditions in Kolkata: clear sky, temperature 48\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Rain conditions in Durg: heavy intensity rain, temperature 35\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Clear conditions in Kochi: clear sky, temperature 28\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Yellow sky over Bilaspur as massive dust storm hits",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Fog reduces visibility in Korba, traffic moving slowly",
+    "label": "fog"
+  },
+  {
+    "text": "Wildfire reported in Mumbai forest area, fire brigades deployed",
+    "label": "wildfire"
+  },
+  {
+    "text": "Partly cloudy skies in Chennai, no major weather event",
+    "label": "other"
+  },
+  {
+    "text": "Heat stroke cases reported in Bilaspur hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Streets in Chandigarh underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Intermittent showers reported in Chandigarh",
+    "label": "rainfall"
+  },
+  {
+    "text": "Fog reduces visibility in Delhi, traffic moving slowly",
+    "label": "fog"
+  },
+  {
+    "text": "Massive forest fire near Dehradun, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clear conditions in Srinagar: clear sky, temperature 48\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Heat stroke cases reported in Durg hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Forest fire breaks out near Mumbai",
+    "label": "wildfire"
+  },
+  {
+    "text": "Normal weather conditions in Ambikapur today",
+    "label": "other"
+  },
+  {
+    "text": "Forest fire breaks out near Jaipur",
+    "label": "wildfire"
+  },
+  {
+    "text": "Weather update for Kolkata: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Lightning strike damaged property in Srinagar",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Forest department fights blaze near Dehradun reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Haze conditions in Durg: dust haze, temperature 42\u00b0C, wind 42 m/s",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Flood situation worsens in Chennai, rescue teams deployed",
+    "label": "flood"
+  },
+  {
+    "text": "Clear sky over Korba, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Fire conditions in Raipur: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clear conditions in Jagdalpur: clear sky, temperature 38\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Forest fire breaks out near Jaipur",
+    "label": "wildfire"
+  },
+  {
+    "text": "Strong wind advisory for Raipur, wind speed 46 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Schools closed in Raipur due to dense fog conditions",
+    "label": "fog"
+  },
+  {
+    "text": "Several colonies in Delhi flooded, people shifted to relief camps",
     "label": "flood"
   },
   {
@@ -2228,15 +2124,759 @@
     "label": "fog"
   },
   {
-    "text": "Gusty winds disrupt normal life in Ambikapur",
+    "text": "Flood alert issued for Nagpur, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "People suffering due to extreme heat in Dehradun",
+    "label": "heatwave"
+  },
+  {
+    "text": "Mist conditions in Srinagar: mist and fog, temperature 28\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Flood alert issued for Dehradun, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "Heavy thunderstorm accompanied by strong winds in Jagdalpur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clouds conditions in Ambikapur: scattered clouds, temperature 35\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Clear sky over Delhi, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Dust conditions in Mumbai: sand and dust, temperature 47\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Gusty winds disrupt normal life in Korba",
     "label": "strong_wind"
+  },
+  {
+    "text": "Rain conditions in Chennai: light rain, temperature 38\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rain conditions in Rajnandgaon: light intensity rain, temperature 38\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Wind storm causes destruction in Ambikapur district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Light drizzle continuing since morning in Bhopal",
+    "label": "rainfall"
+  },
+  {
+    "text": "Thunderstorm conditions in Ranchi: thunder and lightning, temperature 32\u00b0C",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Low lying areas in Delhi inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Train delayed due to low visibility caused by fog near Jaipur",
+    "label": "fog"
+  },
+  {
+    "text": "Flood situation worsens in Patna, rescue teams deployed",
+    "label": "flood"
+  },
+  {
+    "text": "Massive forest fire near Bilaspur, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Clouds conditions in Ranchi: few clouds, temperature 42\u00b0C, heatwave warning",
+    "label": "heatwave"
+  },
+  {
+    "text": "Forest fire breaks out near Korba",
+    "label": "wildfire"
+  },
+  {
+    "text": "High speed winds reported in Hyderabad, power lines damaged",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Strong winds uprooted trees near Delhi market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Rain conditions in Srinagar: drizzle, temperature 46\u00b0C, wind 2.5 m/s",
+    "label": "rainfall"
+  },
+  {
+    "text": "Scorching heat in Jaipur, residents advised to stay indoors",
+    "label": "heatwave"
+  },
+  {
+    "text": "Heatwave conditions persist in Chennai, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Wildfire destroys farmland near Lucknow village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Roof blown off school building in Chennai due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clouds conditions in Patna: few clouds, temperature 35\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Streets in Bhilai underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Dust conditions in Kochi: sand and dust, temperature 48\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Forest fire breaks out near Ranchi",
+    "label": "wildfire"
+  },
+  {
+    "text": "Weather update for Delhi: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Streets in Kochi underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Unbearable heat, 35 degrees in Srinagar today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Strong dust storm reported in Jagdalpur, visibility reduced",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Loud thunder and lightning strikes reported in Jagdalpur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Flood alert issued for Delhi, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Chandigarh: moderate rain, temperature 25\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Heavy waterlogging near Ranchi railway station, roads submerged",
+    "label": "flood"
+  },
+  {
+    "text": "Thick fog covers Jagdalpur this morning, flights delayed",
+    "label": "fog"
+  },
+  {
+    "text": "Normal weather conditions in Korba today",
+    "label": "other"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Chennai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "People suffering due to extreme heat in Delhi",
+    "label": "heatwave"
+  },
+  {
+    "text": "Clouds conditions in Srinagar: scattered clouds, temperature 28\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Mist conditions in Bilaspur: mist and fog, temperature 35\u00b0C",
+    "label": "fog"
+  },
+  {
+    "text": "Rain conditions in Kolkata: heavy intensity rain, temperature 30\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Rainfall recorded in Srinagar district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clouds conditions in Surat: few clouds, temperature 22\u00b0C, heatwave warning",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dust conditions in Jagdalpur: sand and dust, temperature 48\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Thick fog covers Chennai this morning, flights delayed",
+    "label": "fog"
+  },
+  {
+    "text": "High speed winds reported in Durg, power lines damaged",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clouds conditions in Bhilai: few clouds, temperature 32\u00b0C, heatwave warning",
+    "label": "heatwave"
+  },
+  {
+    "text": "Flood alert issued for Nagpur, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "Train delayed due to low visibility caused by fog near Jagdalpur",
+    "label": "fog"
+  },
+  {
+    "text": "Rain conditions in Srinagar: light rain, temperature 25\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Strong winds damage houses in Dehradun",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clear sky over Dehradun, pleasant weather today",
+    "label": "other"
   },
   {
     "text": "Streets in Kolkata underwater, vehicles stranded",
     "label": "flood"
   },
   {
-    "text": "Severe thunderstorm warning issued for Bhopal",
+    "text": "Wildfire destroys farmland near Jagdalpur village",
+    "label": "wildfire"
+  },
+  {
+    "text": "People suffering due to extreme heat in Chennai",
+    "label": "heatwave"
+  },
+  {
+    "text": "Heatwave alert issued for Bilaspur district",
+    "label": "heatwave"
+  },
+  {
+    "text": "Temperature soars to 25 degrees in Bhilai",
+    "label": "heatwave"
+  },
+  {
+    "text": "Rainfall recorded in Korba district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Steady rain falling in Surat since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clear conditions in Jagdalpur: clear sky, temperature 25\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Forest fire breaks out near Delhi",
+    "label": "wildfire"
+  },
+  {
+    "text": "Light drizzle continuing since morning in Dehradun",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clear conditions in Ambikapur: clear sky, temperature 42\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Rain conditions in Lucknow: drizzle, temperature 28\u00b0C, wind 2.5 m/s",
+    "label": "rainfall"
+  },
+  {
+    "text": "People suffering due to extreme heat in Nagpur",
+    "label": "heatwave"
+  },
+  {
+    "text": "Streets in Chennai underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Strong wind advisory for Ambikapur, wind speed 45 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Rain conditions in Hyderabad: light rain, temperature 22\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rain conditions in Nagpur: thunderstorm, wind 44 m/s",
     "label": "thunderstorm"
+  },
+  {
+    "text": "Rain conditions in Rajnandgaon: moderate rain, temperature 42\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Train delayed due to low visibility caused by fog near Jagdalpur",
+    "label": "fog"
+  },
+  {
+    "text": "Moderate rainfall reported across Srinagar today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Bhopal highway",
+    "label": "fog"
+  },
+  {
+    "text": "Flood alert issued for Delhi, water level rising rapidly",
+    "label": "flood"
+  },
+  {
+    "text": "Fire conditions in Surat: wildfire, strong winds",
+    "label": "wildfire"
+  },
+  {
+    "text": "Strong winds uprooted trees near Jagdalpur market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Strong winds uprooted trees near Chandigarh market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clear conditions in Mumbai: clear sky, temperature 38\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Strong wind advisory for Raipur, wind speed 25 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Wildfire destroys farmland near Jaipur village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Kochi: heavy intensity rain, temperature 45\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Clear conditions in Jaipur: clear sky, temperature 45\u00b0C, wind 15.3 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Forest department fights blaze near Kochi reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rainfall recorded in Kolkata district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clear conditions in Kochi: clear sky, temperature 42\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Thunderstorm disrupts power supply in Chandigarh",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Flood situation worsens in Patna, rescue teams deployed",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Bilaspur: thunderstorm, wind 30 m/s",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Several colonies in Durg flooded, people shifted to relief camps",
+    "label": "flood"
+  },
+  {
+    "text": "People suffering due to extreme heat in Ranchi",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dense fog warning issued for Lucknow region",
+    "label": "fog"
+  },
+  {
+    "text": "Rainfall recorded in Jaipur district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rain conditions in Bilaspur: light intensity rain, temperature 48\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Dust conditions in Jaipur: sand and dust, temperature 42\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Low lying areas in Mumbai inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Streets in Patna underwater, vehicles stranded",
+    "label": "flood"
+  },
+  {
+    "text": "Wind storm causes destruction in Kolkata district",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Heat stroke cases reported in Raipur hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Weather update for Bhilai: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Clear conditions in Korba: clear sky, temperature 38\u00b0C, wind 1.2 m/s",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dust conditions in Kolkata: sand and dust, temperature 48\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clouds conditions in Ambikapur: few clouds, temperature 46\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Lightning strike damaged property in Mumbai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Temperature soars to 46 degrees in Ambikapur",
+    "label": "heatwave"
+  },
+  {
+    "text": "Lightning strike damaged property in Bhilai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Steady rain falling in Bhilai since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Strong dust storm reported in Lucknow, visibility reduced",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Dehradun: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Low lying areas in Chennai inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Durg: very heavy rain, roads flooded",
+    "label": "flood"
+  },
+  {
+    "text": "Roof blown off school building in Durg due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Chennai residents advised to stay indoors due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Weather update for Raipur: mild conditions expected today",
+    "label": "other"
+  },
+  {
+    "text": "Normal weather conditions in Hyderabad today",
+    "label": "other"
+  },
+  {
+    "text": "Clear conditions in Rajnandgaon: clear sky, temperature 32\u00b0C, wind 1.5 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Ranchi highway",
+    "label": "fog"
+  },
+  {
+    "text": "Thick fog covers Delhi this morning, flights delayed",
+    "label": "fog"
+  },
+  {
+    "text": "Roof blown off school building in Bhopal due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Wildfire destroys farmland near Kolkata village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Flood situation worsens in Chandigarh, rescue teams deployed",
+    "label": "flood"
+  },
+  {
+    "text": "Rain conditions in Kolkata: moderate rain, temperature 30\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Clear sky over Chennai, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Strong wind advisory for Kolkata, wind speed 25 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Heatwave conditions persist in Chandigarh, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Moderate rainfall reported across Patna today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Unbearable heat, 45 degrees in Kolkata today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Lightning kills cattle near Mumbai village",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Dust storm hit Korba, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Clouds conditions in Kochi: few clouds, temperature 46\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Wildfire destroys farmland near Kolkata village",
+    "label": "wildfire"
+  },
+  {
+    "text": "River overflowing near Korba, villages evacuated",
+    "label": "flood"
+  },
+  {
+    "text": "Clouds conditions in Bhilai: few clouds, temperature 38\u00b0C, wind 2.1 m/s",
+    "label": "other"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Ambikapur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Massive forest fire near Dehradun, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Dense fog warning issued for Bilaspur region",
+    "label": "fog"
+  },
+  {
+    "text": "People suffering due to extreme heat in Nagpur",
+    "label": "heatwave"
+  },
+  {
+    "text": "Unbearable heat, 42 degrees in Surat today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Rainfall recorded in Bhilai district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Strong winds uprooted trees near Korba market area",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Fire conditions in Nagpur: wildfire spreading, residents evacuated",
+    "label": "wildfire"
+  },
+  {
+    "text": "Lightning kills cattle near Bhopal village",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Wildfire reported in Kochi forest area, fire brigades deployed",
+    "label": "wildfire"
+  },
+  {
+    "text": "Rain conditions in Surat: light rain, temperature 30\u00b0C",
+    "label": "rainfall"
+  },
+  {
+    "text": "Dust storm uproots trees in Raipur",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Rain conditions in Jagdalpur: heavy intensity rain, temperature 45\u00b0C",
+    "label": "flood"
+  },
+  {
+    "text": "Train delayed due to low visibility caused by fog near Bilaspur",
+    "label": "fog"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Jagdalpur highway",
+    "label": "fog"
+  },
+  {
+    "text": "Strong winds damage houses in Kolkata",
+    "label": "strong_wind"
+  },
+  {
+    "text": "People suffering due to extreme heat in Kolkata",
+    "label": "heatwave"
+  },
+  {
+    "text": "Lightning kills cattle near Chennai village",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Heatwave conditions persist in Hyderabad, schools advised caution",
+    "label": "heatwave"
+  },
+  {
+    "text": "Rain conditions in Jaipur: drizzle, temperature 32\u00b0C, wind 2.5 m/s",
+    "label": "rainfall"
+  },
+  {
+    "text": "Rainfall recorded in Korba district today",
+    "label": "rainfall"
+  },
+  {
+    "text": "Strong wind advisory for Surat, wind speed 38 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Yellow sky over Bilaspur as massive dust storm hits",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Forest department fights blaze near Bhopal reserve",
+    "label": "wildfire"
+  },
+  {
+    "text": "Visibility near zero due to dense fog on Kolkata highway",
+    "label": "fog"
+  },
+  {
+    "text": "Power outage in Bhopal due to dust storm",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Strong wind advisory for Surat, wind speed 35 km/h",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Loud thunder and lightning strikes reported in Bhilai",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Massive forest fire near Bilaspur, smoke visible from miles",
+    "label": "wildfire"
+  },
+  {
+    "text": "Raipur area flooded after continuous rain, water entered homes",
+    "label": "flood"
+  },
+  {
+    "text": "Forest fire breaks out near Patna",
+    "label": "wildfire"
+  },
+  {
+    "text": "Scorching heat in Korba, residents advised to stay indoors",
+    "label": "heatwave"
+  },
+  {
+    "text": "Fog reduces visibility in Surat, traffic moving slowly",
+    "label": "fog"
+  },
+  {
+    "text": "Roof blown off school building in Chandigarh due to strong winds",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Clear conditions in Jaipur: clear sky, temperature 42\u00b0C, wind 15.3 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Yellow sky over Durg as massive dust storm hits",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Normal weather conditions in Kochi today",
+    "label": "other"
+  },
+  {
+    "text": "Clear sky in Dehradun, temperature 46\u00b0C, extremely hot conditions",
+    "label": "heatwave"
+  },
+  {
+    "text": "River overflowing near Ranchi, villages evacuated",
+    "label": "flood"
+  },
+  {
+    "text": "Low lying areas in Bilaspur inundated after heavy downpour",
+    "label": "flood"
+  },
+  {
+    "text": "Yellow sky over Kochi as massive dust storm hits",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Steady rain falling in Jagdalpur since last night",
+    "label": "rainfall"
+  },
+  {
+    "text": "Severe thunderstorm warning issued for Ambikapur",
+    "label": "thunderstorm"
+  },
+  {
+    "text": "Clear sky over Mumbai, pleasant weather today",
+    "label": "other"
+  },
+  {
+    "text": "Clouds conditions in Srinagar: overcast clouds, temperature 22\u00b0C, wind 12.5 m/s",
+    "label": "strong_wind"
+  },
+  {
+    "text": "Dust storm hit Surat, sky turned orange",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Wildfire destroys farmland near Delhi village",
+    "label": "wildfire"
+  },
+  {
+    "text": "Unbearable heat, 42 degrees in Lucknow today",
+    "label": "heatwave"
+  },
+  {
+    "text": "Normal weather conditions in Hyderabad today",
+    "label": "other"
+  },
+  {
+    "text": "Heat stroke cases reported in Delhi hospitals",
+    "label": "heatwave"
+  },
+  {
+    "text": "Dust conditions in Surat: sand and dust, temperature 48\u00b0C",
+    "label": "dust_storm"
+  },
+  {
+    "text": "Flood situation worsens in Nagpur, rescue teams deployed",
+    "label": "flood"
   }
 ]

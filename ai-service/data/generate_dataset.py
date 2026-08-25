@@ -9,7 +9,10 @@ templates = {
         "Flood situation worsens in {city}, rescue teams deployed",
         "Low lying areas in {city} inundated after heavy downpour",
         "River overflowing near {city}, villages evacuated",
-        "Several colonies in {city} flooded, people shifted to relief camps"
+        "Several colonies in {city} flooded, people shifted to relief camps",
+        "Rain conditions in {city}: heavy intensity rain, temperature {temp}°C",
+        "Flood alert issued for {city}, water level rising rapidly",
+        "Rain conditions in {city}: very heavy rain, roads flooded"
     ],
     "rainfall": [
         "Light drizzle continuing since morning in {city}",
@@ -17,7 +20,11 @@ templates = {
         "Steady rain falling in {city} since last night",
         "Rainfall recorded in {city} district today",
         "Intermittent showers reported in {city}",
-        "Light to moderate rain expected in {city} today"
+        "Light to moderate rain expected in {city} today",
+        "Rain conditions in {city}: light rain, temperature {temp}°C",
+        "Rain conditions in {city}: moderate rain, temperature {temp}°C",
+        "Rain conditions in {city}: drizzle, temperature {temp}°C, wind 2.5 m/s",
+        "Rain conditions in {city}: light intensity rain, temperature {temp}°C"
     ],
     "thunderstorm": [
         "Loud thunder and lightning strikes reported in {city}",
@@ -25,7 +32,9 @@ templates = {
         "Lightning strike damaged property in {city}",
         "Heavy thunderstorm accompanied by strong winds in {city}",
         "Thunderstorm disrupts power supply in {city}",
-        "Lightning kills cattle near {city} village"
+        "Lightning kills cattle near {city} village",
+        "Thunderstorm conditions in {city}: thunder and lightning, temperature {temp}°C",
+        "Rain conditions in {city}: thunderstorm, wind {temp} m/s"
     ],
     "heatwave": [
         "Unbearable heat, {temp} degrees in {city} today",
@@ -34,7 +43,10 @@ templates = {
         "Temperature soars to {temp} degrees in {city}",
         "Heatwave alert issued for {city} district",
         "Heat stroke cases reported in {city} hospitals",
-        "People suffering due to extreme heat in {city}"
+        "People suffering due to extreme heat in {city}",
+        "Clear conditions in {city}: clear sky, temperature {temp}°C, wind 1.2 m/s",
+        "Clear sky in {city}, temperature {temp}°C, extremely hot conditions",
+        "Clouds conditions in {city}: few clouds, temperature {temp}°C, heatwave warning"
     ],
     "fog": [
         "Visibility near zero due to dense fog on {city} highway",
@@ -42,7 +54,11 @@ templates = {
         "Fog reduces visibility in {city}, traffic moving slowly",
         "Dense fog warning issued for {city} region",
         "Train delayed due to low visibility caused by fog near {city}",
-        "Schools closed in {city} due to dense fog conditions"
+        "Schools closed in {city} due to dense fog conditions",
+        "Clouds conditions in {city}: overcast clouds, temperature {temp}°C, wind 3.1 m/s",
+        "Clouds conditions in {city}: broken clouds, temperature {temp}°C, wind 2.8 m/s",
+        "Clouds conditions in {city}: scattered clouds, temperature {temp}°C",
+        "Mist conditions in {city}: mist and fog, temperature {temp}°C"
     ],
     "dust_storm": [
         "Dust storm hit {city}, sky turned orange",
@@ -50,7 +66,9 @@ templates = {
         "{city} residents advised to stay indoors due to dust storm",
         "Dust storm uproots trees in {city}",
         "Power outage in {city} due to dust storm",
-        "Yellow sky over {city} as massive dust storm hits"
+        "Yellow sky over {city} as massive dust storm hits",
+        "Dust conditions in {city}: sand and dust, temperature {temp}°C",
+        "Haze conditions in {city}: dust haze, temperature {temp}°C, wind {temp} m/s"
     ],
     "strong_wind": [
         "Strong winds uprooted trees near {city} market area",
@@ -58,17 +76,40 @@ templates = {
         "Gusty winds disrupt normal life in {city}",
         "Strong winds damage houses in {city}",
         "Wind storm causes destruction in {city} district",
-        "Roof blown off school building in {city} due to strong winds"
-    ]
+        "Roof blown off school building in {city} due to strong winds",
+        "Clouds conditions in {city}: overcast clouds, temperature {temp}°C, wind 12.5 m/s",
+        "Clear conditions in {city}: clear sky, temperature {temp}°C, wind 15.3 m/s",
+        "Strong wind advisory for {city}, wind speed {temp} km/h"
+    ],
+    "other": [
+        "Clear conditions in {city}: clear sky, temperature {temp}°C, wind 1.5 m/s",
+        "Clear sky over {city}, pleasant weather today",
+        "Clouds conditions in {city}: few clouds, temperature {temp}°C, wind 2.1 m/s",
+        "Normal weather conditions in {city} today",
+        "Partly cloudy skies in {city}, no major weather event",
+        "Weather update for {city}: mild conditions expected today"
+    ],
+    "wildfire": [
+    "Forest fire breaks out near {city}",
+    "Wildfire reported in {city} forest area, fire brigades deployed",
+    "Fire conditions in {city}: wildfire spreading, residents evacuated",
+    "Massive forest fire near {city}, smoke visible from miles",
+    "Wildfire destroys farmland near {city} village",
+    "Forest department fights blaze near {city} reserve",
+     "Wildfire reported near {city} forest area",
+    "Forest fire breaks out near {city}",
+    "Fire conditions in {city}: wildfire, strong winds",
+],
 }
 
 cities = [
     "Durg", "Raipur", "Bilaspur", "Bhilai", "Nagpur",
     "Korba", "Jagdalpur", "Rajnandgaon", "Ambikapur",
     "Delhi", "Mumbai", "Chennai", "Kolkata", "Hyderabad",
-    "Bhopal", "Patna", "Ranchi", "Jaipur", "Lucknow"
+    "Bhopal", "Patna", "Ranchi", "Jaipur", "Lucknow",
+    "Dehradun", "Chandigarh", "Srinagar", "Kochi", "Surat"
 ]
-temps = [42, 43, 44, 45, 46, 47, 48]
+temps = [22, 25, 28, 30, 32, 35, 38, 42, 44, 45, 46, 47, 48]
 
 def generate_dataset(rows_per_category=80):
     data = []
