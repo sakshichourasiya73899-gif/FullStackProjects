@@ -55,7 +55,15 @@ const WeatherReportSchema = new mongoose.Schema({
   processedByAI: {
     type: Boolean,
     default: false
-  }
+  },
+ eventType: {
+  type: String,
+  enum: [
+    'flood', 'rainfall', 'thunderstorm', 'heatwave',
+    'fog', 'dust_storm', 'strong_wind', 'wildfire', 'other'
+  ],
+  default: 'other'
+},
 }, {
   timestamps: true
 });

@@ -1,15 +1,40 @@
 import { normalizeAndProcess } from '../services/normalizer.js';
 
 const templates = [
+  // Rainy / Flood
   { text: 'Heavy waterlogging reported near {city} railway station', event: 'flood' },
   { text: 'Continuous drizzle since morning in {city}', event: 'rainfall' },
   { text: 'Loud thunder and lightning strikes over {city}', event: 'thunderstorm' },
+  
+  // Summer / Heat
   { text: 'Unbearable heat today, feels like 45+ in {city}', event: 'heatwave' },
+  { text: 'Heat stroke cases reported in {city} hospitals today', event: 'heatwave' },
+  { text: 'Severe drought conditions in {city}, water shortage worsening', event: 'heatwave' },
+  { text: 'Water supply cut in {city} due to dry spell', event: 'heatwave' },
+  
+  // Winter
   { text: 'Dense fog reducing visibility on {city} highway', event: 'fog' },
+  { text: 'Cold wave hits {city}, temperature drops sharply', event: 'fog' },
+  { text: 'Heavy snowfall reported in {city}, roads blocked', event: 'fog' },
+  { text: 'Schools closed in {city} due to cold wave alert', event: 'fog' },
+  { text: 'Hailstorm damages crops near {city}', event: 'thunderstorm' },
+  
+  // Spring / Pre-monsoon
   { text: 'Dust storm hit {city}, sky turned orange', event: 'dust_storm' },
-  { text: 'Strong winds uprooted trees near {city} market', event: 'strong_wind' }
+  { text: 'Strong winds uprooted trees near {city} market', event: 'strong_wind' },
+  { text: 'Loo winds making life difficult in {city}', event: 'heatwave' },
+  { text: 'Squall hits {city}, power lines damaged', event: 'strong_wind' },
+  
+  // Ground situation
+  { text: 'River water level rising near {city}, villages on alert', event: 'flood' },
+  { text: 'Bridge damaged in {city} due to floods, traffic stopped', event: 'flood' },
+  { text: 'Crop damage reported in {city} district due to unseasonal rain', event: 'rainfall' },
+  { text: 'Farmers in {city} worried as drought continues', event: 'heatwave' },
+  { text: 'Relief camps set up in {city} for flood victims', event: 'flood' },
+  { text: 'Rescue teams deployed in {city} after landslide', event: 'flood' },
+  { text: 'Road blocked in {city} due to fallen trees after storm', event: 'strong_wind' },
+  { text: 'Power outage in {city} due to thunderstorm', event: 'thunderstorm' },
 ];
-
 const cities = [
   { name: 'Delhi', lat: 28.61, lng: 77.21 },
   { name: 'Mumbai', lat: 19.08, lng: 72.88 },

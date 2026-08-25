@@ -4,31 +4,78 @@ import { normalizeAndProcess } from '../services/normalizer.js';
 
 const parser = new Parser();
 
-// RSS feed URLs — India-focused news sources
 const RSS_FEEDS = [
   { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms', name: 'TOI India' },
   { url: 'https://feeds.feedburner.com/ndtvnews-top-stories', name: 'NDTV Top Stories' },
   { url: 'https://indianexpress.com/feed/', name: 'Indian Express' },
   { url: 'http://www.gdacs.org/xml/rss.xml', name: 'GDACS Disaster Alerts' }
-  
 ];
 
-// Keywords to filter only weather/disaster-relevant articles —
-// otherwise we'd pull in unrelated news (politics, sports, etc.)
 const RELEVANT_KEYWORDS = [
-  'flood', 'rain', 'rainfall', 'storm', 'thunderstorm', 'heatwave', 'heat wave',
-  'fog', 'dust storm', 'cyclone', 'landslide', 'waterlogging', 'school closed',
-  'school shut', 'evacuat', 'disaster', 'weather warning', 'alert issued',
-  'river', 'overflow', 'displaced', 'rescue', 'relief camp'
+  // Rainy / Monsoon
+  'flood', 'rain', 'rainfall', 'monsoon', 'storm', 'thunderstorm',
+  'waterlogging', 'cloudburst', 'flash flood', 'river overflow',
+  'cyclone', 'landslide', 'mudslide',
+  // Winter
+  'fog', 'dense fog', 'cold wave', 'cold snap', 'frost', 'freeze',
+  'snowfall', 'snow', 'hail', 'hailstorm', 'avalanche', 'sleet',
+  'low temperature', 'cold day', 'winter storm', 'hypothermia',
+  // Summer / Heat
+  'heatwave', 'heat wave', 'scorching', 'heat stroke', 'sun stroke',
+  'high temperature', 'hot day', 'dry spell', 'drought', 'water crisis',
+  'water shortage', 'heat alert', 'heat index',
+  // Spring / Pre-monsoon
+  'dust storm', 'dust devil', 'sandstorm', 'strong wind', 'gusty wind',
+  'squall', 'nor wester', 'loo', 'pre monsoon', 'pre-monsoon',
+  'thundershower', 'lightning',
+  // General disaster / alerts
+  'wildfire', 'forest fire', 'earthquake', 'tremor', 'seismic',
+  'tsunami', 'tidal wave', 'tornado', 'whirlwind',
+  'weather warning', 'weather alert', 'red alert', 'orange alert',
+  'yellow alert', 'imd warning', 'imd alert', 'ndma alert',
+  'disaster alert', 'evacuation', 'relief camp', 'rescue operation',
+  // Ground situation
+  'school closed', 'school shut', 'road blocked', 'highway closed',
+  'bridge damaged', 'power outage', 'electricity cut', 'crop damage',
+  'farmer', 'displaced', 'stranded', 'marooned', 'relief fund',
+  'affected villages', 'river breach', 'dam overflow', 'reservoir'
 ];
 
-const isWeatherRelevant = (text) => {
+const IRRELEVANT_KEYWORDS = [
+  'ship', 'vessel', 'election', 'politics', 'cricket', 'ipl',
+  'match', 'stock market', 'sensex', 'nifty', 'murder', 'crime',
+  'arrest', 'court', 'bollywood', 'film', 'movie', 'actor',
+  'actress', 'football', 'road accident', 'train accident',
+  'plane crash', 'startup', 'funding', 'ipo', 'budget'
+];
+
+const INDIA_KEYWORDS = [
+  'india', 'indian', 'delhi', 'mumbai', 'chennai', 'kolkata', 'bangalore',
+  'bengaluru', 'hyderabad', 'pune', 'ahmedabad', 'jaipur', 'lucknow',
+  'raipur', 'bhopal', 'patna', 'ranchi', 'bhubaneswar', 'guwahati',
+  'chandigarh', 'dehradun', 'shimla', 'srinagar', 'amritsar', 'kochi',
+  'nagpur', 'surat', 'durg', 'bilaspur', 'bhilai', 'korba', 'jagdalpur',
+  'odisha', 'kerala', 'gujarat', 'rajasthan', 'maharashtra', 'karnataka',
+  'tamil nadu', 'andhra', 'telangana', 'uttar pradesh', 'madhya pradesh',
+  'chhattisgarh', 'jharkhand', 'bihar', 'west bengal', 'assam', 'punjab',
+  'haryana', 'uttarakhand', 'himachal', 'jammu', 'kashmir', 'manipur',
+  'meghalaya', 'mizoram', 'nagaland', 'tripura', 'sikkim', 'goa'
+];
+
+// Step 1: India se hai?
+const isFromIndia = (text) => {
   const lower = text.toLowerCase();
-  return RELEVANT_KEYWORDS.some((keyword) => lower.includes(keyword));
+  return INDIA_KEYWORDS.some((kw) => lower.includes(kw));
 };
 
-// We don't get exact coordinates from news articles, so location stays
-// unresolved here — Day 4's location extraction (NER) will fill this in later
+// Step 2: Weather relevant hai?
+const isWeatherRelevant = (text) => {
+  const lower = text.toLowerCase();
+  const hasIrrelevant = IRRELEVANT_KEYWORDS.some((kw) => lower.includes(kw));
+  if (hasIrrelevant) return false;
+  return RELEVANT_KEYWORDS.some((kw) => lower.includes(kw));
+};
+
 const fetchAndProcessFeed = async (feed) => {
   try {
     const parsedFeed = await parser.parseURL(feed.url);
@@ -36,12 +83,12 @@ const fetchAndProcessFeed = async (feed) => {
     for (const item of parsedFeed.items) {
       const combinedText = `${item.title || ''}. ${item.contentSnippet || item.summary || ''}`.trim();
 
-      if (!isWeatherRelevant(combinedText)) {
-        continue; // skip unrelated news articles
-      }
+      // Dono checks — pehle India, phir weather
+      if (!isFromIndia(combinedText)) continue;
+      if (!isWeatherRelevant(combinedText)) continue;
 
       const rawItem = {
-        text: combinedText.slice(0, 500), // keep it reasonably sized
+        text: combinedText.slice(0, 500),
         lat: null,
         lng: null,
         media: []
