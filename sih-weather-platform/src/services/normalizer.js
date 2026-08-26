@@ -1,5 +1,6 @@
 import axios from 'axios';
 import WeatherReport from '../models/WeatherReport.js';
+import { findOrCreateEvent } from './eventClustering.js';
 
 export const normalizeAndProcess = async (rawItem, sourceType) => {
   try {
@@ -12,7 +13,6 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
     }
 
     // Sirf news_rss aur social sources ko Groq se relevance check karwao
-    // (weather_api hamesha genuinely weather related hota hai, skip check)
     if (sourceType === 'news_rss' || sourceType === 'social_mock') {
       const relevant = await checkRelevance(normalized.text);
       if (!relevant) {
@@ -34,6 +34,11 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
 
     const report = new WeatherReport(normalized);
     const saved = await report.save();
+
+    // Event clustering — sirf successfully AI-processed reports ke liye
+    if (saved.processedByAI && saved.eventType !== 'other') {
+      await findOrCreateEvent(saved);
+    }
 
     console.log(`[Saved] ${sourceType} | ${saved.eventType} | ${saved.severity} | "${saved.text.slice(0, 40)}..."`);
     return saved;
@@ -73,7 +78,7 @@ const checkRelevance = async (text) => {
     return response.data.relevant;
   } catch (err) {
     console.error(`[Relevance check error] ${err.message} — including by default`);
-    return true; // fail-safe: error aaye toh include karo, drop mat karo
+    return true;
   }
 };
 

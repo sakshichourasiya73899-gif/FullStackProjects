@@ -1,8 +1,7 @@
 import WeatherReport from '../models/WeatherReport.js';
 import { normalizeAndProcess } from '../services/normalizer.js';
-import { asyncHandler, AppError } from '../middleware/errorHandler.js';
+import { asyncHandler, AppError } from '../middlewares/errorHandler.js';
 
-// POST /api/reports/citizen
 export const createCitizenReport = asyncHandler(async (req, res) => {
   const { text, lat, lng, media } = req.body;
 
@@ -19,7 +18,6 @@ export const createCitizenReport = asyncHandler(async (req, res) => {
   });
 });
 
-// GET /api/reports
 export const getAllReports = asyncHandler(async (req, res) => {
   const reports = await WeatherReport.find().sort({ createdAt: -1 }).limit(50);
   res.status(200).json({

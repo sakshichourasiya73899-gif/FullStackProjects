@@ -1,6 +1,6 @@
 import express from 'express';
 import { createCitizenReport, getAllReports } from '../controllers/reportController.js';
-import { citizenReportRules, validate } from '../middleware/validators.js';
+import { citizenReportRules, validate } from '../middlewares/validators.js';
 
 const router = express.Router();
 

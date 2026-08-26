@@ -3,12 +3,10 @@ import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
 import { notFound, errorHandler } from "./middlewares/errorHandler.js";
-
+import reportRoutes from "./routes/reportRoutes.js";
 
 const app = express();
 console.log("Express app initialized");
-
-
 
 app.use(helmet());
 app.use(
@@ -24,10 +22,10 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok" });
 });
+
+app.use("/api/reports", reportRoutes);
+
 app.use(notFound);
 app.use(errorHandler);
-
-
-
 
 export default app;
