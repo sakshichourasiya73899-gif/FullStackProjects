@@ -6,7 +6,7 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 def is_weather_relevant(text: str) -> bool:
     try:
         response = client.chat.completions.create(
-            model="llama3-8b-8192",
+            model="groq/compound-mini",
             messages=[
                 {
                     "role": "system",
