@@ -64,6 +64,14 @@ const WeatherReportSchema = new mongoose.Schema({
   ],
   default: 'other'
 },
+sourceUrl: {
+  type: String,
+  default: null
+},
+sourceName: {
+  type: String,
+  default: null  // "NDTV", "Times of India", "Reddit r/india", "Citizen Report"
+}
 }, {
   timestamps: true
 });

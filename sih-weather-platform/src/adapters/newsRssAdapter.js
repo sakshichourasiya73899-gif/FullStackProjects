@@ -2,39 +2,36 @@ import Parser from 'rss-parser';
 import cron from 'node-cron';
 import { normalizeAndProcess } from '../services/normalizer.js';
 
-const parser = new Parser();
+const parser = new Parser({
+  customFields: {
+    item: [['media:content', 'media:content']]
+  }
+});
 
 const RSS_FEEDS = [
   { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms', name: 'TOI India' },
   { url: 'https://feeds.feedburner.com/ndtvnews-top-stories', name: 'NDTV Top Stories' },
-  { url: 'https://indianexpress.com/feed/', name: 'Indian Express' },
-  { url: 'http://www.gdacs.org/xml/rss.xml', name: 'GDACS Disaster Alerts' }
+  { url: 'https://indianexpress.com/feed/', name: 'Indian Express' }
 ];
 
 const RELEVANT_KEYWORDS = [
-  // Rainy / Monsoon
   'flood', 'rain', 'rainfall', 'monsoon', 'storm', 'thunderstorm',
   'waterlogging', 'cloudburst', 'flash flood', 'river overflow',
   'cyclone', 'landslide', 'mudslide',
-  // Winter
   'fog', 'dense fog', 'cold wave', 'cold snap', 'frost', 'freeze',
   'snowfall', 'snow', 'hail', 'hailstorm', 'avalanche', 'sleet',
   'low temperature', 'cold day', 'winter storm', 'hypothermia',
-  // Summer / Heat
   'heatwave', 'heat wave', 'scorching', 'heat stroke', 'sun stroke',
   'high temperature', 'hot day', 'dry spell', 'drought', 'water crisis',
   'water shortage', 'heat alert', 'heat index',
-  // Spring / Pre-monsoon
   'dust storm', 'dust devil', 'sandstorm', 'strong wind', 'gusty wind',
   'squall', 'nor wester', 'loo', 'pre monsoon', 'pre-monsoon',
   'thundershower', 'lightning',
-  // General disaster / alerts
   'wildfire', 'forest fire', 'earthquake', 'tremor', 'seismic',
   'tsunami', 'tidal wave', 'tornado', 'whirlwind',
   'weather warning', 'weather alert', 'red alert', 'orange alert',
   'yellow alert', 'imd warning', 'imd alert', 'ndma alert',
   'disaster alert', 'evacuation', 'relief camp', 'rescue operation',
-  // Ground situation
   'school closed', 'school shut', 'road blocked', 'highway closed',
   'bridge damaged', 'power outage', 'electricity cut', 'crop damage',
   'farmer', 'displaced', 'stranded', 'marooned', 'relief fund',
@@ -62,17 +59,14 @@ const INDIA_KEYWORDS = [
   'meghalaya', 'mizoram', 'nagaland', 'tripura', 'sikkim', 'goa'
 ];
 
-// Step 1: India se hai?
 const isFromIndia = (text) => {
   const lower = text.toLowerCase();
   return INDIA_KEYWORDS.some((kw) => lower.includes(kw));
 };
 
-// Step 2: Weather relevant hai?
 const isWeatherRelevant = (text) => {
   const lower = text.toLowerCase();
-  const hasIrrelevant = IRRELEVANT_KEYWORDS.some((kw) => lower.includes(kw));
-  if (hasIrrelevant) return false;
+  if (IRRELEVANT_KEYWORDS.some((kw) => lower.includes(kw))) return false;
   return RELEVANT_KEYWORDS.some((kw) => lower.includes(kw));
 };
 
@@ -83,15 +77,29 @@ const fetchAndProcessFeed = async (feed) => {
     for (const item of parsedFeed.items) {
       const combinedText = `${item.title || ''}. ${item.contentSnippet || item.summary || ''}`.trim();
 
-      // Dono checks — pehle India, phir weather
       if (!isFromIndia(combinedText)) continue;
       if (!isWeatherRelevant(combinedText)) continue;
+
+      // Media extract karo
+      const media = [];
+      if (item.enclosure?.url) {
+        media.push({ url: item.enclosure.url, type: 'image' });
+      }
+      if (item['media:content']?.url) {
+        media.push({ url: item['media:content'].url, type: 'image' });
+      }
+      if (media.length === 0 && item.content) {
+        const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
+        if (imgMatch) media.push({ url: imgMatch[1], type: 'image' });
+      }
 
       const rawItem = {
         text: combinedText.slice(0, 500),
         lat: null,
         lng: null,
-        media: []
+        media,
+        sourceUrl: item.link || null,
+        sourceName: feed.name
       };
 
       await normalizeAndProcess(rawItem, 'news_rss');
