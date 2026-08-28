@@ -1,3 +1,311 @@
+// // import axios from 'axios';
+// // import WeatherReport from '../models/WeatherReport.js';
+// // import { findOrCreateEvent } from './eventClustering.js';
+
+// // export const normalizeAndProcess = async (rawItem, sourceType) => {
+// //   try {
+// //     const normalized = normalize(rawItem, sourceType);
+
+// //     const validationError = validateNormalized(normalized);
+// //     if (validationError) {
+// //       console.warn(`[Validation failed] ${sourceType}: ${validationError}`);
+// //       return null;
+// //     }
+
+// //     // Groq relevance filter
+// //     if (sourceType === 'news_rss' || sourceType === 'social_mock') {
+// //       const relevant = await checkRelevance(normalized.source.platform === 'social_mock'
+// //         ? normalized.text
+// //         : normalized.text);
+// //       if (!relevant) {
+// //         console.log(`[Groq Filter] Skipped: "${normalized.text.slice(0, 50)}..."`);
+// //         return null;
+// //       }
+// //     }
+
+// //     // Python AI service
+// //     const aiResult = await callAIService(normalized, sourceType);
+
+// //     if (aiResult) {
+// //       normalized.aiAnalysis = {
+// //         processed: true,
+// //         isWeatherRelated: true,
+// //         relevanceScore: aiResult.classifyConfidence || 0,
+// //         eventType: aiResult.eventType,
+// //         eventConfidence: aiResult.classifyConfidence || 0,
+// //         severity: aiResult.severity,
+// //         severityConfidence: 0.8
+// //       };
+// //       normalized.credibility = {
+// //         score: aiResult.credibilityScore,
+// //         reasons: aiResult.credibilityReasons,
+// //         verificationStatus: 'unverified'
+// //       };
+// //     }
+
+// //     const report = new WeatherReport(normalized);
+// //     const saved = await report.save();
+
+// //     // Clustering
+// //     if (saved.aiAnalysis?.processed && saved.aiAnalysis?.eventType !== 'other') {
+// //       const event = await findOrCreateEvent(saved);
+// //       if (event) {
+// //         await WeatherReport.findByIdAndUpdate(saved._id, { eventId: event._id });
+// //       }
+// //     }
+
+// //     console.log(`[Saved] ${sourceType} | ${saved.aiAnalysis?.eventType} | ${saved.aiAnalysis?.severity} | "${saved.text.slice(0, 40)}..."`);
+// //     return saved;
+// //   } catch (err) {
+// //     console.error(`[normalizeAndProcess error] ${sourceType}:`, err.message);
+// //     return null;
+// //   }
+// // };
+
+// // const normalize = (rawItem, sourceType) => ({
+// //   text: rawItem.text?.trim() || '',
+// //   source: {
+// //     type: sourceType,
+// //     platform: sourceType,
+// //     sourceUrl: rawItem.sourceUrl || null,
+// //     sourceName: rawItem.sourceName || null
+// //   },
+// //   time: {
+// //     reportedAt: new Date(),
+// //     collectedAt: new Date()
+// //   },
+// //   location: {
+// //     lat: rawItem.lat || null,
+// //     lng: rawItem.lng || null,
+// //     resolved: !!(rawItem.lat && rawItem.lng),
+// //     confidence: rawItem.lat ? 0.9 : 0
+// //   },
+// //   media: rawItem.media || [],
+// //   aiAnalysis: { processed: false },
+// //   credibility: { score: 0, reasons: [], verificationStatus: 'unverified' },
+// //   duplicate: { isDuplicate: false },
+// //   embedding: []
+// // });
+
+// // const validateNormalized = (item) => {
+// //   if (!item.text || item.text.length < 5) return 'text missing or too short';
+// //   if (item.text.length > 1000) return 'text too long';
+// //   return null;
+// // };
+
+// // const checkRelevance = async (text) => {
+// //   try {
+// //     const response = await axios.post(`${process.env.PYTHON_AI_URL}/is-relevant`, { text });
+// //     return response.data.relevant;
+// //   } catch {
+// //     return true;
+// //   }
+// // };
+
+// // const callAIService = async (normalized, sourceType) => {
+// //   try {
+// //     const response = await axios.post(`${process.env.PYTHON_AI_URL}/process`, {
+// //       text: normalized.text,
+// //       sourceType,
+// //       hasMedia: normalized.media.length > 0,
+// //       locationResolved: normalized.location.resolved
+// //     });
+// //     return response.data;
+// //   } catch (err) {
+// //     console.error(`[AI service error] ${err.message}`);
+// //     return null;
+// //   }
+// // };
+
+
+// import axios from 'axios';
+// import WeatherReport from '../models/WeatherReport.js';
+// import { findOrCreateEvent } from './eventClustering.js';
+
+// export const normalizeAndProcess = async (rawItem, sourceType) => {
+//   try {
+//     const normalized = normalize(rawItem, sourceType);
+
+//     const validationError = validateNormalized(normalized);
+//     if (validationError) {
+//       console.warn(
+//         `[Validation failed] ${sourceType}: ${validationError}`
+//       );
+//       return null;
+//     }
+
+//     // Groq relevance filter
+//     if (sourceType === 'news_rss' || sourceType === 'social_mock') {
+//       const relevant = await checkRelevance(
+//         normalized.source.platform === 'social_mock'
+//           ? normalized.text
+//           : normalized.text
+//       );
+
+//       if (!relevant) {
+//         console.log(
+//           `[Groq Filter] Skipped: "${normalized.text.slice(0, 50)}..."`
+//         );
+//         return null;
+//       }
+//     }
+
+//     // Python AI service
+//     const aiResult = await callAIService(normalized, sourceType);
+
+//     if (aiResult) {
+//       normalized.aiAnalysis = {
+//         processed: true,
+//         isWeatherRelated: true,
+//         relevanceScore: aiResult.classifyConfidence || 0,
+//         eventType: aiResult.eventType,
+//         eventConfidence: aiResult.classifyConfidence || 0,
+//         severity: aiResult.severity,
+//         severityConfidence: 0.8
+//       };
+
+//       normalized.credibility = {
+//         score: aiResult.credibilityScore,
+//         reasons: aiResult.credibilityReasons,
+//         verificationStatus: 'unverified'
+//       };
+//     }
+
+//     const report = new WeatherReport(normalized);
+//     const saved = await report.save();
+
+//     // Clustering
+//     if (
+//       saved.aiAnalysis?.processed &&
+//       saved.aiAnalysis?.eventType !== 'other'
+//     ) {
+//       const event = await findOrCreateEvent(saved);
+
+//       if (event) {
+//         await WeatherReport.findByIdAndUpdate(
+//           saved._id,
+//           {
+//             eventId: event._id
+//           }
+//         );
+//       }
+//     }
+
+//     console.log(
+//       `[Saved] ${sourceType} | ${saved.aiAnalysis?.eventType} | ` +
+//       `${saved.aiAnalysis?.severity} | ` +
+//       `"${saved.text.slice(0, 40)}..."`
+//     );
+
+//     return saved;
+
+//   } catch (err) {
+//     console.error(
+//       `[normalizeAndProcess error] ${sourceType}:`,
+//       err.message
+//     );
+
+//     return null;
+//   }
+// };
+
+
+// const normalize = (rawItem, sourceType) => ({
+//   text: rawItem.text?.trim() || '',
+
+//   // Required by the current WeatherReport model
+//   sourceType: sourceType,
+
+//   source: {
+//     type: sourceType,
+//     platform: sourceType,
+//     sourceUrl: rawItem.sourceUrl || null,
+//     sourceName: rawItem.sourceName || null
+//   },
+
+//   time: {
+//     reportedAt: new Date(),
+//     collectedAt: new Date()
+//   },
+
+//   location: {
+//     lat: rawItem.lat || null,
+//     lng: rawItem.lng || null,
+//     resolved: !!(rawItem.lat && rawItem.lng),
+//     confidence: rawItem.lat ? 0.9 : 0
+//   },
+
+//   media: rawItem.media || [],
+
+//   aiAnalysis: {
+//     processed: false
+//   },
+
+//   credibility: {
+//     score: 0,
+//     reasons: [],
+//     verificationStatus: 'unverified'
+//   },
+
+//   duplicate: {
+//     isDuplicate: false
+//   },
+
+//   embedding: []
+// });
+
+
+// const validateNormalized = (item) => {
+//   if (!item.text || item.text.length < 5) {
+//     return 'text missing or too short';
+//   }
+
+//   if (item.text.length > 1000) {
+//     return 'text too long';
+//   }
+
+//   return null;
+// };
+
+
+// const checkRelevance = async (text) => {
+//   try {
+//     const response = await axios.post(
+//       `${process.env.PYTHON_AI_URL}/is-relevant`,
+//       { text }
+//     );
+
+//     return response.data.relevant;
+
+//   } catch {
+//     return true;
+//   }
+// };
+
+
+// const callAIService = async (normalized, sourceType) => {
+//   try {
+//     const response = await axios.post(
+//       `${process.env.PYTHON_AI_URL}/process`,
+//       {
+//         text: normalized.text,
+//         sourceType,
+//         hasMedia: normalized.media.length > 0,
+//         locationResolved: normalized.location.resolved
+//       }
+//     );
+
+//     return response.data;
+
+//   } catch (err) {
+//     console.error(
+//       `[AI service error] ${err.message}`
+//     );
+
+//     return null;
+//   }
+// };
+
 import axios from 'axios';
 import WeatherReport from '../models/WeatherReport.js';
 import { findOrCreateEvent } from './eventClustering.js';
@@ -12,7 +320,7 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
       return null;
     }
 
-    // Sirf news_rss aur social sources ko Groq se relevance check karwao
+    // Groq relevance filter — sirf news aur social ke liye
     if (sourceType === 'news_rss' || sourceType === 'social_mock') {
       const relevant = await checkRelevance(normalized.text);
       if (!relevant) {
@@ -21,26 +329,38 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
       }
     }
 
-    // Python AI service ko call karo — classify + credibility + severity
+    // Python AI service call
     const aiResult = await callAIService(normalized, sourceType);
 
     if (aiResult) {
-      normalized.eventType = aiResult.eventType;
-      normalized.credibilityScore = aiResult.credibilityScore;
-      normalized.credibilityReasons = aiResult.credibilityReasons;
-      normalized.severity = aiResult.severity;
-      normalized.processedByAI = true;
+      normalized.aiAnalysis = {
+        processed: true,
+        isWeatherRelated: true,
+        relevanceScore: aiResult.classifyConfidence || 0,
+        eventType: aiResult.eventType,
+        eventConfidence: aiResult.classifyConfidence || 0,
+        severity: aiResult.severity,
+        severityConfidence: aiResult.severityConfidence || 0.8
+      };
+      normalized.credibility = {
+        score: aiResult.credibilityScore,
+        reasons: aiResult.credibilityReasons,
+        verificationStatus: 'unverified'
+      };
     }
 
     const report = new WeatherReport(normalized);
     const saved = await report.save();
 
-    // Event clustering — sirf successfully AI-processed reports ke liye
-    if (saved.processedByAI && saved.eventType !== 'other') {
-      await findOrCreateEvent(saved);
+    // Clustering
+    if (saved.aiAnalysis?.processed && saved.aiAnalysis?.eventType !== 'other') {
+      const event = await findOrCreateEvent(saved);
+      if (event) {
+        await WeatherReport.findByIdAndUpdate(saved._id, { eventId: event._id });
+      }
     }
 
-    console.log(`[Saved] ${sourceType} | ${saved.eventType} | ${saved.severity} | "${saved.text.slice(0, 40)}..."`);
+    console.log(`[Saved] ${sourceType} | ${saved.aiAnalysis?.eventType} | ${saved.aiAnalysis?.severity} | "${saved.text.slice(0, 40)}..."`);
     return saved;
   } catch (err) {
     console.error(`[normalizeAndProcess error] ${sourceType}:`, err.message);
@@ -48,19 +368,32 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
   }
 };
 
-const normalize = (rawItem, sourceType) => {
-  return {
-    text: rawItem.text?.trim() || '',
-    sourceType,
-    location: {
-      lat: rawItem.lat || null,
-      lng: rawItem.lng || null,
-      resolved: !!(rawItem.lat && rawItem.lng)
-    },
-    media: rawItem.media || [],
-    processedByAI: false
-  };
-};
+// sourceType ROOT LEVEL mein bhi rakho — schema validation ke liye
+const normalize = (rawItem, sourceType) => ({
+  text: rawItem.text?.trim() || '',
+  sourceType,                              // ← root level pe required
+  source: {
+    type: sourceType,
+    platform: sourceType,
+    sourceUrl: rawItem.sourceUrl || null,
+    sourceName: rawItem.sourceName || null
+  },
+  time: {
+    reportedAt: new Date(),
+    collectedAt: new Date()
+  },
+  location: {
+    lat: rawItem.lat || null,
+    lng: rawItem.lng || null,
+    resolved: !!(rawItem.lat && rawItem.lng),
+    confidence: rawItem.lat ? 0.9 : 0
+  },
+  media: rawItem.media || [],
+  aiAnalysis: { processed: false },
+  credibility: { score: 0, reasons: [], verificationStatus: 'unverified' },
+  duplicate: { isDuplicate: false },
+  embedding: []
+});
 
 const validateNormalized = (item) => {
   if (!item.text || item.text.length < 5) return 'text missing or too short';
@@ -68,7 +401,6 @@ const validateNormalized = (item) => {
   return null;
 };
 
-// Groq se puchta hai — "ye India weather/disaster related hai?"
 const checkRelevance = async (text) => {
   try {
     const response = await axios.post(
@@ -76,13 +408,11 @@ const checkRelevance = async (text) => {
       { text }
     );
     return response.data.relevant;
-  } catch (err) {
-    console.error(`[Relevance check error] ${err.message} — including by default`);
+  } catch {
     return true;
   }
 };
 
-// Python classifier ko call karta hai — eventType, credibility, severity
 const callAIService = async (normalized, sourceType) => {
   try {
     const response = await axios.post(
@@ -96,7 +426,7 @@ const callAIService = async (normalized, sourceType) => {
     );
     return response.data;
   } catch (err) {
-    console.error(`[AI service error] ${err.message} — saving without AI fields`);
+    console.error(`[AI service error] ${err.message}`);
     return null;
   }
 };

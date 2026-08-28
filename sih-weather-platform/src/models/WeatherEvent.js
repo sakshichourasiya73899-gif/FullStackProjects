@@ -1,46 +1,79 @@
 import mongoose from 'mongoose';
 
 const WeatherEventSchema = new mongoose.Schema({
-  eventType: {
+  // Classification
+  eventType: { type: String, required: true },
+  eventSubtype: { type: String },
+  category: {
     type: String,
-    required: true
+    enum: ['meteorological', 'hydrological', 'climatological', 'geophysical'],
+    default: 'meteorological'
   },
+
+  // Auto-generated title + summary
+  title: { type: String },
+  summary: { type: String },
+
+  // Location
   location: {
+    city: { type: String },
+    state: { type: String },
     lat: { type: Number, required: true },
-    lng: { type: Number, required: true },
-    city: { type: String }
+    lng: { type: Number, required: true }
   },
-  severity: {
-    type: String,
-    enum: ['low', 'medium', 'high'],
-    default: 'low'
-  },
-  // Kaunse reports is event ka hissa hain
-  linkedReports: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'WeatherReport'
-  }],
-  reportCount: {
-    type: Number,
-    default: 1
-  },
-  // Kitne alag source types ne is event ko confirm kiya (corroboration ke liye Din 2 mein use hoga)
+
+  // Severity
+  severity: { type: String, enum: ['low', 'medium', 'high'], default: 'low' },
+
+  // Scores
+  credibilityScore: { type: Number, default: 0 },
+  priorityScore: { type: Number, default: 0 },
+  aiConfidence: { type: Number, default: 0 },
+
+  // Reports
+  linkedReports: [{ type: mongoose.Schema.Types.ObjectId, ref: 'WeatherReport' }],
+  reportCount: { type: Number, default: 1 },
+  uniqueSourceCount: { type: Number, default: 1 },
   sourceTypes: [{ type: String }],
-  firstReportedAt: {
-    type: Date,
-    required: true
+
+  // Evidence
+  evidence: {
+    imageCount: { type: Number, default: 0 },
+    videoCount: { type: Number, default: 0 }
   },
-  lastReportedAt: {
-    type: Date,
-    required: true
+
+  // Trend
+  trend: {
+    reportsLast15Min: { type: Number, default: 0 },
+    reportsLastHour: { type: Number, default: 0 },
+    reportsLast6Hours: { type: Number, default: 0 },
+    velocity: {
+      type: String,
+      enum: ['rapidly_increasing', 'increasing', 'stable', 'decreasing'],
+      default: 'stable'
+    },
+    surgeScore: { type: Number, default: 0 },
+    isEmerging: { type: Boolean, default: false }
   },
-  status: {
+
+  // Corroboration
+  corroboration: {
+    score: { type: Number, default: 0 },
+    level: { type: String, enum: ['Low', 'Medium', 'High'], default: 'Low' },
+    reasons: [{ type: String }]
+  },
+
+  verificationStatus: {
     type: String,
-    enum: ['active', 'resolved'],
-    default: 'active'
-  }
-}, {
-  timestamps: true
-});
+    enum: ['unverified', 'verified', 'rejected'],
+    default: 'unverified'
+  },
+
+  status: { type: String, enum: ['active', 'resolved'], default: 'active' },
+
+  firstReportedAt: { type: Date, required: true },
+  lastReportedAt: { type: Date, required: true }
+
+}, { timestamps: true });
 
 export default mongoose.model('WeatherEvent', WeatherEventSchema);
