@@ -1,6 +1,49 @@
 import { normalizeAndProcess } from '../services/normalizer.js';
 
 const templates = [
+  {
+  text: 'Heavy rain causing severe waterlogging in Nagpur',
+  event: 'flood'
+},
+
+{
+  text: 'Roads flooded near Nagpur railway station after continuous rainfall',
+  event: 'flood'
+},
+
+{
+  text: 'Water entering homes in low-lying areas of Nagpur',
+  event: 'flood'
+},
+
+{
+  text: 'Traffic disrupted as several roads remain submerged in Nagpur',
+  event: 'flood'
+},
+
+{
+  text: 'Citizens reporting severe waterlogging across parts of Nagpur',
+  event: 'flood'
+},
+
+{
+  text: 'Vehicles stranded due to flooding near Nagpur railway station',
+  event: 'flood'
+},
+
+{
+  text: 'Heavy rainfall has caused major waterlogging in Nagpur streets',
+  event: 'flood'
+},
+
+{
+  text: 'Several residential areas in Nagpur facing flooding after intense rain',
+  event: 'flood'
+},
+
+
+
+
   // Rainy / Flood
   { text: 'Heavy waterlogging reported near {city} railway station', event: 'flood' },
   { text: 'Continuous drizzle since morning in {city}', event: 'rainfall' },

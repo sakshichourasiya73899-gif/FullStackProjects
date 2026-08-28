@@ -43,18 +43,86 @@ const WeatherEventSchema = new mongoose.Schema({
   },
 
   // Trend
-  trend: {
-    reportsLast15Min: { type: Number, default: 0 },
-    reportsLastHour: { type: Number, default: 0 },
-    reportsLast6Hours: { type: Number, default: 0 },
-    velocity: {
-      type: String,
-      enum: ['rapidly_increasing', 'increasing', 'stable', 'decreasing'],
-      default: 'stable'
-    },
-    surgeScore: { type: Number, default: 0 },
-    isEmerging: { type: Boolean, default: false }
+   // Trend Analysis
+trend: {
+
+  // Report volume
+  reportsLast15Min: {
+    type: Number,
+    default: 0
   },
+
+  reportsLastHour: {
+    type: Number,
+    default: 0
+  },
+
+  reportsLast6Hours: {
+    type: Number,
+    default: 0
+  },
+
+  // Previous windows for comparison
+  reportsPrevious15Min: {
+    type: Number,
+    default: 0
+  },
+
+  reportsPreviousHour: {
+    type: Number,
+    default: 0
+  },
+
+  // How fast the event is growing
+  velocity: {
+    type: String,
+    enum: [
+      'rapidly_increasing',
+      'increasing',
+      'stable',
+      'decreasing'
+    ],
+    default: 'stable'
+  },
+
+  // Reports per minute
+  reportRate: {
+    type: Number,
+    default: 0
+  },
+
+  // Increase compared with previous period
+  growthPercentage: {
+    type: Number,
+    default: 0
+  },
+
+  // Overall surge indicator
+  surgeScore: {
+    type: Number,
+    min: 0,
+    max: 100,
+    default: 0
+  },
+
+  // Early-stage rapidly developing event
+  isEmerging: {
+    type: Boolean,
+    default: false
+  },
+
+  // Time when event was identified as emerging
+  emergingDetectedAt: {
+    type: Date,
+    default: null
+  },
+
+  // When trend was last calculated
+  lastCalculatedAt: {
+    type: Date,
+    default: null
+  }
+},
 
   // Corroboration
   corroboration: {
