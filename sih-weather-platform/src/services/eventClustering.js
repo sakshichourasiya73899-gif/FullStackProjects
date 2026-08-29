@@ -161,6 +161,201 @@
 //   return newEvent;
 // };
 
+// import WeatherEvent from '../models/WeatherEvent.js';
+// import WeatherReport from '../models/WeatherReport.js';
+// import { calculateDistanceKm } from '../utils/geoUtils.js';
+// import { computeCorroboration } from './corroborationScoring.js';
+// import { checkVelocity } from './velocityDetection.js';
+// import { computePriorityScore } from './priorityScoring.js';
+// import { generateEventSummary, generateEventTitle } from './summarizationService.js';
+
+// const TIME_WINDOW_HOURS = 6;
+// const DISTANCE_THRESHOLD_KM = 2;
+// const SEVERITY_RANK = { low: 1, medium: 2, high: 3 };
+
+// const EVENT_CATEGORY = {
+//   flood: 'hydrological',
+//   rainfall: 'meteorological',
+//   thunderstorm: 'meteorological',
+//   heatwave: 'climatological',
+//   fog: 'meteorological',
+//   dust_storm: 'meteorological',
+//   strong_wind: 'meteorological',
+//   wildfire: 'geophysical',
+//   drought: 'climatological',
+//   cyclone: 'meteorological',
+//   cold_wave: 'meteorological',
+//   other: 'meteorological'
+// };
+
+// export const findOrCreateEvent = async (report) => {
+//   const lat = report.location?.lat;
+//   const lng = report.location?.lng;
+//   const eventType = report.aiAnalysis?.eventType || report.eventType;
+//   const severity = report.aiAnalysis?.severity || report.severity;
+//   const sourceType = report.source?.type || report.sourceType;
+
+
+
+//   if (!lat || !lng) return null;
+
+//   const timeWindowStart = new Date(Date.now() - TIME_WINDOW_HOURS * 60 * 60 * 1000);
+
+//   const candidateEvents = await WeatherEvent.find({
+//     eventType,
+//     status: 'active',
+//     lastReportedAt: { $gte: timeWindowStart }
+//   });
+
+//   for (const event of candidateEvents) {
+//     const distance = calculateDistanceKm(lat, lng, event.location.lat, event.location.lng);
+
+//     if (distance <= DISTANCE_THRESHOLD_KM) {
+//       event.linkedReports.push(report._id);
+//       event.reportCount += 1;
+//       event.lastReportedAt = new Date();
+
+//       if (!event.sourceTypes.includes(sourceType)) {
+//         event.sourceTypes.push(sourceType);
+//       }
+//       event.uniqueSourceCount = new Set(event.sourceTypes).size;
+
+//       if (SEVERITY_RANK[severity] > SEVERITY_RANK[event.severity]) {
+//         event.severity = severity;
+//       }
+
+//       if (report.media?.length > 0) {
+//         event.evidence.imageCount += report.media.filter(m => m.type === 'image').length;
+//         event.evidence.videoCount += report.media.filter(m => m.type === 'video').length;
+//       }
+
+//       const corroboration = computeCorroboration(event.sourceTypes, event.reportCount);
+//       event.corroboration = corroboration;
+//       event.credibilityScore = corroboration.score;
+
+//       // velocity variable properly declare karo
+//       const velocity = await checkVelocity(event._id);
+
+//       event.trend = {
+//         reportsLast15Min: velocity.reportsLast15Min,
+//         reportsLastHour: velocity.reportsLastHour,
+//         reportsLast6Hours: velocity.reportsLast6Hours,
+//         velocity: velocity.velocity,
+//         surgeScore: velocity.score,
+//         isEmerging: velocity.isEmerging,
+//         growthPercentage: velocity.growthPercentage,
+//         lastCalculatedAt: new Date()
+//       };
+
+//       const priority = computePriorityScore({
+//         severity: event.severity,
+//         credibilityScore: event.credibilityScore,
+//         surgeScore: velocity.score,
+//         reportCount: event.reportCount,
+//         uniqueSourceCount: event.uniqueSourceCount,
+//         imageCount: event.evidence.imageCount,
+//         videoCount: event.evidence.videoCount,
+//         isEmerging: velocity.isEmerging
+//       });
+//       event.priorityScore = priority.score;
+
+//       if (event.reportCount % 5 === 0) {
+//         const recentReports = await WeatherReport.find({
+//           _id: { $in: event.linkedReports.slice(-10) }
+//         });
+//         const summary = await generateEventSummary(event, recentReports);
+//         if (summary) event.summary = summary;
+//       }
+       
+//       // Ye existing event update block mein add karo, event.save() se pehle:
+
+// // aiConfidence = average of all linked reports' confidence
+// const linkedReportDocs = await WeatherReport.find({
+//   _id: { $in: event.linkedReports }
+// }).select('aiAnalysis.eventConfidence');
+
+// const confidences = linkedReportDocs
+//   .map(r => r.aiAnalysis?.eventConfidence || 0)
+//   .filter(c => c > 0);
+
+// event.aiConfidence = confidences.length > 0
+//   ? Math.round((confidences.reduce((a, b) => a + b, 0) / confidences.length) * 100) / 100
+//   : 0;
+
+      
+
+
+//       await event.save();
+//       console.log(`[Clustering] Updated "${event.title}" → ${event.reportCount} reports | Priority: ${event.priorityScore} | ${velocity.isEmerging ? '⚡ EMERGING' : 'stable'}`);
+//       return event;
+//     }
+//   }
+
+//   // Naya event
+//   const corroboration = computeCorroboration([sourceType], 1);
+//   const title = generateEventTitle(eventType, report.location?.city);
+//   const priority = computePriorityScore({
+//     severity,
+//     credibilityScore: corroboration.score,
+//     surgeScore: 0,
+//     reportCount: 1,
+//     uniqueSourceCount: 1,
+//     imageCount: report.media?.filter(m => m.type === 'image').length || 0,
+//     videoCount: report.media?.filter(m => m.type === 'video').length || 0,
+//     isEmerging: false
+//   });
+
+//   // Pehle report se summary bhi banao
+//   const initialSummary = await generateEventSummary(
+//     { eventType, location: { city: report.location?.city } },
+//     [report]
+//   );
+
+//   const newEvent = new WeatherEvent({
+//     eventType,
+//     category: EVENT_CATEGORY[eventType] || 'meteorological',
+//     title,
+//     summary: initialSummary || null,
+//     location: {
+//       lat,
+//       lng,
+//       city: report.location?.city || null,
+//       state: report.location?.state || null
+//     },
+//     severity,
+//     linkedReports: [report._id],
+//     reportCount: 1,
+//     sourceTypes: [sourceType],
+//     uniqueSourceCount: 1,
+//     evidence: {
+//       imageCount: report.media?.filter(m => m.type === 'image').length || 0,
+//       videoCount: report.media?.filter(m => m.type === 'video').length || 0
+//     },
+//     corroboration,
+//     credibilityScore: corroboration.score,
+//     priorityScore: priority.score,
+//     trend: {
+//       reportsLast15Min: 0,
+//       reportsLastHour: 0,
+//       reportsLast6Hours: 0,
+//       velocity: 'stable',
+//       surgeScore: 0,
+//       isEmerging: false,
+//       growthPercentage: 0,
+//       lastCalculatedAt: new Date()
+//     },
+//      aiConfidence: report.aiAnalysis?.eventConfidence || 0,
+//     firstReportedAt: new Date(),
+//     lastReportedAt: new Date()
+//   });
+
+//   updateEventLifecycle(event);
+
+//   await newEvent.save();
+//   console.log(`[Clustering] New event: "${title}" | ${eventType} | Priority: ${priority.score}`);
+//   return newEvent;
+// };
+
 import WeatherEvent from '../models/WeatherEvent.js';
 import WeatherReport from '../models/WeatherReport.js';
 import { calculateDistanceKm } from '../utils/geoUtils.js';
@@ -188,6 +383,23 @@ const EVENT_CATEGORY = {
   other: 'meteorological'
 };
 
+// Same file mein define — import ki zarurat nahi
+const updateEventLifecycle = (event) => {
+  if (event.verificationStatus === 'verified') {
+    event.status = 'verified';
+  } else if (event.verificationStatus === 'rejected') {
+    event.status = 'rejected';
+  } else if (event.trend?.isEmerging) {
+    event.status = 'emerging';
+  } else if (event.priorityScore >= 70) {
+    event.status = 'high_priority';
+  } else if (event.reportCount >= 3) {
+    event.status = 'corroborating';
+  } else {
+    event.status = 'detected';
+  }
+};
+
 export const findOrCreateEvent = async (report) => {
   const lat = report.location?.lat;
   const lng = report.location?.lng;
@@ -195,15 +407,13 @@ export const findOrCreateEvent = async (report) => {
   const severity = report.aiAnalysis?.severity || report.severity;
   const sourceType = report.source?.type || report.sourceType;
 
-
-
   if (!lat || !lng) return null;
 
   const timeWindowStart = new Date(Date.now() - TIME_WINDOW_HOURS * 60 * 60 * 1000);
 
   const candidateEvents = await WeatherEvent.find({
     eventType,
-    status: 'active',
+    status: { $nin: ['resolved', 'rejected'] },
     lastReportedAt: { $gte: timeWindowStart }
   });
 
@@ -233,9 +443,7 @@ export const findOrCreateEvent = async (report) => {
       event.corroboration = corroboration;
       event.credibilityScore = corroboration.score;
 
-      // velocity variable properly declare karo
       const velocity = await checkVelocity(event._id);
-
       event.trend = {
         reportsLast15Min: velocity.reportsLast15Min,
         reportsLastHour: velocity.reportsLastHour,
@@ -259,39 +467,33 @@ export const findOrCreateEvent = async (report) => {
       });
       event.priorityScore = priority.score;
 
-      if (event.reportCount % 5 === 0) {
+      // aiConfidence — average of all linked reports
+      const reportDocs = await WeatherReport.find({
+        _id: { $in: event.linkedReports }
+      }).select('aiAnalysis.eventConfidence');
+      const confidences = reportDocs
+        .map(r => r.aiAnalysis?.eventConfidence || 0)
+        .filter(c => c > 0);
+      event.aiConfidence = confidences.length > 0
+        ? Math.round((confidences.reduce((a, b) => a + b, 0) / confidences.length) * 100) / 100
+        : 0;
+
+      updateEventLifecycle(event);
+
+      if (event.reportCount === 3 || event.reportCount % 5 === 0) {
         const recentReports = await WeatherReport.find({
-          _id: { $in: event.linkedReports.slice(-10) }
+          _id: { $in: event.linkedReports.slice(-8) }
         });
         const summary = await generateEventSummary(event, recentReports);
         if (summary) event.summary = summary;
       }
-       
-      // Ye existing event update block mein add karo, event.save() se pehle:
-
-// aiConfidence = average of all linked reports' confidence
-const linkedReportDocs = await WeatherReport.find({
-  _id: { $in: event.linkedReports }
-}).select('aiAnalysis.eventConfidence');
-
-const confidences = linkedReportDocs
-  .map(r => r.aiAnalysis?.eventConfidence || 0)
-  .filter(c => c > 0);
-
-event.aiConfidence = confidences.length > 0
-  ? Math.round((confidences.reduce((a, b) => a + b, 0) / confidences.length) * 100) / 100
-  : 0;
-
-      
-
 
       await event.save();
-      console.log(`[Clustering] Updated "${event.title}" → ${event.reportCount} reports | Priority: ${event.priorityScore} | ${velocity.isEmerging ? '⚡ EMERGING' : 'stable'}`);
+      console.log(`[Clustering] Updated "${event.title}" → ${event.reportCount} reports | Priority: ${event.priorityScore} | ${event.status} | ${velocity.isEmerging ? '⚡ EMERGING' : 'stable'}`);
       return event;
     }
   }
 
-  // Naya event
   const corroboration = computeCorroboration([sourceType], 1);
   const title = generateEventTitle(eventType, report.location?.city);
   const priority = computePriorityScore({
@@ -305,7 +507,6 @@ event.aiConfidence = confidences.length > 0
     isEmerging: false
   });
 
-  // Pehle report se summary bhi banao
   const initialSummary = await generateEventSummary(
     { eventType, location: { city: report.location?.city } },
     [report]
@@ -334,6 +535,7 @@ event.aiConfidence = confidences.length > 0
     corroboration,
     credibilityScore: corroboration.score,
     priorityScore: priority.score,
+    aiConfidence: report.aiAnalysis?.eventConfidence || 0,
     trend: {
       reportsLast15Min: 0,
       reportsLastHour: 0,
@@ -344,12 +546,11 @@ event.aiConfidence = confidences.length > 0
       growthPercentage: 0,
       lastCalculatedAt: new Date()
     },
-     aiConfidence: report.aiAnalysis?.eventConfidence || 0,
+    verificationStatus: 'unverified',
+    status: 'detected',
     firstReportedAt: new Date(),
     lastReportedAt: new Date()
   });
-
-  updateEventLifecycle(event);
 
   await newEvent.save();
   console.log(`[Clustering] New event: "${title}" | ${eventType} | Priority: ${priority.score}`);
