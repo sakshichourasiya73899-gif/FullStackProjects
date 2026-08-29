@@ -35,29 +35,187 @@
 #         print(f"[relevance_filter] Groq API error: {e}")
 #         return True  # error pe default include karo
 
-from groq import Groq
+# from groq import Groq
+# import os
+
+# client = Groq(
+#     api_key=os.environ.get("GROQ_API_KEY")
+# )
+
+# SYSTEM_PROMPT = """
+# You are the first-stage relevance filter for an AI-powered
+# National Weather and Disaster Ground Intelligence Platform in India.
+
+# Your job is to determine whether a text report contains potentially
+# useful real-world information about:
+
+# 1. A weather event
+# 2. A natural hazard
+# 3. The impact of such an event on people, infrastructure, environment,
+#    transportation, agriculture, or daily life
+# 4. A possible emerging disaster situation
+
+# Answer ONLY with YES or NO.
+
+# Return YES when the text describes or provides evidence of:
+
+# - Heavy rain or extreme rainfall
+# - Flooding or waterlogging
+# - Cyclones or severe storms
+# - Strong winds or thunderstorms
+# - Heatwaves or extreme temperatures
+# - Drought or water scarcity
+# - Fog affecting visibility or transportation
+# - Landslides
+# - Wildfires or forest fires
+# - Earthquakes
+# - Snowfall, avalanches, or cold waves
+# - Lightning incidents
+# - Weather-related damage
+# - Roads or bridges blocked due to natural events
+# - Homes, buildings, crops, or infrastructure damaged
+# - Power outages caused by severe weather
+# - School closures or transportation disruption caused by weather
+# - People displaced or stranded due to natural hazards
+# - Unusual environmental conditions that may indicate a developing event
+
+# IMPORTANT:
+# Do not require exact disaster keywords.
+
+# For example:
+
+# "Water has entered several homes in Guwahati"
+# → YES
+
+# "Roads near the railway station are completely submerged"
+# → YES
+
+# "Thousands of people are without electricity after strong winds"
+# → YES
+
+# "Farmers are reporting severe crop damage because there has been no rain"
+# → YES
+
+# Return NO when the text is unrelated to weather, natural hazards,
+# environmental disasters, or their real-world impact.
+
+# Examples:
+
+# "The cricket match was cancelled because of poor performance"
+# → NO
+
+# "Political leaders discussed the state budget"
+# → NO
+
+# "A car accident blocked the highway"
+# → NO
+
+# "The company reported higher profits this quarter"
+# → NO
+
+# If the text contains a possible real-world weather or disaster signal,
+# prefer YES because later stages of the system will classify and verify it.
+
+# Answer ONLY with exactly:
+# YES
+# or
+# NO
+# """
+
+
+# def is_weather_relevant(text: str) -> bool:
+#     try:
+#         response = client.chat.completions.create(
+#             model="groq/compound-mini",
+#             messages=[
+#                 {
+#                     "role": "system",
+#                     "content": SYSTEM_PROMPT
+#                 },
+#                 {
+#                     "role": "user",
+#                     "content": text
+#                 }
+#             ],
+#             max_tokens=5,
+#             temperature=0
+#         )
+
+#         answer = (
+#             response.choices[0]
+#             .message.content
+#             .strip()
+#             .upper()
+#         )
+
+#         return answer == "YES"
+
+#     except Exception as e:
+#         print(f"[relevance_filter] Groq API error: {e}")
+
+#         # Better to keep the report rather than lose
+#         # potentially important disaster information
+#         return True
+
+
+
 import os
 
-client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY")
-)
+# Multiple Groq keys — ek limit ho toh dusra use karo
+GROQ_KEYS = [
+    os.environ.get("GROQ_API_KEY_1"),
+    os.environ.get("GROQ_API_KEY_2"),
+    os.environ.get("GROQ_API_KEY_3"),
+    os.environ.get("GROQ_API_KEY"),  # backward compatibility
+]
+GROQ_KEYS = [k for k in GROQ_KEYS if k]  # None values hata do
+
+current_key_index = 0
+
+def get_groq_client():
+    from groq import Groq
+    global current_key_index
+    if not GROQ_KEYS:
+        return None
+    return Groq(api_key=GROQ_KEYS[current_key_index % len(GROQ_KEYS)])
+
+def rotate_key():
+    global current_key_index
+    current_key_index += 1
+    print(f"[Groq] Rotating to key index {current_key_index % max(len(GROQ_KEYS), 1)}")
+
+# Fast keyword check — Groq call bachata hai (majority cases yahi handle ho jaate hain)
+DEFINITE_WEATHER = [
+    'flood', 'rain', 'storm', 'cyclone', 'drought', 'heatwave',
+    'earthquake', 'landslide', 'wildfire', 'forest fire', 'cold wave',
+    'snowfall', 'waterlogging', 'fog', 'dust storm', 'lightning',
+    'thunder', 'evacuation', 'relief camp', 'rescue', 'displaced',
+    'imd', 'submerged', 'inundated', 'cloudburst', 'avalanche',
+    'water entered', 'road blocked', 'power outage', 'crop damage',
+    'school closed', 'stranded', 'rooftop', 'relief', 'flooding'
+]
+
+DEFINITE_NOT_WEATHER = [
+    'stock market', 'sensex', 'nifty', 'ipo', 'bollywood',
+    'cricket score', 'ipl match', 'box office', 'election result',
+    'murder case', 'court verdict', 'startup funding', 'quarterly results'
+]
 
 SYSTEM_PROMPT = """
-You are the first-stage relevance filter for an AI-powered
+ You are the first-stage relevance filter for an AI-powered
 National Weather and Disaster Ground Intelligence Platform in India.
 
 Your job is to determine whether a text report contains potentially
-useful real-world information about:
+ useful real-world information about:
 
 1. A weather event
-2. A natural hazard
+ 2. A natural hazard
 3. The impact of such an event on people, infrastructure, environment,
    transportation, agriculture, or daily life
-4. A possible emerging disaster situation
+ 4. A possible emerging disaster situation
 
 Answer ONLY with YES or NO.
-
-Return YES when the text describes or provides evidence of:
+ Return YES when the text describes or provides evidence of:
 
 - Heavy rain or extreme rainfall
 - Flooding or waterlogging
@@ -73,86 +231,98 @@ Return YES when the text describes or provides evidence of:
 - Lightning incidents
 - Weather-related damage
 - Roads or bridges blocked due to natural events
-- Homes, buildings, crops, or infrastructure damaged
-- Power outages caused by severe weather
-- School closures or transportation disruption caused by weather
-- People displaced or stranded due to natural hazards
+ - Homes, buildings, crops, or infrastructure damaged
+ - Power outages caused by severe weather
+ - School closures or transportation disruption caused by weather
+ - People displaced or stranded due to natural hazards
 - Unusual environmental conditions that may indicate a developing event
 
-IMPORTANT:
-Do not require exact disaster keywords.
+ IMPORTANT:
+ Do not require exact disaster keywords.
 
-For example:
+ For example:
 
-"Water has entered several homes in Guwahati"
+ "Water has entered several homes in Guwahati"
 → YES
+ "Roads near the railway station are completely submerged"
+ → YES
 
-"Roads near the railway station are completely submerged"
-→ YES
-
-"Thousands of people are without electricity after strong winds"
-→ YES
+ "Thousands of people are without electricity after strong winds"
+ → YES
 
 "Farmers are reporting severe crop damage because there has been no rain"
-→ YES
+ → YES
 
 Return NO when the text is unrelated to weather, natural hazards,
-environmental disasters, or their real-world impact.
+ environmental disasters, or their real-world impact.
 
 Examples:
 
-"The cricket match was cancelled because of poor performance"
-→ NO
+ "The cricket match was cancelled because of poor performance"
+ → NO
 
-"Political leaders discussed the state budget"
-→ NO
+ "Political leaders discussed the state budget"
+ → NO
 
 "A car accident blocked the highway"
-→ NO
+ → NO
 
 "The company reported higher profits this quarter"
-→ NO
+ → NO
 
 If the text contains a possible real-world weather or disaster signal,
 prefer YES because later stages of the system will classify and verify it.
 
-Answer ONLY with exactly:
+ Answer ONLY with exactly:
 YES
-or
-NO
+ or
+ NO
 """
 
-
 def is_weather_relevant(text: str) -> bool:
-    try:
-        response = client.chat.completions.create(
-            model="groq/compound-mini",
-            messages=[
-                {
-                    "role": "system",
-                    "content": SYSTEM_PROMPT
-                },
-                {
-                    "role": "user",
-                    "content": text
-                }
-            ],
-            max_tokens=5,
-            temperature=0
-        )
+    text_lower = text.lower()
 
-        answer = (
-            response.choices[0]
-            .message.content
-            .strip()
-            .upper()
-        )
-
-        return answer == "YES"
-
-    except Exception as e:
-        print(f"[relevance_filter] Groq API error: {e}")
-
-        # Better to keep the report rather than lose
-        # potentially important disaster information
+    # Definite weather — Groq call ki zarurat nahi
+    if any(kw in text_lower for kw in DEFINITE_WEATHER):
         return True
+
+    # Definite not weather — Groq call ki zarurat nahi
+    if any(kw in text_lower for kw in DEFINITE_NOT_WEATHER):
+        return False
+
+    # Unclear cases — Groq use karo
+    return _groq_classify(text)
+
+def _groq_classify(text: str) -> bool:
+    if not GROQ_KEYS:
+        return True
+
+    for attempt in range(len(GROQ_KEYS)):
+        try:
+            client = get_groq_client()
+            response = client.chat.completions.create(
+                model="llama3-8b-8192",  # compound-mini exist nahi karta, ye use karo
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You filter content for a weather disaster monitoring system in India. Answer only YES or NO. Prefer YES when unsure — missing a disaster is worse than a false positive."
+                    },
+                    {
+                        "role": "user",
+                        "content": f"Is this about weather, natural disaster, or impact on people in India?\n\n{text[:400]}\n\nYES or NO:"
+                    }
+                ],
+                max_tokens=3,
+                temperature=0
+            )
+            answer = response.choices[0].message.content.strip().upper()
+            return "YES" in answer
+        except Exception as e:
+            error_str = str(e)
+            if "rate_limit" in error_str or "429" in error_str or "quota" in error_str:
+                rotate_key()
+                continue
+            print(f"[Groq relevance] Error: {e}")
+            return True
+
+    return True  # all keys exhausted — include by default

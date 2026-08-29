@@ -170,10 +170,23 @@ const WeatherReportSchema = new mongoose.Schema({
   },
 
   location: {
-    lat: { type: Number },
-    lng: { type: Number },
     city: { type: String },
-    state: { type: String },
+  state: { type: String },
+
+  lat: { type: Number, required: true },
+  lng: { type: Number, required: true },
+
+  coordinates: {
+    type: {
+      type: String,
+      enum: ['Point'],
+      default: 'Point'
+    },
+    coordinates: {
+      type: [Number],
+      required: true
+    }
+  },
     resolved: { type: Boolean, default: false },
     confidence: { type: Number, default: 0 }
   },

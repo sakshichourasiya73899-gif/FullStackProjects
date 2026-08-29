@@ -35,19 +35,16 @@ def compute_severity(event_type: str, text: str):
     text_lower = text.lower()
     score = EVENT_BASE_SEVERITY.get(event_type, 1)
 
-    # High intensity words — score zyada badhate hain
     for word in HIGH_WORDS:
         if word in text_lower:
             score += 2
             break
 
-    # Medium intensity words
     for word in MEDIUM_WORDS:
         if word in text_lower:
             score += 1
             break
 
-    # Low intensity words — score kam karte hain
     for word in LOW_WORDS:
         if word in text_lower:
             score = max(1, score - 1)
@@ -61,11 +58,9 @@ def compute_severity(event_type: str, text: str):
         return "low"
 
 def compute_severity_with_confidence(event_type: str, text: str):
-    """Returns severity + confidence score"""
     text_lower = text.lower()
     severity = compute_severity(event_type, text)
 
-    # Confidence: kitne strong signals mile
     high_matches = sum(1 for w in HIGH_WORDS if w in text_lower)
     medium_matches = sum(1 for w in MEDIUM_WORDS if w in text_lower)
 

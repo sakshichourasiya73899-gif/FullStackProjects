@@ -137,11 +137,21 @@ trend: {
     default: 'unverified'
   },
 
-  status: { type: String, enum: ['active', 'resolved'], default: 'active' },
+  // status field update karo:
+status: {
+  type: String,
+  enum: ['detected', 'corroborating', 'emerging', 'high_priority', 'under_review', 'verified', 'rejected', 'resolved'],
+  default: 'detected'
+},
 
   firstReportedAt: { type: Date, required: true },
   lastReportedAt: { type: Date, required: true }
 
 }, { timestamps: true });
+
+
+WeatherEventSchema.index({ 'location.coordinates': '2dsphere' });
+WeatherEventSchema.index({ status: 1, priorityScore: -1 });
+WeatherEventSchema.index({ eventType: 1, lastReportedAt: -1 });
 
 export default mongoose.model('WeatherEvent', WeatherEventSchema);

@@ -2,16 +2,78 @@ import Parser from 'rss-parser';
 import cron from 'node-cron';
 import { normalizeAndProcess } from '../services/normalizer.js';
 
+
+
+// Custom fields add karo media capture ke liye
 const parser = new Parser({
   customFields: {
-    item: [['media:content', 'media:content']]
+    item: [
+      ['media:content', 'mediaContent', { keepArray: true }],
+      ['media:thumbnail', 'mediaThumbnail'],
+      ['enclosure', 'enclosure'],
+      ['content:encoded', 'contentEncoded']
+    ]
   }
 });
 
+const extractMedia = (item) => {
+  const media = [];
+
+  // Method 1: media:content tag (most RSS feeds use this)
+  if (item.mediaContent) {
+    const contents = Array.isArray(item.mediaContent) ? item.mediaContent : [item.mediaContent];
+    for (const mc of contents) {
+      const url = mc?.$ ?.url || mc?.url;
+      const type = mc?.$ ?.medium || mc?.medium || 'image';
+      if (url) {
+        media.push({
+          url,
+          type: type === 'video' ? 'video' : 'image',
+          thumbnailUrl: url
+        });
+      }
+    }
+  }
+
+  // Method 2: enclosure (podcast/attachment style)
+  if (item.enclosure?.url && media.length === 0) {
+    const isVideo = item.enclosure.type?.includes('video');
+    media.push({
+      url: item.enclosure.url,
+      type: isVideo ? 'video' : 'image',
+      thumbnailUrl: item.enclosure.url
+    });
+  }
+
+  // Method 3: media:thumbnail
+  if (item.mediaThumbnail && media.length === 0) {
+    const url = item.mediaThumbnail?.$ ?.url || item.mediaThumbnail?.url;
+    if (url) media.push({ url, type: 'image', thumbnailUrl: url });
+  }
+
+  // Method 4: img tag in content:encoded or content
+  if (media.length === 0) {
+    const content = item.contentEncoded || item.content || '';
+    const imgMatches = content.matchAll(/<img[^>]+src=["']([^"']+)["']/gi);
+    for (const match of imgMatches) {
+      if (match[1] && !match[1].includes('pixel') && !match[1].includes('tracking')) {
+        media.push({ url: match[1], type: 'image', thumbnailUrl: match[1] });
+        break; // sirf pehla relevant image lo
+      }
+    }
+  }
+
+  return media.slice(0, 3); // max 3 media items per report
+};
 const RSS_FEEDS = [
   { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms', name: 'TOI India' },
   { url: 'https://feeds.feedburner.com/ndtvnews-top-stories', name: 'NDTV Top Stories' },
-  { url: 'https://indianexpress.com/feed/', name: 'Indian Express' }
+  { url: 'https://indianexpress.com/feed/', name: 'Indian Express' },
+  { url: 'https://www.thehindu.com/news/national/feeder/default.rss', name: 'The Hindu National' },
+  { url: 'https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml', name: 'Hindustan Times' },
+  { url: 'https://timesofindia.indiatimes.com/rssfeeds/913168846.cms', name: 'TOI Climate' },
+  { url: 'https://www.downtoearth.org.in/rss/news', name: 'Down To Earth' },
+  { url: 'https://weather.com/en-IN/weather/news/rss', name: 'Weather.com India' }
 ];
 
 const RELEVANT_KEYWORDS = [

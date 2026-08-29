@@ -1,22 +1,18 @@
-const SOURCE_RELIABILITY = {
-  weather_api: 100,
-  news_rss: 80,
-  citizen: 60,
-  social_mock: 40
-};
-
 export const computeCorroboration = (sourceTypes, reportCount) => {
   let score = 0;
   const reasons = [];
 
-  if (reportCount >= 5) {
+  if (reportCount >= 10) {
     score += 40;
     reasons.push(`${reportCount} independent reports confirm this event`);
-  } else if (reportCount >= 3) {
-    score += 25;
+  } else if (reportCount >= 5) {
+    score += 30;
     reasons.push(`${reportCount} reports confirm this event`);
+  } else if (reportCount >= 3) {
+    score += 20;
+    reasons.push(`${reportCount} reports received`);
   } else if (reportCount >= 2) {
-    score += 15;
+    score += 10;
     reasons.push(`${reportCount} reports received`);
   } else {
     score += 5;
@@ -26,7 +22,7 @@ export const computeCorroboration = (sourceTypes, reportCount) => {
   const uniqueSources = [...new Set(sourceTypes)];
   if (uniqueSources.length >= 3) {
     score += 40;
-    reasons.push(`Confirmed by ${uniqueSources.length} source types: ${uniqueSources.join(', ')}`);
+    reasons.push(`Confirmed by ${uniqueSources.length} independent source types: ${uniqueSources.join(', ')}`);
   } else if (uniqueSources.length === 2) {
     score += 25;
     reasons.push(`Confirmed by 2 source types: ${uniqueSources.join(', ')}`);
@@ -38,6 +34,11 @@ export const computeCorroboration = (sourceTypes, reportCount) => {
   if (sourceTypes.includes('weather_api')) {
     score += 20;
     reasons.push('Official weather API data supports this event');
+  }
+
+  if (sourceTypes.includes('news_rss')) {
+    score += 10;
+    reasons.push('News media has reported on this event');
   }
 
   const finalScore = Math.min(100, score);
