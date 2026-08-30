@@ -1,94 +1,6 @@
-import { useState } from 'react'
-
-const evidenceItems = [
-  {
-    id: 1,
-    title: 'SW Tarrant County',
-    type: 'image',
-    confidence: 96,
-    time: '14:22 IST',
-    event: 'Severe Thunderstorm',
-    location: 'SW Tarrant County (32.7°N, 97.4°W)',
-    threat: 'HIGH THREAT',
-    source: 'Twitter API (Verified)',
-    mediaType: 'Image (JPEG)',
-    analysis: 'Distinct supercell structure with well-defined mesocyclone and wall cloud lowering. Pronounced dark, green-tinted core indicating significant hail content. No visible funnel cloud at time of capture. EXIF data confirmed; no digital manipulation detected.',
-    span: 'col-span-2 row-span-2',
-    bgColor: 'bg-gradient-to-br from-slate-700 to-slate-900',
-    featured: true,
-  },
-  {
-    id: 2,
-    title: 'Main & 5th Flooding',
-    type: 'video',
-    confidence: 88,
-    time: '13:45 IST',
-    event: 'Flash Flooding',
-    location: 'Downtown District',
-    threat: 'MODERATE',
-    source: 'Security Camera',
-    mediaType: 'Video (MP4)',
-    analysis: 'CCTV footage confirms rapid water rise at intersection. Vehicles partially submerged. Estimated water depth 1.2m based on visual markers.',
-    span: 'col-span-1 row-span-1',
-    bgColor: 'bg-gradient-to-br from-blue-800 to-blue-950',
-  },
-  {
-    id: 3,
-    title: 'North Austin Hail Report',
-    type: 'text',
-    confidence: 75,
-    time: '14:05 IST',
-    text: '"Hail the size of golf balls just started hitting our roof in North Austin. Cars are getting dented out here. Wind is picking up fast."',
-    event: 'Severe Thunderstorm',
-    location: 'North Austin, TX',
-    threat: 'MODERATE',
-    source: '@txweatherwatcher',
-    mediaType: 'Text',
-    analysis: 'Citizen report correlates with NEXRAD reflectivity data showing large hail signatures. Cross-referenced with 3 similar reports from same area.',
-    span: 'col-span-1 row-span-1',
-    bgColor: '',
-    isText: true,
-  },
-  {
-    id: 4,
-    title: 'North Austin',
-    type: 'image',
-    confidence: 91,
-    time: '14:10 IST',
-    event: 'Hailstorm',
-    location: 'North Austin, TX',
-    threat: 'HIGH THREAT',
-    source: 'Citizen Upload',
-    mediaType: 'Image (JPEG)',
-    analysis: 'Hailstones measurement confirmed at 4.5cm diameter. Multiple impact points visible on vehicle surfaces.',
-    span: 'col-span-1 row-span-1',
-    bgColor: 'bg-gradient-to-br from-gray-600 to-gray-800',
-  },
-  {
-    id: 5,
-    title: 'NEXRAD Overlay',
-    type: 'image',
-    confidence: 99,
-    time: '14:20 IST',
-    event: 'Severe Thunderstorm',
-    location: 'Central Texas Region',
-    threat: 'EXTREME',
-    source: 'NEXRAD System',
-    mediaType: 'Image (PNG)',
-    analysis: 'Maximum reflectivity exceeding 65 dBZ with rotation signature detected. Hail core confirmed with satellite correlation.',
-    span: 'col-span-1 row-span-1',
-    bgColor: 'bg-gradient-to-br from-purple-900 to-indigo-950',
-  },
-]
-
-const eventTypes = [
-  { label: 'Severe Thunderstorm', checked: true },
-  { label: 'Flash Flooding', checked: true },
-  { label: 'Tornado Warning', checked: false },
-  { label: 'Winter Storm', checked: false },
-]
-
-const mediaTypes = ['Image', 'Video', 'Text/News']
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { getActiveEvents, getEventReports, formatEventType, formatLocation, formatTimeAgo, getSafeSummary, getSourceTypeIcon } from '../services/api'
 
 function getConfBadgeStyle(conf) {
   if (conf >= 95) return 'bg-error text-on-error border-error'
@@ -96,30 +8,87 @@ function getConfBadgeStyle(conf) {
   return 'bg-surface-container-high text-on-surface border-outline-variant'
 }
 
-function getTypeIcon(type) {
-  switch (type) {
-    case 'image': return 'image'
-    case 'video': return 'videocam'
-    case 'text': return 'article'
-    default: return 'image'
+function getTypeIcon(sourceType) {
+  switch (sourceType) {
+    case 'news_rss': return 'newspaper'
+    case 'social_mock': return 'forum'
+    case 'weather_api': return 'api'
+    case 'citizen': return 'groups'
+    case 'satellite': return 'satellite_alt'
+    default: return 'article'
   }
 }
 
-export default function EvidencePage() {
-  const [selectedItem, setSelectedItem] = useState(evidenceItems[0])
-  const [filters, setFilters] = useState({
-    eventTypes: eventTypes.map(e => ({ ...e })),
-    credibility: 70,
-    activeMedia: 'Image',
-  })
+const mediaTypes = ['All', 'Text', 'Image', 'Video']
 
-  const toggleEventType = (index) => {
-    setFilters(prev => {
-      const newTypes = [...prev.eventTypes]
-      newTypes[index] = { ...newTypes[index], checked: !newTypes[index].checked }
-      return { ...prev, eventTypes: newTypes }
-    })
-  }
+export default function EvidencePage() {
+  const [searchParams] = useSearchParams()
+  const initialEventId = searchParams.get('eventId')
+
+  const [events, setEvents] = useState([])
+  const [selectedEvent, setSelectedEvent] = useState(null)
+  const [reports, setReports] = useState([])
+  const [selectedReport, setSelectedReport] = useState(null)
+  const [loadingEvents, setLoadingEvents] = useState(true)
+  const [loadingReports, setLoadingReports] = useState(false)
+  const [error, setError] = useState(null)
+  const [credibilityFilter, setCredibilityFilter] = useState(0)
+  const [activeMedia, setActiveMedia] = useState('All')
+
+  // Load events list
+  useEffect(() => {
+    async function load() {
+      try {
+        setLoadingEvents(true)
+        setError(null)
+        const eventsData = await getActiveEvents({ limit: 50 })
+        setEvents(eventsData)
+        if (eventsData.length > 0) {
+          if (initialEventId) {
+            const ev = eventsData.find(e => e._id === initialEventId)
+            setSelectedEvent(ev || eventsData[0])
+          } else {
+            setSelectedEvent(eventsData[0])
+          }
+        }
+      } catch (err) {
+        console.error('[Evidence] Failed to load events:', err)
+        setError('Unable to load evidence data. Please try again.')
+      } finally {
+        setLoadingEvents(false)
+      }
+    }
+    load()
+  }, [])
+
+  // Load reports when event is selected
+  useEffect(() => {
+    if (!selectedEvent) return
+    async function loadReports() {
+      try {
+        setLoadingReports(true)
+        setSelectedReport(null)
+        const reportsData = await getEventReports(selectedEvent._id)
+        setReports(reportsData)
+        if (reportsData.length > 0) setSelectedReport(reportsData[0])
+      } catch (err) {
+        console.error('[Evidence] Failed to load reports:', err)
+        setReports([])
+      } finally {
+        setLoadingReports(false)
+      }
+    }
+    loadReports()
+  }, [selectedEvent])
+
+  const filteredReports = reports.filter(r => {
+    const credScore = r.credibility?.score ?? 0
+    if (credScore < credibilityFilter) return false
+    if (activeMedia === 'Image' && !(r.media?.some(m => m.type === 'image'))) return false
+    if (activeMedia === 'Video' && !(r.media?.some(m => m.type === 'video'))) return false
+    if (activeMedia === 'Text' && r.media?.length > 0) return false
+    return true
+  })
 
   return (
     <div className="flex-1 flex overflow-hidden h-full">
@@ -130,25 +99,39 @@ export default function EvidencePage() {
             <span className="material-symbols-outlined text-xl">filter_alt</span>
             Filters
           </h2>
-          <button className="text-primary font-semibold text-xs uppercase tracking-widest hover:underline">RESET</button>
+          <button
+            className="text-primary font-semibold text-xs uppercase tracking-widest hover:underline"
+            onClick={() => { setCredibilityFilter(0); setActiveMedia('All') }}
+          >
+            RESET
+          </button>
         </div>
         <div className="p-4 space-y-6">
-          {/* Event Type */}
+          {/* Active Event Filter */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-widest text-on-surface-variant mb-3">EVENT TYPE</h3>
-            <div className="space-y-2">
-              {filters.eventTypes.map((item, index) => (
-                <label key={item.label} className="flex items-center gap-2 text-sm cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    checked={item.checked}
-                    onChange={() => toggleEventType(index)}
-                    className="rounded-sm border-outline text-primary focus:ring-primary w-4 h-4 accent-primary"
-                  />
-                  <span className="group-hover:text-primary transition-colors text-on-surface">{item.label}</span>
-                </label>
-              ))}
-            </div>
+            <h3 className="font-semibold text-xs uppercase tracking-widest text-on-surface-variant mb-3">ACTIVE EVENT</h3>
+            {loadingEvents ? (
+              <div className="space-y-2">
+                {[0, 1, 2].map(i => <div key={i} className="h-8 bg-surface-variant rounded animate-pulse" />)}
+              </div>
+            ) : (
+              <div className="space-y-1 max-h-48 overflow-y-auto">
+                {events.map(event => (
+                  <button
+                    key={event._id}
+                    onClick={() => setSelectedEvent(event)}
+                    className={`w-full text-left px-3 py-2 rounded text-xs transition-colors ${
+                      selectedEvent?._id === event._id
+                        ? 'bg-primary text-on-primary font-semibold'
+                        : 'text-on-surface hover:bg-surface-container-low'
+                    }`}
+                  >
+                    <div className="font-semibold truncate">{event.title || formatEventType(event.eventType)}</div>
+                    <div className="text-[10px] opacity-70 mt-0.5">{formatLocation(event.location)} · {event.reportCount} reports</div>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Credibility */}
@@ -156,16 +139,13 @@ export default function EvidencePage() {
             <h3 className="font-semibold text-xs uppercase tracking-widest text-on-surface-variant mb-3">CREDIBILITY SCORE</h3>
             <div className="px-2">
               <input
-                type="range"
-                min="0"
-                max="100"
-                value={filters.credibility}
-                onChange={(e) => setFilters(prev => ({ ...prev, credibility: parseInt(e.target.value) }))}
+                type="range" min="0" max="100" value={credibilityFilter}
+                onChange={(e) => setCredibilityFilter(parseInt(e.target.value))}
                 className="w-full h-1 bg-surface-variant rounded-sm appearance-none cursor-pointer accent-primary"
               />
               <div className="flex justify-between font-mono text-xs text-on-surface-variant mt-2">
                 <span>0</span>
-                <span>&gt; {filters.credibility}</span>
+                <span>&gt; {credibilityFilter}</span>
                 <span>100</span>
               </div>
             </div>
@@ -178,9 +158,9 @@ export default function EvidencePage() {
               {mediaTypes.map((type) => (
                 <button
                   key={type}
-                  onClick={() => setFilters(prev => ({ ...prev, activeMedia: type }))}
+                  onClick={() => setActiveMedia(type)}
                   className={`px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider border flex items-center gap-1 transition-colors ${
-                    filters.activeMedia === type
+                    activeMedia === type
                       ? 'bg-primary text-on-primary border-primary'
                       : 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container-low'
                   }`}
@@ -196,114 +176,146 @@ export default function EvidencePage() {
         </div>
       </aside>
 
-      {/* Evidence Grid */}
+      {/* Reports Grid */}
       <section className="flex-1 p-6 overflow-y-auto bg-surface-container-lowest relative">
         <div className="flex justify-between items-end mb-6 border-b border-outline-variant pb-4">
           <div>
-            <h2 className="text-2xl font-bold text-on-surface mb-1">Recent Submissions</h2>
-            <p className="text-sm text-on-surface-variant">Displaying 142 items matching current filters from the past 24 hours.</p>
-          </div>
-          <div className="flex gap-2">
-            <button className="px-3 py-1.5 border border-outline-variant rounded bg-surface-container-lowest text-on-surface font-semibold text-xs uppercase tracking-wider flex items-center gap-1 hover:bg-surface-container-low">
-              <span className="material-symbols-outlined text-base">sort</span>
-              Newest First
-            </button>
+            <h2 className="text-2xl font-bold text-on-surface mb-1">
+              {selectedEvent ? (selectedEvent.title || formatEventType(selectedEvent.eventType)) : 'Evidence Center'}
+            </h2>
+            <p className="text-sm text-on-surface-variant">
+              {loadingReports
+                ? 'Loading reports...'
+                : `${filteredReports.length} report${filteredReports.length !== 1 ? 's' : ''} for this event`}
+            </p>
           </div>
         </div>
 
+        {error && (
+          <div className="bg-error/10 border border-error text-error rounded p-4 text-sm mb-4 flex items-center gap-2">
+            <span className="material-symbols-outlined">error</span>
+            {error}
+          </div>
+        )}
+
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 auto-rows-[160px]">
-          {evidenceItems.map((item) => (
-            <div
-              key={item.id}
-              className={`${item.span} rounded overflow-hidden relative cursor-pointer group transition-all duration-200 ${
-                selectedItem?.id === item.id
-                  ? 'border-2 border-primary shadow-sm'
-                  : 'border border-outline-variant hover:border-primary'
-              } ${item.isText ? 'bg-surface-container-lowest flex flex-col' : ''}`}
-              onClick={() => setSelectedItem(item)}
-            >
-              {item.isText ? (
-                /* Text Item */
-                <div className="p-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between items-start mb-2">
-                      <span className="px-2 py-0.5 bg-surface-variant text-on-surface-variant font-mono text-[10px] rounded border border-outline-variant">TEXT</span>
-                      <span className="px-2 py-0.5 bg-surface-container-high text-on-surface font-mono text-[10px] rounded border border-outline-variant">{item.confidence}% CONF</span>
+        {loadingReports ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 auto-rows-[160px]">
+            {[0, 1, 2, 3, 4, 5].map(i => (
+              <div key={i} className="rounded border border-outline-variant bg-surface-variant animate-pulse" />
+            ))}
+          </div>
+        ) : filteredReports.length === 0 ? (
+          <div className="text-center py-20 text-on-surface-variant">
+            <span className="material-symbols-outlined text-5xl mb-3 block">folder_open</span>
+            <p className="font-semibold">No reports match the current filters.</p>
+            <p className="text-sm mt-1">Try adjusting the credibility threshold or media type filter.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 auto-rows-[160px]">
+            {filteredReports.map((report) => {
+              const credScore = report.credibility?.score ?? 0
+              const hasMedia = report.media && report.media.length > 0
+              return (
+                <div
+                  key={report._id}
+                  className={`rounded overflow-hidden relative cursor-pointer group transition-all duration-200 flex flex-col bg-surface-container-lowest ${
+                    selectedReport?._id === report._id
+                      ? 'border-2 border-primary shadow-sm'
+                      : 'border border-outline-variant hover:border-primary'
+                  }`}
+                  onClick={() => setSelectedReport(report)}
+                >
+                  {hasMedia ? (
+                    <>
+                      <div className="w-full h-full bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
+                        <span className="material-symbols-outlined text-white/20 text-5xl">
+                          {report.media[0]?.type === 'video' ? 'videocam' : 'image'}
+                        </span>
+                      </div>
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10 pointer-events-none"></div>
+                      <div className="absolute top-2 left-2 z-20 flex gap-1">
+                        <span className={`px-2 py-0.5 font-mono text-[10px] rounded border ${getConfBadgeStyle(credScore)}`}>
+                          {credScore}% CONF
+                        </span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/90 to-transparent z-20">
+                        <p className="font-semibold text-xs uppercase tracking-wider text-white truncate">
+                          {formatEventType(report.aiAnalysis?.eventType || report.sourceType)}
+                        </p>
+                        <p className="font-mono text-[9px] text-white/70">{formatTimeAgo(report.time?.reportedAt)}</p>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="p-3 flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <span className="px-2 py-0.5 bg-surface-variant text-on-surface-variant font-mono text-[10px] rounded border border-outline-variant uppercase">
+                            {report.sourceType?.replace('_', ' ') || 'TEXT'}
+                          </span>
+                          <span className="px-2 py-0.5 bg-surface-container-high text-on-surface font-mono text-[10px] rounded border border-outline-variant">
+                            {credScore}% CONF
+                          </span>
+                        </div>
+                        <p className="text-xs text-on-surface line-clamp-3">{report.text || '—'}</p>
+                      </div>
+                      <div className="mt-2 border-t border-outline-variant/50 pt-2 flex justify-between items-center">
+                        <p className="font-mono text-[9px] text-on-surface-variant">{report.source?.sourceName || report.source?.platform || report.sourceType}</p>
+                        <p className="font-mono text-[9px] text-on-surface-variant">{formatTimeAgo(report.time?.reportedAt)}</p>
+                      </div>
                     </div>
-                    <p className="text-xs text-on-surface line-clamp-3">{item.text}</p>
-                  </div>
-                  <div className="mt-2 border-t border-outline-variant/50 pt-2 flex justify-between items-center">
-                    <p className="font-mono text-[9px] text-on-surface-variant">{item.source}</p>
-                  </div>
+                  )}
                 </div>
-              ) : (
-                /* Image/Video Item */
-                <>
-                  <div className={`w-full h-full ${item.bgColor} flex items-center justify-center`}>
-                    <span className="material-symbols-outlined text-white/20 text-6xl">{getTypeIcon(item.type)}</span>
-                  </div>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10 pointer-events-none"></div>
-                  <div className="absolute top-2 left-2 z-20 flex gap-1">
-                    <span className={`px-2 py-0.5 font-mono text-[10px] rounded border ${getConfBadgeStyle(item.confidence)}`}>
-                      {item.confidence}% CONF
-                    </span>
-                    <span className="px-2 py-0.5 bg-surface/90 text-on-surface font-mono text-[10px] rounded flex items-center gap-1 border border-outline-variant">
-                      <span className="material-symbols-outlined text-[10px]">{getTypeIcon(item.type)}</span>
-                    </span>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/90 to-transparent z-20">
-                    <p className="font-semibold text-xs uppercase tracking-wider text-white truncate">{item.title}</p>
-                    <p className="font-mono text-[9px] text-white/70">{item.time}</p>
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
-        </div>
+              )
+            })}
+          </div>
+        )}
       </section>
 
       {/* Right Detail Panel */}
-      {selectedItem && (
+      {selectedReport && (
         <aside className="w-[360px] bg-surface border-l border-outline-variant flex flex-col h-full overflow-y-auto">
           <div className="p-4 border-b border-outline-variant bg-surface-container-lowest sticky top-0 z-10 flex justify-between items-center">
-            <h2 className="font-semibold text-xl text-on-surface">Investigation Detail</h2>
-            <button
-              className="text-on-surface-variant hover:text-on-surface"
-              onClick={() => setSelectedItem(null)}
-            >
+            <h2 className="font-semibold text-xl text-on-surface">Report Detail</h2>
+            <button className="text-on-surface-variant hover:text-on-surface" onClick={() => setSelectedReport(null)}>
               <span className="material-symbols-outlined">close</span>
             </button>
           </div>
 
           {/* Preview */}
-          <div className={`w-full h-56 relative flex items-center justify-center ${selectedItem.bgColor || 'bg-surface-container-high'}`}>
-            <span className="material-symbols-outlined text-white/20 text-7xl">{getTypeIcon(selectedItem.type)}</span>
-            <div className="absolute top-2 right-2 flex gap-2">
-              <button className="p-1 bg-surface-container-lowest rounded text-on-surface hover:bg-surface border border-outline-variant">
-                <span className="material-symbols-outlined text-base">fullscreen</span>
-              </button>
-            </div>
+          <div className="w-full h-56 relative flex items-center justify-center bg-surface-container-high">
+            <span className="material-symbols-outlined text-white/20 text-7xl">
+              {getTypeIcon(selectedReport.sourceType)}
+            </span>
           </div>
 
           <div className="p-5 space-y-6">
             {/* Header Status */}
             <div className="flex justify-between items-start border-b border-outline-variant pb-4">
               <div>
-                <h3 className="text-lg font-bold text-on-surface mb-1">{selectedItem.event || selectedItem.title}</h3>
+                <h3 className="text-lg font-bold text-on-surface mb-1">
+                  {formatEventType(selectedReport.aiAnalysis?.eventType || selectedReport.sourceType)}
+                </h3>
                 <p className="font-mono text-xs text-on-surface-variant flex items-center gap-1">
                   <span className="material-symbols-outlined text-sm">location_on</span>
-                  {selectedItem.location}
+                  {formatLocation(selectedReport.location)}
                 </p>
               </div>
               <span className={`px-2 py-1 font-semibold text-[10px] uppercase tracking-wider rounded border ${
-                selectedItem.threat === 'HIGH THREAT' || selectedItem.threat === 'EXTREME'
+                selectedReport.aiAnalysis?.severity === 'high'
                   ? 'bg-surface-container-lowest text-error border-error'
                   : 'bg-surface-container-lowest text-secondary border-secondary'
               }`}>
-                {selectedItem.threat}
+                {(selectedReport.aiAnalysis?.severity || 'unknown').toUpperCase()}
               </span>
             </div>
+
+            {/* Report Text */}
+            {selectedReport.text && (
+              <div className="bg-surface-container-low p-3 rounded border border-outline-variant">
+                <p className="text-xs text-on-surface leading-relaxed">"{selectedReport.text}"</p>
+              </div>
+            )}
 
             {/* AI Evidence Analysis Panel */}
             <div className="bg-surface-container-lowest border border-outline-variant rounded p-4 shadow-sm">
@@ -315,22 +327,37 @@ export default function EvidencePage() {
               </div>
               <div className="space-y-3 mb-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-on-surface-variant">Event Detected:</span>
-                  <span className="font-mono text-xs text-on-surface font-bold">{selectedItem.event}</span>
+                  <span className="text-sm text-on-surface-variant">Event Type:</span>
+                  <span className="font-mono text-xs text-on-surface font-bold">
+                    {formatEventType(selectedReport.aiAnalysis?.eventType)}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-on-surface-variant">Weather Related:</span>
+                  <span className="font-mono text-xs text-on-surface font-bold">
+                    {selectedReport.aiAnalysis?.isWeatherRelated ? 'Yes' : 'No'}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-on-surface-variant">Overall AI Confidence:</span>
-                  <span className="font-mono text-xs text-primary font-bold">{selectedItem.confidence}%</span>
+                  <span className="font-mono text-xs text-primary font-bold">
+                    {selectedReport.credibility?.score ?? selectedReport.aiAnalysis?.relevanceScore ?? '—'}%
+                  </span>
                 </div>
                 <div className="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden mt-2">
-                  <div className="bg-primary h-full transition-all duration-500" style={{ width: `${selectedItem.confidence}%` }}></div>
+                  <div
+                    className="bg-primary h-full transition-all duration-500"
+                    style={{ width: `${selectedReport.credibility?.score ?? 0}%` }}
+                  ></div>
                 </div>
               </div>
-              <div className="bg-surface-container-low p-3 rounded border border-outline-variant">
-                <p className="text-xs text-on-surface leading-relaxed">
-                  <strong>Analysis:</strong> {selectedItem.analysis}
-                </p>
-              </div>
+              {selectedReport.credibility?.reasons?.length > 0 && (
+                <div className="bg-surface-container-low p-3 rounded border border-outline-variant">
+                  <p className="text-xs text-on-surface leading-relaxed">
+                    <strong>Credibility Reasons:</strong> {selectedReport.credibility.reasons.join(', ')}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Metadata Grid */}
@@ -341,19 +368,25 @@ export default function EvidencePage() {
               <div className="grid grid-cols-2 gap-y-4 gap-x-4">
                 <div>
                   <p className="font-mono text-[10px] text-on-surface-variant mb-1">SOURCE</p>
-                  <p className="text-sm text-on-surface truncate">{selectedItem.source}</p>
+                  <p className="text-sm text-on-surface truncate">
+                    {selectedReport.source?.sourceName || selectedReport.source?.platform || selectedReport.sourceType || '—'}
+                  </p>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-on-surface-variant mb-1">TIME IST</p>
-                  <p className="text-sm text-on-surface">{selectedItem.time}</p>
+                  <p className="text-sm text-on-surface">{formatTimeAgo(selectedReport.time?.reportedAt)}</p>
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] text-on-surface-variant mb-1">MEDIA TYPE</p>
-                  <p className="text-sm text-on-surface">{selectedItem.mediaType}</p>
+                  <p className="font-mono text-[10px] text-on-surface-variant mb-1">MEDIA</p>
+                  <p className="text-sm text-on-surface">
+                    {selectedReport.media?.length > 0 ? `${selectedReport.media.length} item(s)` : 'Text only'}
+                  </p>
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] text-on-surface-variant mb-1">LOCATION</p>
-                  <p className="text-sm text-on-surface truncate">{selectedItem.location}</p>
+                  <p className="font-mono text-[10px] text-on-surface-variant mb-1">VERIFICATION</p>
+                  <p className="text-sm text-on-surface capitalize">
+                    {selectedReport.credibility?.verificationStatus || selectedReport.duplicate?.isDuplicate ? 'Duplicate' : 'Unverified'}
+                  </p>
                 </div>
               </div>
             </div>

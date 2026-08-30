@@ -5,6 +5,8 @@ import DashboardPage from './pages/DashboardPage'
 import EvidencePage from './pages/EvidencePage'
 import AnalyticsPage from './pages/AnalyticsPage'
 import MapPage from './pages/MapPage'
+import EventsPage from './pages/EventsPage'
+import ReportsPage from './pages/ReportsPage'
 
 export default function App() {
   return (
@@ -18,8 +20,8 @@ export default function App() {
             <Route path="/evidence" element={<EvidencePage />} />
             <Route path="/analytics" element={<AnalyticsPage />} />
             <Route path="/map" element={<MapPage />} />
-            <Route path="/events" element={<PlaceholderPage title="Events" icon="event" />} />
-            <Route path="/reports" element={<PlaceholderPage title="Reports" icon="description" />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/reports" element={<ReportsPage />} />
           </Routes>
         </main>
       </div>

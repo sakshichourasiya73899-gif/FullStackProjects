@@ -8,8 +8,9 @@ import StatsBar from '../components/StatsBar';
 import Filters from '../components/Filters';
 import './MapPage.css';
 
-const socket = io('http://localhost:3000');
-const API = 'http://localhost:3000';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3000';
+const API = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+const socket = io(SOCKET_URL);
 
 export default function MapPage() {
   const [events, setEvents] = useState([]);
@@ -49,14 +50,14 @@ export default function MapPage() {
       if (filters.eventType !== 'all') params.eventType = filters.eventType;
       if (filters.severity !== 'all') params.severity = filters.severity;
       if (filters.isEmerging) params.isEmerging = true;
-      const res = await axios.get(`${API}/api/events`, { params });
+      const res = await axios.get(`${API}/events`, { params });
       setEvents(res.data.events || []);
     } catch (err) { console.error(err); }
   };
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get(`${API}/api/events/analytics/summary`);
+      const res = await axios.get(`${API}/events/analytics/summary`);
       setStats(res.data.summary || {});
     } catch (err) { console.error(err); }
   };
