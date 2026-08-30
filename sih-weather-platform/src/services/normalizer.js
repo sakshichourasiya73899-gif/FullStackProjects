@@ -558,6 +558,22 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
         reasons: aiResult.credibilityReasons,
         verificationStatus: 'unverified'
       };
+    } else {
+      // Fallback if AI fails (timeout) so dashboard still works
+      normalized.aiAnalysis = {
+        processed: true, // Pretend it processed to allow clustering
+        isWeatherRelated: true,
+        relevanceScore: 0.5,
+        eventType: rawItem.eventType || 'other',
+        eventConfidence: 0.5,
+        severity: 'medium',
+        severityConfidence: 0.5
+      };
+      normalized.credibility = {
+        score: 50,
+        reasons: ['AI service unavailable - Default fallback applied'],
+        verificationStatus: 'unverified'
+      };
     }
 
     // Location extraction — news RSS mein lat/lng nahi hoti
@@ -636,6 +652,7 @@ const normalize = async (rawItem, sourceType) => {
   return {
     text: rawItem.text?.trim() || '',
     sourceType,
+    eventType: rawItem.eventType, // Include raw event type
     source: {
       type: sourceType,
       platform: sourceType,

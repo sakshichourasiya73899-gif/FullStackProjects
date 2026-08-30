@@ -120,6 +120,7 @@ const generateFakePost = () => {
     text: template.text.replace('{city}', city.name),
     lat: city.lat + jitter(),
     lng: city.lng + jitter(),
+    eventType: template.event,
     media: []
   };
 };

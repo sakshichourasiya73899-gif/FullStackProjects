@@ -4,6 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { notFound, errorHandler } from "./middlewares/errorHandler.js";
 import reportRoutes from "./routes/reportRoutes.js";
+import eventRoutes from "./routes/eventRoutes.js";
 
 const app = express();
 console.log("Express app initialized");
@@ -24,6 +25,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api/reports", reportRoutes);
+app.use("/api/events", eventRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
