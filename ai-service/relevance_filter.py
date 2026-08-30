@@ -370,7 +370,116 @@ DEFINITE_NOT_WEATHER = [
     'stock market', 'sensex', 'nifty', 'ipo', 'bollywood',
     'cricket score', 'ipl match', 'box office', 'election result',
     'murder case', 'court verdict', 'startup funding', 'quarterly results',
-    'share price', 'celebrity', 'film release'
+    'share price', 'celebrity', 'film release','water supply cut', 'dry spell', 'water scarcity',
+    'water shortage', 'drought', 'crop loss', 'crop damage',
+    'hailstorm', 'hail', 'cold wave', 'heat stroke',
+    # Weather-related impacts and emergencies
+
+'road blocked',
+'roads blocked',
+'highway blocked',
+'bridge damaged',
+'bridge washed away',
+'roads washed away',
+
+'traffic disrupted',
+'traffic disruption',
+'traffic jam due to flooding',
+'transport disrupted',
+'transport disruption',
+'public transport disrupted',
+
+'power outage',
+'power cut',
+'electricity outage',
+'electricity disruption',
+'power lines damaged',
+'electricity poles damaged',
+
+'houses damaged',
+'homes damaged',
+'homes flooded',
+'houses flooded',
+'water entering homes',
+'buildings damaged',
+'property damage',
+'infrastructure damage',
+
+'people displaced',
+'families displaced',
+'residents evacuated',
+'people evacuated',
+'evacuation underway',
+'evacuation ordered',
+
+'rescue operation',
+'rescue operations',
+'search and rescue',
+'emergency response',
+'disaster response',
+'rescue teams deployed',
+
+'relief camps',
+'temporary shelters',
+'emergency shelters',
+'people moved to shelters',
+
+'schools closed',
+'colleges closed',
+'offices closed',
+'government offices closed',
+
+'flight cancelled',
+'flights cancelled',
+'flight delayed',
+'airport operations affected',
+
+'train delayed',
+'trains delayed',
+'train services disrupted',
+'railway services disrupted',
+
+'visibility disruption',
+'poor visibility affecting traffic',
+
+'communication disrupted',
+'mobile network disrupted',
+'internet services disrupted',
+
+'water supply disrupted',
+'water supply cut',
+'drinking water shortage',
+
+'emergency declared',
+'weather emergency',
+'disaster emergency',
+'emergency situation',
+
+'disaster alert',
+'weather alert',
+'evacuation alert',
+'warning issued',
+'red alert',
+'orange alert',
+'severe weather warning',
+
+'authorities issued an alert',
+'authorities warned',
+'emergency teams deployed',
+
+'citizens advised to stay indoors',
+'people advised to stay indoors',
+
+'casualties reported',
+'injuries reported',
+'people injured',
+'deaths reported',
+
+'crop damage',
+'crop loss',
+'agricultural damage',
+'livestock affected',
+'River water level'
 ]
 
 def is_weather_relevant(text: str) -> bool:

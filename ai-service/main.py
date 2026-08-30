@@ -378,6 +378,7 @@ load_dotenv()
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+from sentence_transformers import SentenceTransformer
 import joblib
 import os
 
@@ -386,6 +387,7 @@ from severity_estimation import compute_severity, compute_severity_with_confiden
 from relevance_filter import is_weather_relevant, get_groq_client, rotate_key, GROQ_KEYS
 
 app = FastAPI(title="SIH Weather AI Service")
+embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
 MODEL = "qwen/qwen3.6-27b"
 
@@ -409,6 +411,9 @@ class SummarizeRequest(BaseModel):
 
 class LocationExtractRequest(BaseModel):
     text: str
+
+class EmbedRequest(BaseModel):
+    text: str    
 
 @app.get("/")
 def root():
@@ -438,6 +443,7 @@ def check_relevance(request: FilterRequest):
 
 @app.post("/summarize")
 def summarize(request: SummarizeRequest):
+    import re
     for attempt in range(max(len(GROQ_KEYS), 1)):
         try:
             client = get_groq_client()
@@ -446,10 +452,18 @@ def summarize(request: SummarizeRequest):
             response = client.chat.completions.create(
                 model=MODEL,
                 messages=[{"role": "user", "content": request.prompt}],
-                max_tokens=150,
+                max_tokens=200,
                 temperature=0.3
             )
-            return {"summary": response.choices[0].message.content.strip()}
+            content = response.choices[0].message.content
+            if not content:
+                return {"summary": None}
+            # Remove <think> blocks completely
+            content = re.sub(r'<think>[\s\S]*?</think>', '', content)
+            content = content.strip()
+            if len(content) > 15:
+                return {"summary": content}
+            return {"summary": None}
         except Exception as e:
             if "rate_limit" in str(e) or "429" in str(e):
                 rotate_key()
@@ -460,7 +474,7 @@ def summarize(request: SummarizeRequest):
 
 @app.post("/extract-location")
 def extract_location(request: LocationExtractRequest):
-    import json
+    import json, re
     for attempt in range(max(len(GROQ_KEYS), 1)):
         try:
             client = get_groq_client()
@@ -470,23 +484,29 @@ def extract_location(request: LocationExtractRequest):
                 model=MODEL,
                 messages=[{
                     "role": "user",
-                    "content": f"""Extract the primary Indian city and state from this weather report text.
-Return ONLY a valid JSON object in this exact format:
+                    "content": f"""Extract the primary Indian city and state from this weather report.
+Return ONLY a valid JSON object, no other text:
 {{"city": "Pune", "state": "Maharashtra", "lat": 18.5204, "lng": 73.8567}}
 
-If no specific location is found, return:
+If no Indian location found:
 {{"city": null, "state": null, "lat": null, "lng": null}}
 
-Do not return any other text or markdown.
-Text: {request.text}"""
+Text: {request.text[:300]}"""
                 }],
                 max_tokens=100,
                 temperature=0
             )
             content = response.choices[0].message.content.strip()
+            # Remove <think> tags (qwen model adds these)
+            content = re.sub(r'<think>.*?</think>', '', content, flags=re.DOTALL).strip()
+            # Remove markdown
             content = content.replace('```json', '').replace('```', '').strip()
-            data = json.loads(content)
-            return data
+            # Find JSON object in response
+            json_match = re.search(r'\{[^{}]+\}', content)
+            if json_match:
+                data = json.loads(json_match.group())
+                return data
+            return {"city": None, "state": None, "lat": None, "lng": None}
         except Exception as e:
             if "rate_limit" in str(e) or "429" in str(e):
                 rotate_key()
@@ -524,6 +544,15 @@ Return ONLY the subtype label, nothing else."""
                 continue
             return {"subtype": "other"}
     return {"subtype": "other"}
+
+@app.post("/embed")
+def get_embedding(request: EmbedRequest):
+    try:
+        vector = embedding_model.encode(request.text).tolist()
+        return {"embedding": vector, "dimensions": len(vector)}
+    except Exception as e:
+        print(f"[Embed] Error: {e}")
+        return {"embedding": [], "dimensions": 0}    
 
 @app.post("/process")
 def process(request: ProcessRequest):

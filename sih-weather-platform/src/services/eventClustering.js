@@ -363,6 +363,7 @@ import { computeCorroboration } from './corroborationScoring.js';
 import { checkVelocity } from './velocityDetection.js';
 import { computePriorityScore } from './priorityScoring.js';
 import { generateEventSummary, generateEventTitle } from './summarizationService.js';
+import { getIO } from '../socket.js';
 
 const TIME_WINDOW_HOURS = 6;
 const DISTANCE_THRESHOLD_KM = 2;
@@ -489,6 +490,10 @@ export const findOrCreateEvent = async (report) => {
       }
 
       await event.save();
+      const io = getIO();
+      if (io) {
+        io.emit('eventUpdated', event);
+      }
       console.log(`[Clustering] Updated "${event.title}" → ${event.reportCount} reports | Priority: ${event.priorityScore} | ${event.status} | ${velocity.isEmerging ? '⚡ EMERGING' : 'stable'}`);
       return event;
     }
@@ -553,6 +558,10 @@ export const findOrCreateEvent = async (report) => {
   });
 
   await newEvent.save();
+  const io = getIO();
+  if (io) {
+    io.emit('newEvent', newEvent);
+  }
   console.log(`[Clustering] New event: "${title}" | ${eventType} | Priority: ${priority.score}`);
   return newEvent;
 };

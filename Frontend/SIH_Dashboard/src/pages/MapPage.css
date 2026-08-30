@@ -1,0 +1,21 @@
+/* MapPage.css */
+
+/* Custom leaflet overrides for a cleaner look */
+.leaflet-container {
+  font-family: inherit;
+}
+
+/* Leaflet popup customization to look more modern */
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.leaflet-popup-content {
+  margin: 14px;
+}
+
+/* Ensure map legends and overlays stay above the tiles but below custom UI */
+.leaflet-top, .leaflet-bottom {
+  z-index: 400;
+}

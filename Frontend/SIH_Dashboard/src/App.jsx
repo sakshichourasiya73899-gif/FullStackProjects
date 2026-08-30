@@ -4,6 +4,7 @@ import TopAppBar from './components/TopAppBar'
 import DashboardPage from './pages/DashboardPage'
 import EvidencePage from './pages/EvidencePage'
 import AnalyticsPage from './pages/AnalyticsPage'
+import MapPage from './pages/MapPage'
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
             <Route path="/" element={<DashboardPage />} />
             <Route path="/evidence" element={<EvidencePage />} />
             <Route path="/analytics" element={<AnalyticsPage />} />
-            <Route path="/map" element={<PlaceholderPage title="Intelligence Map" icon="map" />} />
+            <Route path="/map" element={<MapPage />} />
             <Route path="/events" element={<PlaceholderPage title="Events" icon="event" />} />
             <Route path="/reports" element={<PlaceholderPage title="Reports" icon="description" />} />
           </Routes>

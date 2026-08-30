@@ -7,10 +7,11 @@ import "dotenv/config";
 import app from "./src/app.js";
 import connectDB from "./src/DB/index.js";
 import { startMockSocialAdapter } from './src/adapters/mockSocialAdapter.js';
-import { startWeatherApiAdapter } from './src/adapters/weatherApiAdapter.js';
+// import { startWeatherApiAdapter } from './src/adapters/weatherApiAdapter.js';
 import { startNewsRssAdapter } from './src/adapters/newsRssAdapter.js';
 import { startJsonApiAdapter } from './src/adapters/jsonApiAdapter.js';
 import { startRedditAdapter } from './src/adapters/redditAdapter.js';
+import { initSocket } from './src/socket.js';
 
 
 const PORT = process.env.PORT || 5000;
@@ -21,8 +22,9 @@ const startServer = async () => {
     await connectDB();
     server = app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
-      startMockSocialAdapter(15000);
-      startWeatherApiAdapter();
+      initSocket(server);
+      startMockSocialAdapter(30000);
+      // startWeatherApiAdapter();
       startNewsRssAdapter();
       startJsonApiAdapter();
       startRedditAdapter();
@@ -34,12 +36,6 @@ const startServer = async () => {
 };
 
 startServer();
-
-
-
-
-
-
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (err) => {
   console.error("Unhandled Rejection:", err);
