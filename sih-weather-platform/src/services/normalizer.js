@@ -520,6 +520,7 @@ import WeatherReport from '../models/WeatherReport.js';
 import { findOrCreateEvent } from './eventClustering.js';
 import { resolveLocation, geocodeCity } from './geocodingService.js';
 import { checkDuplicate } from './duplicateDetection.js';
+import { pipelineLog } from './systemLogger.js';
 
 export const normalizeAndProcess = async (rawItem, sourceType) => {
   try {
@@ -527,14 +528,18 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
 
     const validationError = validateNormalized(normalized);
     if (validationError) {
+      pipelineLog('warn', 'Validation', `${sourceType}: ${validationError}`);
       console.warn(`[Validation failed] ${sourceType}: ${validationError}`);
       return null;
     }
+
+    pipelineLog('info', 'Ingestion', `Received ${sourceType} report: "${normalized.text?.slice(0, 60)}..."`);
 
     // Groq relevance filter — sirf news aur social ke liye
     if (sourceType === 'news_rss' || sourceType === 'social_mock') {
       const relevant = await checkRelevance(normalized.text);
       if (!relevant) {
+        pipelineLog('info', 'Relevance Filter', `Skipped irrelevant ${sourceType}: "${normalized.text?.slice(0, 50)}"`);
         console.log(`[Groq Filter] Skipped: "${normalized.text.slice(0, 50)}..."`);
         return null;
       }
@@ -560,6 +565,7 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
       };
     } else {
       // Fallback if AI fails (timeout) so dashboard still works
+      pipelineLog('warn', 'AI Processing', `AI service unavailable for ${sourceType} — using fallback defaults`);
       normalized.aiAnalysis = {
         processed: true, // Pretend it processed to allow clustering
         isWeatherRelated: true,
@@ -618,6 +624,7 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
       await WeatherReport.findByIdAndUpdate(saved._id, {
         duplicate: duplicateResult
       });
+      pipelineLog('info', 'Duplicate Detection', `Duplicate detected (${duplicateResult.similarityScore}% match) — report ID ${saved._id}`);
       console.log(`[Duplicate] ${duplicateResult.similarityScore}% similar to existing report`);
     }
 
@@ -626,43 +633,92 @@ export const normalizeAndProcess = async (rawItem, sourceType) => {
       const event = await findOrCreateEvent(saved);
       if (event) {
         await WeatherReport.findByIdAndUpdate(saved._id, { eventId: event._id });
+        pipelineLog('success', 'Event Clustering', `${sourceType} → clustered into event "${event.title || event.eventType}" (${event._id})`);
       }
     }
 
+    pipelineLog('success', 'Ingestion', `Saved ${sourceType} | ${saved.aiAnalysis?.eventType} | ${saved.aiAnalysis?.severity} | "${saved.text?.slice(0, 40)}..."`);
     console.log(`[Saved] ${sourceType} | ${saved.aiAnalysis?.eventType} | ${saved.aiAnalysis?.severity} | "${saved.text.slice(0, 40)}..."`);
     return saved;
   } catch (err) {
+    pipelineLog('error', 'Ingestion', `${sourceType} error: ${err.message}`);
     console.error(`[normalizeAndProcess error] ${sourceType}:`, err.message);
     return null;
   }
 };
 
 // Raw item ko WeatherReport schema ke format mein convert karo
+// const normalize = async (rawItem, sourceType) => {
+//   const lat = rawItem.lat || null;
+//   const lng = rawItem.lng || null;
+
+//   let cityState = { city: null, state: null };
+
+//   // Coordinates hain toh reverse geocode karo
+//   if (lat && lng) {
+//     cityState = await resolveLocation(lat, lng);
+//   }
+
+//   return {
+//     text: rawItem.text?.trim() || '',
+//     sourceType,
+//     eventType: rawItem.eventType, // Include raw event type
+//     source: {
+//       type: sourceType,
+//       platform: sourceType,
+//       sourceUrl: rawItem.sourceUrl || null,
+//       sourceName: rawItem.sourceName || null
+//     },
+//     time: {
+//       reportedAt: new Date(),
+//       collectedAt: new Date()
+//     },
+//     location: {
+//       lat,
+//       lng,
+//       city: cityState.city,
+//       state: cityState.state,
+//       resolved: !!(lat && lng),
+//       confidence: lat ? 0.9 : 0
+//     },
+//     media: rawItem.media || [],
+//     aiAnalysis: { processed: false },
+//     credibility: {
+//       score: 0,
+//       reasons: [],
+//       verificationStatus: 'unverified'
+//     },
+//     duplicate: {
+//       isDuplicate: false,
+//       similarityScore: 0,
+//       originalReportId: null
+//     },
+//     embedding: []
+//   };
+// };
+
+
 const normalize = async (rawItem, sourceType) => {
   const lat = rawItem.lat || null;
   const lng = rawItem.lng || null;
 
-  let cityState = { city: null, state: null };
+  let cityState = { city: rawItem.city || null, state: rawItem.state || null };
 
-  // Coordinates hain toh reverse geocode karo
-  if (lat && lng) {
+  // Sirf agar coordinates hain aur city nahi mili toh reverse geocode karo
+  if (lat && lng && !cityState.city) {
     cityState = await resolveLocation(lat, lng);
   }
 
   return {
     text: rawItem.text?.trim() || '',
     sourceType,
-    eventType: rawItem.eventType, // Include raw event type
     source: {
       type: sourceType,
       platform: sourceType,
       sourceUrl: rawItem.sourceUrl || null,
       sourceName: rawItem.sourceName || null
     },
-    time: {
-      reportedAt: new Date(),
-      collectedAt: new Date()
-    },
+    time: { reportedAt: new Date(), collectedAt: new Date() },
     location: {
       lat,
       lng,
@@ -673,16 +729,8 @@ const normalize = async (rawItem, sourceType) => {
     },
     media: rawItem.media || [],
     aiAnalysis: { processed: false },
-    credibility: {
-      score: 0,
-      reasons: [],
-      verificationStatus: 'unverified'
-    },
-    duplicate: {
-      isDuplicate: false,
-      similarityScore: 0,
-      originalReportId: null
-    },
+    credibility: { score: 0, reasons: [], verificationStatus: 'unverified' },
+    duplicate: { isDuplicate: false, similarityScore: 0, originalReportId: null },
     embedding: []
   };
 };
@@ -722,7 +770,7 @@ const callAIService = async (normalized, sourceType) => {
     );
     return response.data;
   } catch (err) {
-    console.error(`[AI service error] ${err.message}`);
+    // Silently fail — report save hoga bina AI fields ke
     return null;
   }
 };

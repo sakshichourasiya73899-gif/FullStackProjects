@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { getAnalyticsSummary, getActiveEvents, formatEventType, formatTimeAgo, formatLocation, getSafeSummary } from '../services/api'
+import { useState, useEffect, useCallback } from 'react'
+import { getAnalyticsSummary, getActiveEvents, getSystemLogs, triggerSync, formatEventType, formatTimeAgo, formatLocation, getSafeSummary } from '../services/api'
 
 function getSeverityDot(severity) {
   switch (severity) {
@@ -27,6 +27,13 @@ export default function AnalyticsPage() {
   const [emergingEvents, setEmergingEvents] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  // Logs modal
+  const [showLogs, setShowLogs] = useState(false)
+  const [logs, setLogs] = useState([])
+  const [logsLoading, setLogsLoading] = useState(false)
+  // Force sync
+  const [syncing, setSyncing] = useState(false)
+  const [syncMsg, setSyncMsg] = useState(null)
 
   useEffect(() => {
     async function load() {
@@ -50,6 +57,34 @@ export default function AnalyticsPage() {
     const interval = setInterval(load, 60000)
     return () => clearInterval(interval)
   }, [])
+
+  const openLogs = async () => {
+    setShowLogs(true)
+    setLogsLoading(true)
+    try {
+      const data = await getSystemLogs(100)
+      setLogs(data)
+    } catch {
+      setLogs([])
+    } finally {
+      setLogsLoading(false)
+    }
+  }
+
+  const handleForceSync = async () => {
+    setSyncing(true)
+    setSyncMsg(null)
+    try {
+      const res = await triggerSync()
+      setSyncMsg({ type: 'success', text: res.message || 'Sync triggered successfully.' })
+      setTimeout(() => setSyncMsg(null), 4000)
+    } catch (err) {
+      setSyncMsg({ type: 'error', text: 'Force sync failed. Please check the server.' })
+      setTimeout(() => setSyncMsg(null), 5000)
+    } finally {
+      setSyncing(false)
+    }
+  }
 
   const summaryCards = summary ? [
     {
@@ -115,6 +150,7 @@ export default function AnalyticsPage() {
   })
 
   return (
+    <> 
     <div className="flex-1 flex flex-col h-full overflow-y-auto bg-surface p-8 gap-8">
       {/* Page Header */}
       <div className="flex justify-between items-end">
@@ -123,14 +159,19 @@ export default function AnalyticsPage() {
           <p className="text-base text-on-surface-variant mt-1">Real-time data ingestion, processing throughput, and synthesized event surfacing.</p>
         </div>
         <div className="flex gap-3">
-          <button className="px-4 py-2 border border-secondary text-on-surface font-semibold text-xs uppercase tracking-wider rounded flex items-center gap-2 hover:bg-surface-container-low transition-colors">
+          <button 
+            onClick={openLogs}
+            className="px-4 py-2 border border-secondary text-on-surface font-semibold text-xs uppercase tracking-wider rounded flex items-center gap-2 hover:bg-surface-container-low transition-colors"
+          >
             <span className="material-symbols-outlined text-lg">history</span> View Logs
           </button>
           <button
-            onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-primary text-on-primary font-semibold text-xs uppercase tracking-wider rounded flex items-center gap-2 hover:bg-primary-container transition-colors shadow-sm"
+            onClick={handleForceSync}
+            disabled={syncing}
+            className="px-4 py-2 bg-primary text-on-primary font-semibold text-xs uppercase tracking-wider rounded flex items-center gap-2 hover:bg-primary-container transition-colors shadow-sm disabled:opacity-60"
           >
-            <span className="material-symbols-outlined text-lg">refresh</span> Force Sync
+            <span className={`material-symbols-outlined text-lg ${syncing ? 'animate-spin' : ''}`}>refresh</span>
+            {syncing ? 'Syncing...' : 'Force Sync'}
           </button>
         </div>
       </div>
@@ -139,6 +180,19 @@ export default function AnalyticsPage() {
         <div className="bg-error/10 border border-error text-error rounded p-4 text-sm flex items-center gap-2">
           <span className="material-symbols-outlined">error</span>
           {error}
+        </div>
+      )}
+
+      {syncMsg && (
+        <div className={`rounded p-3 text-sm flex items-center gap-2 ${
+          syncMsg.type === 'success'
+            ? 'bg-primary/10 border border-primary text-primary'
+            : 'bg-error/10 border border-error text-error'
+        }`}>
+          <span className="material-symbols-outlined text-base">
+            {syncMsg.type === 'success' ? 'check_circle' : 'error'}
+          </span>
+          {syncMsg.text}
         </div>
       )}
 
@@ -341,5 +395,66 @@ export default function AnalyticsPage() {
         </div>
       </div>
     </div>
+
+      {/* Logs Modal */}
+      {showLogs && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="bg-surface-container-lowest border border-outline-variant rounded shadow-xl w-[700px] max-w-[95vw] max-h-[80vh] flex flex-col">
+            <div className="flex justify-between items-center px-5 py-4 border-b border-outline-variant">
+              <h3 className="font-bold text-lg text-on-surface flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary">history</span>
+                Pipeline Logs
+              </h3>
+              <button onClick={() => setShowLogs(false)} className="text-on-surface-variant hover:text-on-surface">
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+            <div className="overflow-y-auto flex-1 p-4 font-mono text-xs">
+              {logsLoading ? (
+                <div className="flex items-center justify-center py-12 text-on-surface-variant gap-2">
+                  <span className="material-symbols-outlined animate-spin">refresh</span> Loading logs...
+                </div>
+              ) : logs.length === 0 ? (
+                <div className="text-center py-12 text-on-surface-variant">
+                  <span className="material-symbols-outlined text-4xl mb-2 block">receipt_long</span>
+                  No pipeline events yet. Trigger a Force Sync or wait for the next ingestion cycle.
+                </div>
+              ) : (
+                <div className="flex flex-col gap-1">
+                  {logs.map(log => (
+                    <div key={log.id} className={`flex gap-3 items-start px-2 py-1 rounded text-[11px] ${
+                      log.level === 'error' ? 'bg-error/10 text-error' :
+                      log.level === 'warn'  ? 'bg-secondary/10 text-secondary' :
+                      log.level === 'success' ? 'bg-primary/10 text-primary' :
+                      'text-on-surface-variant'
+                    }`}>
+                      <span className="shrink-0 w-[160px] text-on-surface-variant opacity-60">
+                        {new Date(log.timestamp).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                      </span>
+                      <span className={`shrink-0 w-[130px] font-semibold uppercase tracking-wider ${
+                        log.level === 'error' ? 'text-error' :
+                        log.level === 'warn'  ? 'text-secondary' :
+                        log.level === 'success' ? 'text-primary' :
+                        'text-on-surface-variant'
+                      }`}>[{log.stage}]</span>
+                      <span className="flex-1">{log.message}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="px-5 py-3 border-t border-outline-variant flex justify-between items-center text-xs text-on-surface-variant">
+              <span>Showing latest {logs.length} entries (in-memory, clears on server restart)</span>
+              <button
+                onClick={openLogs}
+                className="flex items-center gap-1 text-primary hover:underline"
+              >
+                <span className="material-symbols-outlined text-sm">refresh</span> Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      </> 
   )
 }

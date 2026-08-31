@@ -181,4 +181,28 @@ export async function updateEventStatus(id, action) {
   }
 }
 
+/**
+ * Fetch recent pipeline log entries.
+ */
+export async function getSystemLogs(limit = 100) {
+  const res = await api.get('/system/logs', { params: { limit } });
+  return res.data.logs || [];
+}
+
+/**
+ * Fetch full dashboard metrics including today's report count.
+ */
+export async function getSystemMetrics() {
+  const res = await api.get('/system/metrics');
+  return res.data.metrics || {};
+}
+
+/**
+ * Trigger a manual ingestion sync.
+ */
+export async function triggerSync() {
+  const res = await api.post('/system/sync');
+  return res.data;
+}
+
 export default api;

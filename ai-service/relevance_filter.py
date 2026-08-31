@@ -363,7 +363,25 @@ DEFINITE_WEATHER = [
     'school closed', 'stranded', 'rooftop', 'flooding', 'cyclonic',
     'heat stroke', 'cold snap', 'frost', 'hailstorm', 'sandstorm',
     'squall', 'tornado', 'tsunami', 'tremor', 'seismic', 'drought',
-    'water shortage', 'river overflow', 'dam overflow', 'river breach'
+    'water shortage', 'river overflow', 'dam overflow', 'river breach',
+    'flood', 'flooding', 'waterlogging', 'waterlogged',
+    'rainfall', 'heavy rain', 'moderate rain', 'monsoon',
+    'thunderstorm', 'lightning strike', 'hailstorm', 'cloudburst',
+    'cyclone', 'cyclonic storm', 'storm surge',
+    'drought', 'water shortage', 'groundwater',
+    'heatwave', 'heat wave', 'heat stroke', 'heat alert',
+    'cold wave', 'cold snap', 'frost', 'snowfall', 'avalanche',
+    'fog alert', 'dense fog', 'visibility reduced',
+    'dust storm', 'sandstorm',
+    'wildfire', 'forest fire',
+    'earthquake', 'tremor', 'seismic', 'landslide', 'mudslide',
+    'imd warning', 'imd alert', 'imd forecast',
+    'ndma alert', 'ndrf deployed',
+    'river overflow', 'river breach', 'dam overflow',
+    'flash flood', 'urban flood',
+    'crop damage', 'crop loss', 'agricultural drought',
+    'school closed due to', 'relief camp', 'rescue operation weather',
+    'weather warning', 'red alert', 'orange alert', 'yellow alert'
 ]
 
 DEFINITE_NOT_WEATHER = [
@@ -479,7 +497,18 @@ DEFINITE_NOT_WEATHER = [
 'crop loss',
 'agricultural damage',
 'livestock affected',
-'River water level'
+'River water level',
+ 'stock market', 'sensex', 'nifty', 'share price', 'ipo',
+    'bollywood', 'box office', 'film review',
+    'cricket score', 'ipl', 'world cup cricket',
+    'election result', 'exit poll', 'political party',
+    'murder', 'rape case', 'arrested', 'court verdict',
+    'startup funding', 'quarterly results', 'revenue growth',
+    'scholarship exam', 'admission process',
+    'recipe', 'fashion week', 'beauty tips',
+    'horoscope', 'zodiac sign',
+    'road accident', 'train derailment', 'plane crash'
+
 ]
 
 def is_weather_relevant(text: str) -> bool:
@@ -505,24 +534,36 @@ def _groq_classify(text: str) -> bool:
                 messages=[
                     {
                         "role": "system",
-                        "content": "You filter content for a weather disaster monitoring system in India. Answer only YES or NO. Prefer YES when unsure — missing a disaster is worse than a false positive."
+                        "content": """You are a strict filter for a weather and natural disaster monitoring system in India.
+Answer YES only if the text is DIRECTLY about:
+- Weather events (rain, flood, drought, storm, heatwave, fog, cyclone, cold wave, etc.)
+- Natural disasters (earthquake, landslide, wildfire, tsunami)
+- Direct impact of weather on people (school closed due to flood, crops damaged by hail, etc.)
+
+Answer NO if the text is about:
+- Politics, elections, government policies (even if weather is mentioned as context)
+- Crime, accidents, legal cases
+- Business, economy, stocks
+- Sports, entertainment, celebrity news
+- General news where weather is not the MAIN topic
+
+Be STRICT. When in doubt, answer NO."""
                     },
                     {
                         "role": "user",
-                        "content": f"Is this about weather, natural disaster, or impact on people in India?\n\n{text[:400]}\n\nYES or NO:"
+                        "content": f"Is this DIRECTLY about weather or natural disaster?\n\n{text[:300]}\n\nYES or NO:"
                     }
                 ],
                 max_tokens=3,
                 temperature=0
             )
             answer = response.choices[0].message.content.strip().upper()
-            return "YES" in answer
+            return answer.startswith("YES")
         except Exception as e:
             error_str = str(e)
-            if "rate_limit" in error_str or "429" in error_str or "quota" in error_str:
+            if "rate_limit" in error_str or "429" in error_str:
                 rotate_key()
                 continue
-            print(f"[Groq relevance] Error: {e}")
             return True
 
     return True

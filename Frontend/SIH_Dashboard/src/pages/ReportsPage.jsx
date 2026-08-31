@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import {
   getReports,
-  formatEventType, formatLocation, formatTimeAgo,
+  formatEventType, formatLocation, formatTimeAgo, formatDateTime,
   getSeverityColor, getSourceTypeIcon
 } from '../services/api'
 
@@ -11,6 +11,7 @@ export default function ReportsPage() {
   const [reports, setReports] = useState([])
   const [loading, setLoading] = useState(true)
   const [pagination, setPagination] = useState({ page: 1, total: 0, pages: 1 })
+  const [selectedReport, setSelectedReport] = useState(null)
 
   const filters = {
     sourceType: searchParams.get('sourceType') || 'all',
@@ -52,6 +53,7 @@ export default function ReportsPage() {
   }, [searchParams])
 
   return (
+    <>
     <div className="flex-1 flex flex-col h-full bg-surface p-8">
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -132,9 +134,10 @@ export default function ReportsPage() {
             {reports.map(report => (
               <div 
                 key={report._id} 
-                className={`bg-surface-container-lowest border border-outline-variant rounded-sm p-5 flex flex-col gap-3 ${
-                  report.duplicate?.isDuplicate ? 'opacity-70' : ''
-                }`}
+                className={`bg-surface-container-lowest border rounded-sm p-5 flex flex-col gap-3 cursor-pointer transition-colors hover:border-primary ${
+                  report.duplicate?.isDuplicate ? 'border-outline-variant opacity-80' : 'border-outline-variant'
+                } ${selectedReport?._id === report._id ? 'border-primary ring-1 ring-primary' : ''}`}
+                onClick={() => setSelectedReport(report)}
               >
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
@@ -150,9 +153,13 @@ export default function ReportsPage() {
                   </div>
                   
                   <div className="flex items-center gap-2">
-                    {report.duplicate?.isDuplicate && (
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant border border-outline-variant">
-                        DUPLICATE ({Math.round(report.duplicate.similarityScore || 0)}%)
+                    {report.duplicate?.isDuplicate ? (
+                      <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/30">
+                        ⚠ DUPLICATE · {Math.round(report.duplicate.similarityScore || 0)}%
+                      </span>
+                    ) : (
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                        ✓ Unique
                       </span>
                     )}
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
@@ -219,5 +226,144 @@ export default function ReportsPage() {
         </div>
       )}
     </div>
+
+    {/* Report Detail Modal */}
+    {selectedReport && (
+      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setSelectedReport(null)}>
+        <div
+          className="bg-surface-container-lowest border border-outline-variant rounded-t-xl sm:rounded-xl shadow-xl w-full sm:w-[560px] max-h-[85vh] overflow-y-auto"
+          onClick={e => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="flex justify-between items-center px-5 py-4 border-b border-outline-variant sticky top-0 bg-surface-container-lowest z-10">
+            <h3 className="font-bold text-base text-on-surface flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary">{getSourceTypeIcon(selectedReport.sourceType)}</span>
+              Report Detail
+            </h3>
+            <button onClick={() => setSelectedReport(null)} className="text-on-surface-variant hover:text-on-surface">
+              <span className="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <div className="p-5 flex flex-col gap-5">
+            {/* Duplicate Status — Phase 13 */}
+            {selectedReport.duplicate?.isDuplicate ? (
+              <div className="flex items-start gap-3 p-3 rounded bg-secondary/10 border border-secondary/30">
+                <span className="material-symbols-outlined text-secondary mt-0.5">warning</span>
+                <div className="flex-1">
+                  <p className="font-bold text-secondary text-sm">⚠ Duplicate Report</p>
+                  <p className="text-xs text-on-surface-variant mt-0.5">
+                    Similarity: <strong>{Math.round(selectedReport.duplicate.similarityScore || 0)}%</strong> match to an earlier report
+                  </p>
+                  {selectedReport.duplicate.originalReportId && (
+                    <p className="text-xs mt-1 text-on-surface-variant">
+                      Original Report ID:{' '}
+                      <code className="font-mono text-[10px] bg-surface-variant px-1 py-0.5 rounded">
+                        {selectedReport.duplicate.originalReportId}
+                      </code>
+                    </p>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2 px-3 py-2 rounded bg-primary/10 border border-primary/20 text-sm text-primary font-medium">
+                <span className="material-symbols-outlined text-base">check_circle</span>
+                ✓ Unique Report
+              </div>
+            )}
+
+            {/* Report Text */}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">Report Content</p>
+              <p className="text-sm text-on-surface leading-relaxed bg-surface-container-low border border-outline-variant rounded p-3">
+                {selectedReport.text}
+              </p>
+            </div>
+
+            {/* Source Info */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <p className="text-xs text-on-surface-variant uppercase tracking-wider mb-1">Source</p>
+                <p className="text-sm text-on-surface font-medium">
+                  {selectedReport.source?.sourceName || formatEventType(selectedReport.sourceType)}
+                </p>
+                <p className="text-xs text-on-surface-variant">{selectedReport.sourceType?.replace('_', ' ')}</p>
+              </div>
+              <div>
+                <p className="text-xs text-on-surface-variant uppercase tracking-wider mb-1">Location</p>
+                <p className="text-sm text-on-surface">{formatLocation(selectedReport.location) || '—'}</p>
+              </div>
+            </div>
+
+            {/* Timestamps — Occurred vs Received */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <p className="text-xs text-on-surface-variant uppercase tracking-wider mb-1">Occurred</p>
+                <p className="text-xs text-on-surface font-mono">{formatDateTime(selectedReport.time?.reportedAt)}</p>
+                <p className="text-[10px] text-on-surface-variant">({formatTimeAgo(selectedReport.time?.reportedAt)})</p>
+              </div>
+              <div>
+                <p className="text-xs text-on-surface-variant uppercase tracking-wider mb-1">Received by System</p>
+                <p className="text-xs text-on-surface font-mono">{formatDateTime(selectedReport.time?.collectedAt)}</p>
+                <p className="text-[10px] text-on-surface-variant">({formatTimeAgo(selectedReport.time?.collectedAt)})</p>
+              </div>
+            </div>
+
+            {/* AI Analysis */}
+            <div className="grid grid-cols-3 gap-3">
+              <div className="bg-surface-container-low border border-outline-variant rounded p-3 text-center">
+                <p className="text-[10px] uppercase tracking-wider text-on-surface-variant">Event Type</p>
+                <p className="text-sm font-semibold text-on-surface mt-1">{formatEventType(selectedReport.aiAnalysis?.eventType)}</p>
+              </div>
+              <div className="bg-surface-container-low border border-outline-variant rounded p-3 text-center">
+                <p className="text-[10px] uppercase tracking-wider text-on-surface-variant">Severity</p>
+                <p className={`text-sm font-bold mt-1 ${getSeverityColor(selectedReport.aiAnalysis?.severity)}`}>
+                  {(selectedReport.aiAnalysis?.severity || 'unknown').toUpperCase()}
+                </p>
+              </div>
+              <div className="bg-surface-container-low border border-outline-variant rounded p-3 text-center">
+                <p className="text-[10px] uppercase tracking-wider text-on-surface-variant">Credibility</p>
+                <p className="text-sm font-bold text-on-surface mt-1">{selectedReport.credibility?.score || 0}/100</p>
+              </div>
+            </div>
+
+            {/* Source URL */}
+            {selectedReport.source?.sourceUrl && (
+              <div>
+                <p className="text-xs text-on-surface-variant uppercase tracking-wider mb-2">Original Source</p>
+                <a
+                  href={selectedReport.source.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-primary hover:underline bg-primary/5 border border-primary/20 rounded px-3 py-2"
+                >
+                  <span className="material-symbols-outlined text-base">open_in_new</span>
+                  View Original Article / Post
+                </a>
+              </div>
+            )}
+
+            {/* Media */}
+            {selectedReport.media && selectedReport.media.length > 0 && (
+              <div>
+                <p className="text-xs text-on-surface-variant uppercase tracking-wider mb-2">Media Attachments</p>
+                <div className="flex flex-wrap gap-2">
+                  {selectedReport.media.map((m, i) => (
+                    <div key={i} className="flex items-center gap-1 text-xs px-2 py-1 bg-surface-container-low border border-outline-variant rounded">
+                      <span className="material-symbols-outlined text-sm">{m.type === 'video' ? 'videocam' : 'image'}</span>
+                      {m.type}
+                      {m.url && (
+                        <a href={m.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">View</a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   )
 }
